@@ -1,3 +1,4 @@
+export callIfExists from './callIfExists'
 export perf from './perf'
 export requestAnimationFrame, {cancelAnimationFrame} from './requestAnimationFrame'
 export requestInterval, {clearRequestInterval} from './requestInterval'

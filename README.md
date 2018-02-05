@@ -18,6 +18,13 @@ A component for debouncing state changes with lodash's debounce function
 
 _____
 
+**Value** [**`@render-props/value`**](./packages/debounce)
+
+A component with a simple interface for setting, clearing and resetting values
+in a controlled or uncontrolled setting.
+
+_____
+
 **Toggle** [**`@render-props/toggle`**](./packages/toggle)
 
 A toggle component with configurable controls and property value name

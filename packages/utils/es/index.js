@@ -1,3 +1,5 @@
+import _callIfExists from './callIfExists';
+export { _callIfExists as callIfExists };
 import _perf from './perf';
 export { _perf as perf };
 import _requestAnimationFrame from './requestAnimationFrame';

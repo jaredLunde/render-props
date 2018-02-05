@@ -1,7 +1,5 @@
-.git
-node_modules
 .remote-sync.json
 .DS_Store
+.DS_STORE
 yarn-error.log
-es
-commonjs
+.babelrc

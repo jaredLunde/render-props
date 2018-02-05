@@ -1,0 +1,1 @@
+!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?t(exports):"function"==typeof define&&define.amd?define(["exports"],t):t(e.Value={})}(this,function(e){"use strict";Object.defineProperty(e,"__esModule",{value:!0})});
