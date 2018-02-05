@@ -56,4 +56,4 @@ ____
 - `clearValue`: sets value to `undefined`
 
 #### State
-- `value {object}`: the current value in the state
+- `value {any}`: the current value in the state

@@ -27,4 +27,5 @@ _____
 
 **Toggle** [**`@render-props/toggle`**](./packages/toggle)
 
-A toggle component with configurable controls and property value name
+A component with a simple interface for toggling values between on/off states
+in a controlled or uncontrolled setting.

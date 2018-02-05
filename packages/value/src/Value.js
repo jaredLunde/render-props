@@ -33,7 +33,11 @@ function ValueSetter () {
 
 function maybeSetValue (value) {
   function maybeSetValue_ (prevState, props) {
-    if (props.value === void 0) {
+    if (props.hasOwnProperty('value') === false) {
+      if (typeof value === 'function') {
+        value = value(prevState, props)
+      }
+
       if (prevState.value === value) {
         return null
       }
@@ -42,7 +46,7 @@ function maybeSetValue (value) {
     }
 
     if (typeof process !== void 0 && process.env.NODE_ENV !== 'production') {
-      console.warn(
+      throw new Error(
         `[Value] You called 'setValue', 'resetValue' or 'clearValue' on a ` +
         `controlled component. Did you mean to set 'initialValue' instead of ` +
         `'value'?`
@@ -58,6 +62,7 @@ function maybeSetValue (value) {
 
 export default class Value extends React.Component {
   static propTypes = {
+    children: PropTypes.func.isRequired,
     initialValue: PropTypes.any,
     value: PropTypes.any,
     onChange: PropTypes.func,
@@ -75,12 +80,15 @@ export default class Value extends React.Component {
     }
   }
 
-  static getDerivedStateFromProps ({value}, prevState) {
-    if (value === void 0 || value === prevState.value) {
+  static getDerivedStateFromProps (nextProps, prevState) {
+    if (
+      nextProps.hasOwnProperty('value') === false
+      || nextProps.value === prevState.value
+    ) {
       return null
     }
 
-    return {value}
+    return {value: nextProps.value}
   }
 
   componentDidUpdate (_, {value}) {

@@ -1,5 +1,5 @@
 {
-  "version": "0.1.1",
+  "version": "0.1.0",
   "main": "commonjs/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -9,7 +9,7 @@
     "build:dist": "rm -rf dist && rollup -c",
     "build:es": "rm -rf es && cross-env NODE_ENV=production cross-env BABEL_ENV=es babel src --out-dir es",
     "build:commonjs": "rm -rf commonjs && cross-env NODE_ENV=production cross-env BABEL_ENV=commonjs babel src --out-dir commonjs",
-    "build:publish": "yarn run build && yarn publish --access public",
+    "build:publish": "yarn run build && yarn publish",
     "build:config": "atom ./rollup.config.js:85:32",
     "atom": "atom ./",
     "watch:es": "cross-env NODE_ENV=development cross-env BABEL_ENV=es babel ./src -w --out-dir es"
@@ -18,8 +18,8 @@
   "sideEffects": false,
   "analyze": true,
   "license": "MIT",
-  "repository": "https://github.com/jaredlunde/render-props/tree/master/packages/value",
-  "name": "@render-props/value",
+  "repository": "https://github.com/jaredlunde/render-props/tree/master/packages/toggle",
+  "name": "@render-props/toggle",
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.39",
     "@babel/core": "^7.0.0-beta.39",
@@ -45,10 +45,10 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.39",
-    "@render-props/utils": "^0.1.1"
+    "@render-props/value": "^0.1.1"
   },
   "peerDependencies": {
     "prop-types": "^15.6.0",
-    "react": "^16.3.0-alpha.0"
+    "react": "^16.2.0"
   }
 }

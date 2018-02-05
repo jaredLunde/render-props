@@ -33,6 +33,7 @@ const emptyObj = {}
 
 export default class Throttle extends React.Component {
   static propTypes = {
+    children: PropTypes.func.isRequired,
     initialState: PropTypes.object
   }
 
