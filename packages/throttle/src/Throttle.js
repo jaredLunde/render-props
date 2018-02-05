@@ -33,6 +33,7 @@ export default class Throttle extends React.Component {
     super(props)
     this.state = props.initialState || emptyObj
     this.throttleState = throttle(this._setState)
+    this.throttleContext = {throttleState: this.throttleState, state: this.state}
   }
 
   _setState = (...args) => this.setState(...args)
@@ -42,8 +43,8 @@ export default class Throttle extends React.Component {
   }
 
   render () {
-    return this.props.children(
-      Object.assign({throttleState: this.throttleState}, this.state)
-    )
+    // It's ok to mutate this
+    this.throttleContext.state = this.state
+    return this.props.children(this.throttleContext)
   }
 }
