@@ -1,9 +1,7 @@
 # Throttle
 
 ### Installation
-```yarn add @render-props/throttle```
-
-```npm i @render-props/throttle```
+```yarn add @render-props/throttle``` or ```npm i @render-props/throttle```
 
 
 ____
