@@ -25,7 +25,7 @@ in a controlled or uncontrolled setting.
 
 _____
 
-**Events** [**`@render-props/value`**](./packages/value)
+**Events** [**`@render-props/events`**](./packages/events)
 
 A component with a simple interface for managing events registered by its child
 components. This component will automatically 'clean up' listeners when it
