@@ -14,7 +14,7 @@ ____
 ![Throttling example image](https://image.slidesharecdn.com/5fastcordova-140116132650-phpapp02/95/fast-cordova-applications-27-638.jpg?cb=1389879297)
 
 #### State
-- `{...state}`: in addition to the `throttleState` method, this component provides the state exactly as its been set using `throttleState`
+- `state {object}`: in addition to the `throttleState` method, this component provides the state exactly as its been set using `throttleState`
 
 ## Usage
 ```js
@@ -24,7 +24,7 @@ import Throttle from '@render-props/throttle'
 function ThrottledBodyScroller () {
   return (
     <Throttle initialState={{scrollY: 0, gt30: false}}>
-      {({throttleState, scrollY, gt30}) => (
+      {({throttleState, state}) => (
         <body
           onScroll={
             e => throttleState(
