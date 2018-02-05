@@ -5,18 +5,9 @@
 
 ```npm i @render-props/throttle```
 
+
 ____
-## Props
-- `initialState {object}`: the state which this component should initialize with. This component is NOT controlled so you cannot update the state of this component by changing the property value here.
 
-## Render Props
-
-#### Methods
-- `throttleState`: this function is setState wrapped in a throttle function which uses `requestAnimationFrame` to limit the number of calls to setState. This is useful for reducing the burden of rapidly-fired events like scrolling.
-![Throttling example image](https://image.slidesharecdn.com/5fastcordova-140116132650-phpapp02/95/fast-cordova-applications-27-638.jpg?cb=1389879297)
-
-#### State
-- `state {object}`: in addition to the `throttleState` method, this component provides the state exactly as its been set using `throttleState`
 
 ## Usage
 ```js
@@ -38,10 +29,25 @@ function ThrottledBodyScroller () {
             )
           }
         >
-          Greater than 30? {String(gt30)}
+          Greater than 30? {String(state.gt30)}
         </body>
       )}
     </Throttle>
   )
 }
 ```
+
+____
+
+
+## Props
+- `initialState {object}`: the state which this component should initialize with. This component is NOT controlled so you cannot update the state of this component by changing the property value here.
+
+## Render Props
+
+#### Methods
+- `throttleState`: this function is setState wrapped in a throttle function which uses `requestAnimationFrame` to limit the number of calls to setState. This is useful for reducing the burden of rapidly-fired events like scrolling.
+![Throttling example image](https://image.slidesharecdn.com/5fastcordova-140116132650-phpapp02/95/fast-cordova-applications-27-638.jpg?cb=1389879297)
+
+#### State
+- `state {object}`: in addition to the `throttleState` method, this component provides the state exactly as its been set using `throttleState`
