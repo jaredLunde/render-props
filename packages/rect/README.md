@@ -61,12 +61,14 @@ Defaults to `true`.
   - remeasures the element bound to `rectRef`
 - `getRect`
   - only present if `withCoords` is set to `false`. Returns the bounding client
-    rect object
+    rect object.
 
 #### State
-- `top`: the top coordinate value of the `DOMRect`
-- `right`: the right coordinate value of the `DOMRect`
-- `bottom`: the bottom coordinate value of the `DOMRect`
-- `left`: the left coordinate value of the `DOMRect`
-- `width`: the width of the `DOMRect`
-- `height`: the height of the `DOMRect`
+Note: these are only provided if `withCoords` is `true`.
+
+- `top {number}`: the top coordinate value of the `DOMRect`
+- `right {number}`: the right coordinate value of the `DOMRect`
+- `bottom {number}`: the bottom coordinate value of the `DOMRect`
+- `left {number}`: the left coordinate value of the `DOMRect`
+- `width {number}`: the width of the `DOMRect`
+- `height {number}`: the height of the `DOMRect`

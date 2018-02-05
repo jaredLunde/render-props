@@ -33,6 +33,12 @@ unmounts.
 
 _____
 
+**Rect** [**`@render-props/rect`**](./packages/rect)
+
+A component with a simple interface for retrieving the `DOMRect` of an element.
+
+_____
+
 **Toggle** [**`@render-props/toggle`**](./packages/toggle)
 
 A component with a simple interface for toggling values between on/off states
