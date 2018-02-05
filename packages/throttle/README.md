@@ -6,6 +6,8 @@
 ```npm i @render-props/throttle```
 
 ____
+## Props
+- `initialState {object}`: the state which this component should initialize with. This component is NOT controlled so updating this value with prop changes will not work.
 
 ## Render Props
 
