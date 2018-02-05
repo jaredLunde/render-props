@@ -18,7 +18,7 @@ A component for debouncing state changes with lodash's debounce function
 
 _____
 
-**Value** [**`@render-props/value`**](./packages/debounce)
+**Value** [**`@render-props/value`**](./packages/value)
 
 A component with a simple interface for setting, clearing and resetting values
 in a controlled or uncontrolled setting.

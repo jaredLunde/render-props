@@ -51,7 +51,9 @@ ____
 ## Render Props
 
 #### Methods
-- `throttleState`: this function is setState wrapped in a throttle function which uses `requestAnimationFrame` to limit the number of calls to setState. This is useful for reducing the burden of rapidly-fired events like scrolling.
+- `setValue`: sets value to whatever this function is called with
+- `resetValue`: sets value to the `initialValue` prop
+- `clearValue`: sets value to `undefined`
 
 #### State
-- `state {object}`: in addition to the `throttleState` method, this component provides the state exactly as its been set using `throttleState`
+- `value {object}`: the current value in the state
