@@ -1,0 +1,1 @@
+export rect from './rect'

@@ -33,7 +33,7 @@ function SomeComponentWithEvents (props) {
             removeEvent={removeEvent}
             {...props}
           />
-          )
+        )
       )}
     </Events>
   )
