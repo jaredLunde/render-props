@@ -1,1 +1,1 @@
-export default from 'react-cake/es/Throttle'
+export default from './Throttle'

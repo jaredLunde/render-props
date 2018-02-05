@@ -67,13 +67,6 @@
     "@babel/helper-explode-assignable-expression" "7.0.0-beta.39"
     "@babel/types" "7.0.0-beta.39"
 
-"@babel/helper-builder-react-jsx@7.0.0-beta.39":
-  version "7.0.0-beta.39"
-  resolved "https://registry.yarnpkg.com/@babel/helper-builder-react-jsx/-/helper-builder-react-jsx-7.0.0-beta.39.tgz#ccac98469704b15c27ef0752bb125aec900c405a"
-  dependencies:
-    "@babel/types" "7.0.0-beta.39"
-    esutils "^2.0.0"
-
 "@babel/helper-call-delegate@7.0.0-beta.39":
   version "7.0.0-beta.39"
   resolved "https://registry.yarnpkg.com/@babel/helper-call-delegate/-/helper-call-delegate-7.0.0-beta.39.tgz#7851645811a4bc3eb7cf5f1c72b1c754d0a5e45d"
@@ -330,10 +323,6 @@
   version "7.0.0-beta.39"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-import-meta/-/plugin-syntax-import-meta-7.0.0-beta.39.tgz#56658e7487227ca7c350b67031c0e16ce987558d"
 
-"@babel/plugin-syntax-jsx@7.0.0-beta.39":
-  version "7.0.0-beta.39"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-jsx/-/plugin-syntax-jsx-7.0.0-beta.39.tgz#c7f0d1a7e6bbe503a814a265d7d7322f2b230bf6"
-
 "@babel/plugin-syntax-nullish-coalescing-operator@7.0.0-beta.39":
   version "7.0.0-beta.39"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-nullish-coalescing-operator/-/plugin-syntax-nullish-coalescing-operator-7.0.0-beta.39.tgz#95f0937730ae77c8efa63189d0e47364bf23ceb4"
@@ -475,39 +464,6 @@
     "@babel/helper-call-delegate" "7.0.0-beta.39"
     "@babel/helper-get-function-arity" "7.0.0-beta.39"
 
-"@babel/plugin-transform-react-constant-elements@^7.0.0-beta.39":
-  version "7.0.0-beta.39"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-constant-elements/-/plugin-transform-react-constant-elements-7.0.0-beta.39.tgz#29b806972aa4a25046c30dd73f046905d6e4c63d"
-
-"@babel/plugin-transform-react-display-name@7.0.0-beta.39":
-  version "7.0.0-beta.39"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-display-name/-/plugin-transform-react-display-name-7.0.0-beta.39.tgz#450f3ff1e42761af45119888d9c32c6cc54ad091"
-
-"@babel/plugin-transform-react-inline-elements@^7.0.0-beta.39":
-  version "7.0.0-beta.39"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-inline-elements/-/plugin-transform-react-inline-elements-7.0.0-beta.39.tgz#aebbba675d395588acd4c63834111d0f1a9867db"
-  dependencies:
-    "@babel/helper-builder-react-jsx" "7.0.0-beta.39"
-
-"@babel/plugin-transform-react-jsx-self@7.0.0-beta.39":
-  version "7.0.0-beta.39"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx-self/-/plugin-transform-react-jsx-self-7.0.0-beta.39.tgz#ad2f4f357b5be61929d989b5be60dac943e8434a"
-  dependencies:
-    "@babel/plugin-syntax-jsx" "7.0.0-beta.39"
-
-"@babel/plugin-transform-react-jsx-source@7.0.0-beta.39":
-  version "7.0.0-beta.39"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx-source/-/plugin-transform-react-jsx-source-7.0.0-beta.39.tgz#632decbb1ad66592a3fae6cac3103b820bc89877"
-  dependencies:
-    "@babel/plugin-syntax-jsx" "7.0.0-beta.39"
-
-"@babel/plugin-transform-react-jsx@7.0.0-beta.39":
-  version "7.0.0-beta.39"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx/-/plugin-transform-react-jsx-7.0.0-beta.39.tgz#43157bc2274fa3b6925f67ae1ccec03f9421432f"
-  dependencies:
-    "@babel/helper-builder-react-jsx" "7.0.0-beta.39"
-    "@babel/plugin-syntax-jsx" "7.0.0-beta.39"
-
 "@babel/plugin-transform-regenerator@7.0.0-beta.39":
   version "7.0.0-beta.39"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-regenerator/-/plugin-transform-regenerator-7.0.0-beta.39.tgz#6f85c3ac987824fe037fc83dcda75c4d7502344c"
@@ -600,16 +556,6 @@
     invariant "^2.2.2"
     semver "^5.3.0"
 
-"@babel/preset-react@^7.0.0-beta.39":
-  version "7.0.0-beta.39"
-  resolved "https://registry.yarnpkg.com/@babel/preset-react/-/preset-react-7.0.0-beta.39.tgz#e2ee52660233016c05fc1f211ab20d1141e848d0"
-  dependencies:
-    "@babel/plugin-syntax-jsx" "7.0.0-beta.39"
-    "@babel/plugin-transform-react-display-name" "7.0.0-beta.39"
-    "@babel/plugin-transform-react-jsx" "7.0.0-beta.39"
-    "@babel/plugin-transform-react-jsx-self" "7.0.0-beta.39"
-    "@babel/plugin-transform-react-jsx-source" "7.0.0-beta.39"
-
 "@babel/preset-stage-0@^7.0.0-beta.39":
   version "7.0.0-beta.39"
   resolved "https://registry.yarnpkg.com/@babel/preset-stage-0/-/preset-stage-0-7.0.0-beta.39.tgz#ac56ef8988c282166303ede27e8d6ef5d9c29533"
@@ -651,7 +597,7 @@
     "@babel/plugin-syntax-dynamic-import" "7.0.0-beta.39"
     "@babel/plugin-syntax-import-meta" "7.0.0-beta.39"
 
-"@babel/runtime@^7.0.0-beta.36", "@babel/runtime@^7.0.0-beta.39":
+"@babel/runtime@^7.0.0-beta.39":
   version "7.0.0-beta.39"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-beta.39.tgz#e4b763b78d31a2c209165bae2772f103594a8972"
   dependencies:
@@ -688,12 +634,6 @@
     esutils "^2.0.2"
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
-
-"@render-props/utils@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@render-props/utils/-/utils-0.1.0.tgz#135e42432f77412224a41666d34ef96cc140dde2"
-  dependencies:
-    "@babel/runtime" "^7.0.0-beta.39"
 
 abbrev@1:
   version "1.1.1"
@@ -790,14 +730,6 @@ babel-plugin-root-import@^5.1.0:
   dependencies:
     slash "^1.0.0"
 
-babel-plugin-transform-react-pure-components@^3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-pure-components/-/babel-plugin-transform-react-pure-components-3.1.2.tgz#47deec2b1c66e36d6775a454c2591c960666cb05"
-
-babel-plugin-transform-react-remove-prop-types@^0.4.12:
-  version "0.4.12"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.12.tgz#a382c27c42d6580748c80caf8c3d5091edbb60b8"
-
 babylon@7.0.0-beta.39:
   version "7.0.0-beta.39"
   resolved "https://registry.yarnpkg.com/babylon/-/babylon-7.0.0-beta.39.tgz#512833ea788f6570c6db026d743a7565e58d3aeb"
@@ -853,10 +785,6 @@ browserslist@^2.4.0:
 builtin-modules@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-1.1.1.tgz#270f076c5a72c02f5b65a47df94c5fe3a278892f"
-
-cancelable-promise@^2.3.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/cancelable-promise/-/cancelable-promise-2.4.0.tgz#6c12d944d389029cd3d027b48f1dfcfd4ba4d0ea"
 
 caniuse-lite@^1.0.30000792:
   version "1.0.30000792"
@@ -1018,7 +946,7 @@ estree-walker@^0.5.0:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-0.5.1.tgz#64fc375053abc6f57d73e9bd2f004644ad3c5854"
 
-esutils@^2.0.0, esutils@^2.0.2:
+esutils@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.2.tgz#0abf4f1caa5bcb1f7a9d8acc6dea4faaa04bac9b"
 
@@ -1051,10 +979,6 @@ extsprintf@1.3.0:
 extsprintf@^1.2.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
-
-fast-memoize@^2.2.7:
-  version "2.2.8"
-  resolved "https://registry.yarnpkg.com/fast-memoize/-/fast-memoize-2.2.8.tgz#d7f899f31d037b12d9db4281912f9018575720b1"
 
 filename-regex@^2.0.0:
   version "2.0.1"
@@ -1614,15 +1538,6 @@ rc@^1.1.7:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
-
-react-cake@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/react-cake/-/react-cake-0.6.0.tgz#e86cb01b7809ebbad7bc005a60d85fbd06d95888"
-  dependencies:
-    "@babel/runtime" "^7.0.0-beta.36"
-    cancelable-promise "^2.3.0"
-    fast-memoize "^2.2.7"
-    invariant "^2.2.2"
 
 readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.1.4:
   version "2.3.3"

@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/jaredlunde/.nvm/versions/node/v9.3.0/bin/node /Users/jaredlunde/.nvm/versions/node/v9.3.0/bin/yarn publish
+  /Users/jaredlunde/.nvm/versions/node/v9.3.0/bin/node /Users/jaredlunde/.nvm/versions/node/v9.3.0/bin/yarn publish --access public
 
 PATH: 
   /Users/jaredlunde/pkg/render-props/packages/throttle/node_modules/.bin:/Users/jaredlunde/.config/yarn/link/node_modules/.bin:/Users/jaredlunde/pkg/render-props/packages/throttle/node_modules/.bin:/Users/jaredlunde/.config/yarn/link/node_modules/.bin:/Users/jaredlunde/.nvm/versions/node/v9.3.0/lib/node_modules/npm/bin/node-gyp-bin:/Users/jaredlunde/.nvm/versions/node/v9.3.0/bin/node_modules/npm/bin/node-gyp-bin:/Users/jaredlunde/.nvm/versions/node/v9.3.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/jaredlunde/bin
@@ -25,7 +25,7 @@ npm manifest:
       "build:dist": "rm -rf dist && rollup -c",
       "build:es": "rm -rf es && cross-env NODE_ENV=production cross-env BABEL_ENV=es babel src --out-dir es",
       "build:commonjs": "rm -rf commonjs && cross-env NODE_ENV=production cross-env BABEL_ENV=commonjs babel src --out-dir commonjs",
-      "build:publish": "yarn run build && yarn publish",
+      "build:publish": "yarn run build && yarn publish --access public",
       "build:config": "atom ./rollup.config.js:85:32",
       "atom": "atom ./",
       "watch:es": "cross-env NODE_ENV=development cross-env BABEL_ENV=es babel ./src -w --out-dir es"
@@ -36,7 +36,9 @@ npm manifest:
     "license": "MIT",
     "name": "@render-props/throttle",
     "dependencies": {
-      "@babel/runtime": "^7.0.0-beta.39"
+      "@babel/runtime": "^7.0.0-beta.39",
+      "@render-props/utils": "^0.1.0",
+      "react-cake": "^0.6.0"
     },
     "devDependencies": {
       "@babel/cli": "^7.0.0-beta.39",
@@ -64,6 +66,10 @@ npm manifest:
     "peerDependencies": {
       "prop-types": "^15.6.0",
       "react": "^16.2.0"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/jaredlunde/render-props/tree/master/packages/throttle"
     }
   }
 
@@ -724,7 +730,7 @@ Lockfile:
       "@babel/plugin-syntax-dynamic-import" "7.0.0-beta.39"
       "@babel/plugin-syntax-import-meta" "7.0.0-beta.39"
   
-  "@babel/runtime@^7.0.0-beta.39":
+  "@babel/runtime@^7.0.0-beta.36", "@babel/runtime@^7.0.0-beta.39":
     version "7.0.0-beta.39"
     resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-beta.39.tgz#e4b763b78d31a2c209165bae2772f103594a8972"
     dependencies:
@@ -761,6 +767,12 @@ Lockfile:
       esutils "^2.0.2"
       lodash "^4.2.0"
       to-fast-properties "^2.0.0"
+  
+  "@render-props/utils@^0.1.0":
+    version "0.1.0"
+    resolved "https://registry.yarnpkg.com/@render-props/utils/-/utils-0.1.0.tgz#135e42432f77412224a41666d34ef96cc140dde2"
+    dependencies:
+      "@babel/runtime" "^7.0.0-beta.39"
   
   abbrev@1:
     version "1.1.1"
@@ -818,10 +830,6 @@ Lockfile:
   array-unique@^0.2.1:
     version "0.2.1"
     resolved "https://registry.yarnpkg.com/array-unique/-/array-unique-0.2.1.tgz#a1d97ccafcbc2625cc70fadceb36a50c58b01a53"
-  
-  asap@~2.0.3:
-    version "2.0.6"
-    resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
   
   asn1@~0.2.3:
     version "0.2.3"
@@ -925,6 +933,10 @@ Lockfile:
     version "1.1.1"
     resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-1.1.1.tgz#270f076c5a72c02f5b65a47df94c5fe3a278892f"
   
+  cancelable-promise@^2.3.0:
+    version "2.4.0"
+    resolved "https://registry.yarnpkg.com/cancelable-promise/-/cancelable-promise-2.4.0.tgz#6c12d944d389029cd3d027b48f1dfcfd4ba4d0ea"
+  
   caniuse-lite@^1.0.30000792:
     version "1.0.30000792"
     resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000792.tgz#d0cea981f8118f3961471afbb43c9a1e5bbf0332"
@@ -995,10 +1007,6 @@ Lockfile:
   convert-source-map@^1.1.0:
     version "1.5.1"
     resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-1.5.1.tgz#b8278097b9bc229365de5c62cf5fcaed8b5599e5"
-  
-  core-js@^1.0.0:
-    version "1.2.7"
-    resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
   
   core-js@^2.5.3:
     version "2.5.3"
@@ -1073,12 +1081,6 @@ Lockfile:
     version "1.3.32"
     resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.32.tgz#11d0684c0840e003c4be8928f8ac5f35dbc2b4e6"
   
-  encoding@^0.1.11:
-    version "0.1.12"
-    resolved "https://registry.yarnpkg.com/encoding/-/encoding-0.1.12.tgz#538b66f3ee62cd1ab51ec323829d1f9480c74beb"
-    dependencies:
-      iconv-lite "~0.4.13"
-  
   escape-string-regexp@^1.0.5:
     version "1.0.5"
     resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
@@ -1129,17 +1131,9 @@ Lockfile:
     version "1.4.0"
     resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
   
-  fbjs@^0.8.16:
-    version "0.8.16"
-    resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.16.tgz#5e67432f550dc41b572bf55847b8aca64e5337db"
-    dependencies:
-      core-js "^1.0.0"
-      isomorphic-fetch "^2.1.1"
-      loose-envify "^1.0.0"
-      object-assign "^4.1.0"
-      promise "^7.1.1"
-      setimmediate "^1.0.5"
-      ua-parser-js "^0.7.9"
+  fast-memoize@^2.2.7:
+    version "2.2.8"
+    resolved "https://registry.yarnpkg.com/fast-memoize/-/fast-memoize-2.2.8.tgz#d7f899f31d037b12d9db4281912f9018575720b1"
   
   filename-regex@^2.0.0:
     version "2.0.1"
@@ -1300,10 +1294,6 @@ Lockfile:
       jsprim "^1.2.2"
       sshpk "^1.7.0"
   
-  iconv-lite@~0.4.13:
-    version "0.4.19"
-    resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.19.tgz#f7468f60135f5e5dad3399c0a81be9a1603a082b"
-  
   inflight@^1.0.4:
     version "1.0.6"
     resolved "https://registry.yarnpkg.com/inflight/-/inflight-1.0.6.tgz#49bd6331d7d02d0c09bc910a1075ba8165b56df9"
@@ -1393,10 +1383,6 @@ Lockfile:
     version "2.0.0"
     resolved "https://registry.yarnpkg.com/is-primitive/-/is-primitive-2.0.0.tgz#207bab91638499c07b2adf240a41a87210034575"
   
-  is-stream@^1.0.1:
-    version "1.1.0"
-    resolved "https://registry.yarnpkg.com/is-stream/-/is-stream-1.1.0.tgz#12d4a3dd4e68e0b79ceb8dbc84173ae80d91ca44"
-  
   is-typedarray@~1.0.0:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/is-typedarray/-/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
@@ -1418,13 +1404,6 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/isobject/-/isobject-2.1.0.tgz#f065561096a3f1da2ef46272f815c840d87e0c89"
     dependencies:
       isarray "1.0.0"
-  
-  isomorphic-fetch@^2.1.1:
-    version "2.2.1"
-    resolved "https://registry.yarnpkg.com/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz#611ae1acf14f5e81f729507472819fe9733558a9"
-    dependencies:
-      node-fetch "^1.0.1"
-      whatwg-fetch ">=0.10.0"
   
   isstream@~0.1.2:
     version "0.1.2"
@@ -1493,7 +1472,7 @@ Lockfile:
     version "4.17.5"
     resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
   
-  loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1:
+  loose-envify@^1.0.0:
     version "1.3.1"
     resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.3.1.tgz#d1a8ad33fa9ce0e713d65fdd0ac8b748d478c848"
     dependencies:
@@ -1568,13 +1547,6 @@ Lockfile:
     version "2.8.0"
     resolved "https://registry.yarnpkg.com/nan/-/nan-2.8.0.tgz#ed715f3fe9de02b57a5e6252d90a96675e1f085a"
   
-  node-fetch@^1.0.1:
-    version "1.7.3"
-    resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-1.7.3.tgz#980f6f72d85211a5347c6b2bc18c5b84c3eb47ef"
-    dependencies:
-      encoding "^0.1.11"
-      is-stream "^1.0.1"
-  
   node-pre-gyp@^0.6.39:
     version "0.6.39"
     resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.6.39.tgz#c00e96860b23c0e1420ac7befc5044e1d78d8649"
@@ -1621,7 +1593,7 @@ Lockfile:
     version "0.8.2"
     resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.8.2.tgz#46a6ab7f0aead8deae9ec0565780b7d4efeb9d43"
   
-  object-assign@^4.1.0, object-assign@^4.1.1:
+  object-assign@^4.1.0:
     version "4.1.1"
     resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
   
@@ -1694,20 +1666,6 @@ Lockfile:
     version "1.0.7"
     resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-1.0.7.tgz#150e20b756590ad3f91093f25a4f2ad8bff30ba3"
   
-  promise@^7.1.1:
-    version "7.3.1"
-    resolved "https://registry.yarnpkg.com/promise/-/promise-7.3.1.tgz#064b72602b18f90f29192b8b1bc418ffd1ebd3bf"
-    dependencies:
-      asap "~2.0.3"
-  
-  prop-types@^15.6.0:
-    version "15.6.0"
-    resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
-    dependencies:
-      fbjs "^0.8.16"
-      loose-envify "^1.3.1"
-      object-assign "^4.1.1"
-  
   pseudomap@^1.0.2:
     version "1.0.2"
     resolved "https://registry.yarnpkg.com/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
@@ -1736,14 +1694,14 @@ Lockfile:
       minimist "^1.2.0"
       strip-json-comments "~2.0.1"
   
-  react@^16.2.0:
-    version "16.2.0"
-    resolved "https://registry.yarnpkg.com/react/-/react-16.2.0.tgz#a31bd2dab89bff65d42134fa187f24d054c273ba"
+  react-cake@^0.6.0:
+    version "0.6.0"
+    resolved "https://registry.yarnpkg.com/react-cake/-/react-cake-0.6.0.tgz#e86cb01b7809ebbad7bc005a60d85fbd06d95888"
     dependencies:
-      fbjs "^0.8.16"
-      loose-envify "^1.1.0"
-      object-assign "^4.1.1"
-      prop-types "^15.6.0"
+      "@babel/runtime" "^7.0.0-beta.36"
+      cancelable-promise "^2.3.0"
+      fast-memoize "^2.2.7"
+      invariant "^2.2.2"
   
   readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.1.4:
     version "2.3.3"
@@ -1936,10 +1894,6 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/set-immediate-shim/-/set-immediate-shim-1.0.1.tgz#4b2b1b27eb808a9f8dcc481a58e5e56f599f3f61"
   
-  setimmediate@^1.0.5:
-    version "1.0.5"
-    resolved "https://registry.yarnpkg.com/setimmediate/-/setimmediate-1.0.5.tgz#290cbb232e306942d7d7ea9b83732ab7856f8285"
-  
   shebang-command@^1.2.0:
     version "1.2.0"
     resolved "https://registry.yarnpkg.com/shebang-command/-/shebang-command-1.2.0.tgz#44aac65b695b03398968c39f363fee5deafdf1ea"
@@ -2065,10 +2019,6 @@ Lockfile:
     version "0.14.5"
     resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
   
-  ua-parser-js@^0.7.9:
-    version "0.7.17"
-    resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.17.tgz#e9ec5f9498b9ec910e7ae3ac626a805c4d09ecac"
-  
   uglify-es@^3.3.7, uglify-es@^3.3.9:
     version "3.3.9"
     resolved "https://registry.yarnpkg.com/uglify-es/-/uglify-es-3.3.9.tgz#0c1c4f0700bed8dbc124cdb304d2592ca203e677"
@@ -2119,10 +2069,6 @@ Lockfile:
     version "0.2.3"
     resolved "https://registry.yarnpkg.com/vlq/-/vlq-0.2.3.tgz#8f3e4328cf63b1540c0d67e1b2778386f8975b26"
   
-  whatwg-fetch@>=0.10.0:
-    version "2.0.3"
-    resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.3.tgz#9c84ec2dcf68187ff00bc64e1274b442176e1c84"
-  
   which@^1.2.9:
     version "1.3.0"
     resolved "https://registry.yarnpkg.com/which/-/which-1.3.0.tgz#ff04bdfc010ee547d780bec38e1ac1c2777d253a"
@@ -2144,14 +2090,14 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@render-props%2fthrottle: You must sign up for private packages
+  Error: https://registry.yarnpkg.com/@render-props%2fthrottle: You cannot publish over the previously published version 0.1.0.
       at Request.params.callback [as _callback] (/Users/jaredlunde/.nvm/versions/node/v9.3.0/lib/node_modules/yarn/lib/cli.js:62098:18)
       at Request.self.callback (/Users/jaredlunde/.nvm/versions/node/v9.3.0/lib/node_modules/yarn/lib/cli.js:123085:22)
       at Request.emit (events.js:159:13)
       at Request.<anonymous> (/Users/jaredlunde/.nvm/versions/node/v9.3.0/lib/node_modules/yarn/lib/cli.js:124068:10)
       at Request.emit (events.js:159:13)
-      at IncomingMessage.<anonymous> (/Users/jaredlunde/.nvm/versions/node/v9.3.0/lib/node_modules/yarn/lib/cli.js:123988:12)
+      at Gunzip.<anonymous> (/Users/jaredlunde/.nvm/versions/node/v9.3.0/lib/node_modules/yarn/lib/cli.js:123988:12)
       at Object.onceWrapper (events.js:254:19)
-      at IncomingMessage.emit (events.js:164:20)
+      at Gunzip.emit (events.js:164:20)
       at endReadableNT (_stream_readable.js:1062:12)
       at process._tickCallback (internal/process/next_tick.js:152:19)

@@ -1,0 +1,23 @@
+{
+  "env": {
+    "commonjs": {
+      "presets": [
+        "@babel/env",
+        "@babel/stage-0"
+      ],
+      "plugins": [
+        "@babel/transform-runtime",
+        "closure-elimination"
+      ]
+    },
+    "es": {
+      "presets": [
+        ["@babel/env", {"modules": false}],
+        "@babel/stage-0"
+      ],
+      "plugins": [
+        "closure-elimination"
+      ]
+    }
+  }
+}
