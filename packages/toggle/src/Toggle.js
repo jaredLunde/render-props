@@ -1,16 +1,39 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+/**
+import Toggle from '@render-props/toggle'
 
-export const toggle = (state, {controls, propName}) => {
-  const controlValue = controls[0].value
+function Toggler () {
   return (
-    controlValue !== state[propName]
-    ? {[propName]: controlValue}
-    : {[propName]: controls[controls.length - 1].value}
+    <Toggle
+      initialValue={true}
+      onValue={true}
+      offValue={false}
+    >
+      {({on, off, toggle, reset, value}) => (
+        <>
+          <button onClick={toggle}>
+            Toggle value to '{value === true ? 'false' : 'true'}'
+          </button>
+
+          <button onClick={on}>
+            Toggle 'on'
+          </button>
+
+          <button onClick={off}>
+            Toggle 'off'
+          </button>
+
+          <button onClick={reset}>
+            Reset value to initialValue
+          </button>
+        </>
+      )}
+    </Toggle>
   )
 }
-
+*/
 
 function Toggler (props) {
   return props.children({

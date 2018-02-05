@@ -14,7 +14,6 @@ ____
 ```js
 import Toggle from '@render-props/toggle'
 
-
 function Toggler () {
   return (
     <Toggle
