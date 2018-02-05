@@ -1,7 +1,7 @@
 import requestAnimationFrame, {cancelAnimationFrame} from '@render-props/utils/es/requestAnimationFrame'
 
 
-export default function (cb) {
+export default function throttle (cb) {
   let frame
 
   function later (thisArg, args) {

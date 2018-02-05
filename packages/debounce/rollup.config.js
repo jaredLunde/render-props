@@ -82,9 +82,9 @@ const umdConfig = Object.assign({}, baseConfig, {
   ),
   output: [
     {
-      file: './dist/render-props.throttle.js',
+      file: './dist/render-props.debounce.js',
       format: 'umd',
-      name: 'Throttle',
+      name: 'Debounce',
       globals: {react: 'React', 'react-dom': 'ReactDOM', 'prop-types': 'PropTypes', preact: 'preact'},
     }
   ],

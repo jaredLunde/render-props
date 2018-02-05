@@ -2,7 +2,7 @@
 A state container which limits the frequency with which setState can be called
 using `requestAnimationFrame`.
 
-This is a perfect component for capturing the state of events like scroll, keypress
+This is a perfect component for capturing the state from events like scroll, keypress
 and size.
 
 ![Throttling example image](https://image.slidesharecdn.com/5fastcordova-140116132650-phpapp02/95/fast-cordova-applications-27-638.jpg?cb=1389879297)
