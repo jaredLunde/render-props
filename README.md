@@ -8,7 +8,13 @@ https://www.npmjs.com/org/render-props
 
 **Throttle** [**`@render-props/throttle`**](./packages/throttle)
 
-A component for throttling calls to setState with requestAnimationFrame
+A component for throttling state changes with requestAnimationFrame
+
+_____
+
+**Debounce** [**`@render-props/debounce`**](./packages/debounce)
+
+A component for debouncing state changes with lodash's debounce function
 
 _____
 
