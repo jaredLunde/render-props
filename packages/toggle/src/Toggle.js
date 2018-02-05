@@ -104,5 +104,6 @@ Toggle.propTypes = {
   children: PropTypes.func.isRequired,
   onValue: PropTypes.any,
   offValue: PropTypes.any,
-  value: PropTypes.any
+  value: PropTypes.any,
+  initialValue: PropTypes.any
 }
