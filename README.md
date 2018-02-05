@@ -1,4 +1,4 @@
-# render-props
+# @render-props
 Easy-to-use render props (function as child) components for common needs
 
 https://www.npmjs.com/org/render-props
