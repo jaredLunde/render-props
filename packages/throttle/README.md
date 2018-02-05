@@ -7,7 +7,7 @@
 
 ____
 ## Props
-- `initialState {object}`: the state which this component should initialize with. This component is NOT controlled so updating this value with prop changes will not work.
+- `initialState {object}`: the state which this component should initialize with. This component is NOT controlled so you cannot update the state of this component by changing the property value here.
 
 ## Render Props
 
