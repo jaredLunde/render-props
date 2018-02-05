@@ -33,16 +33,18 @@ function ValueSetter () {
 
 function maybeSetValue (value) {
   function maybeSetValue_ (prevState, props) {
-    if (props.hasOwnProperty('value') === false) {
-      if (typeof value === 'function') {
-        value = value(prevState, props)
+    if (props.value === void 0) {
+      let nextValue = value
+
+      if (typeof nextValue === 'function') {
+        nextValue = value(prevState.value, props)
       }
 
-      if (prevState.value === value) {
+      if (prevState.value === nextValue) {
         return null
       }
 
-      return {value}
+      return {value: nextValue}
     }
 
     if (typeof process !== void 0 && process.env.NODE_ENV !== 'production') {
@@ -71,29 +73,24 @@ export default class Value extends React.Component {
   constructor (props) {
     super(props)
     const {initialValue, value, propName} = props
-    this.state = {value: value || initialValue}
+    this.state = {value: value === void 0 ? initialValue : value}
     this.valueContext = {
       setValue: this.setValue,
       resetValue: this.resetValue,
-      clearValue: this.clearValue,
-      value: this.state.value
+      clearValue: this.clearValue
     }
-  }
-
-  static getDerivedStateFromProps (nextProps, prevState) {
-    if (
-      nextProps.hasOwnProperty('value') === false
-      || nextProps.value === prevState.value
-    ) {
-      return null
-    }
-
-    return {value: nextProps.value}
   }
 
   componentDidUpdate (_, {value}) {
     if (value !== this.state.value) {
-      callIfExists(this.props.onChange, value)
+      callIfExists(this.props.onChange, this.state.value)
+    }
+
+    if (
+      this.props.value !== void 0
+      && this.props.value !== this.state.value
+    ) {
+      this.setState({value: this.props.value})
     }
   }
 

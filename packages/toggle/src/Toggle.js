@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Value from '@render-props/value'
 
 /**
 import Toggle from '@render-props/toggle'
@@ -36,6 +37,10 @@ function Toggler () {
 */
 
 function Toggler (props) {
+  function toggleValues (currentValue) {
+    return currentValue === props.onValue ? props.offValue : props.onValue
+  }
+
   return props.children({
     on: function () {
       props.setValue(props.onValue)
@@ -44,27 +49,23 @@ function Toggler (props) {
       props.setValue(props.offValue)
     },
     toggle: function () {
-      props.setValue(
-        function (prevState) {
-          return prevState.value === props.onValue ? props.offValue : props.onValue
-        }
-      )
+      props.setValue(toggleValues)
     },
     reset: function () {
       props.resetValue()
     },
-    value
+    value: props.value
   })
 }
 
 
 export default function Toggle (props) {
-  const onValue = props.hasOwnProperty('onValue') === false ? true : props.onValue
-  const offValue = props.hasOwnProperty('offValue') === false ? true : props.offValue
+  const onValue = props.onValue === void 0 ? true : props.onValue
+  const offValue = props.offValue === void 0 ? false : props.offValue
 
   const initialValue = (
-    props.hasOwnProperty('value') === false
-      ? props.initialValue || onValue
+    props.value === void 0
+      ? (props.initialValue === void 0 ? onValue : props.initialValue)
       : void 0
   )
 
@@ -77,7 +78,7 @@ export default function Toggle (props) {
     ) {
       throw new Error(
         `[Toggle] The initial value did not match onValue or offValue: ` +
-        `${initialValue === void 0 ? value : initialValue} not in [${onValue}, ${offValue}]`
+        `${initialValue === void 0 ? props.value : initialValue} not in [${onValue}, ${offValue}]`
       )
     }
   }
@@ -90,9 +91,12 @@ export default function Toggle (props) {
     >
       {function (valueContext) {
         return Toggler({
-          onValue: props.onValue,
-          offValue: props.offValue,
-          ...valueContext
+          onValue,
+          offValue,
+          value: valueContext.value,
+          setValue: valueContext.setValue,
+          resetValue: valueContext.resetValue,
+          children: props.children
         })
       }}
     </Value>

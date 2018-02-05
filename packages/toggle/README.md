@@ -55,7 +55,8 @@ ____
   uncontrolled component. Defaults to the value of `onValue`.
 - `value {any}`: the value of the component. This creates a controlled component
   which derives its state value from props
-- `onChange {func}`: a callback which is invoked each time the value changes
+- `onChange {func}`: a callback which is invoked each time the value changes.
+  Receives the new value as its only argument.
 
 ## Render Props
 

@@ -695,9 +695,9 @@
   dependencies:
     "@babel/runtime" "^7.0.0-beta.39"
 
-"@render-props/value@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@render-props/value/-/value-0.1.1.tgz#9c8dcdd0efb362345ff52ce817d2c79f62cb8e80"
+"@render-props/value@^0.1.13":
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/@render-props/value/-/value-0.1.13.tgz#7ae6908d286f3990d13a35e65d1f73f3148951d7"
   dependencies:
     "@babel/runtime" "^7.0.0-beta.39"
     "@render-props/utils" "^0.1.1"

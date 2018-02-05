@@ -46,12 +46,15 @@ ____
   uncontrolled component.
 - `value {any}`: the value of the component. This creates a controlled component
   which derives its state value from props
-- `onChange {func}`: a callback which is invoked each time the value changes
+- `onChange {func}`: a callback which is invoked each time the value changes.
+  Receives the new value as its only argument.
 
 ## Render Props
 
 #### Methods
-- `setValue`: sets value to whatever this function is called with
+- `setValue`: sets value to whatever this function is called with. You can also
+  provide a function here, the return value of which will be the new value that
+  gets set. The function receives two arguments, `(currentValue, props)`.
 - `resetValue`: sets value to the `initialValue` prop
 - `clearValue`: sets value to `undefined`
 
