@@ -25,6 +25,14 @@ in a controlled or uncontrolled setting.
 
 _____
 
+**Events** [**`@render-props/value`**](./packages/value)
+
+A component with a simple interface for managing events registered by its child
+components. This component will automatically 'clean up' listeners when it
+unmounts.
+
+_____
+
 **Toggle** [**`@render-props/toggle`**](./packages/toggle)
 
 A component with a simple interface for toggling values between on/off states
