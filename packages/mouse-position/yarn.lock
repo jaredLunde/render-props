@@ -695,36 +695,41 @@
   dependencies:
     "@babel/runtime" "^7.0.0-beta.39"
 
-"@render-props/rect@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@render-props/rect/-/rect-0.1.0.tgz#39dd11cca4ff8459c483e0f466af04390bb3d67e"
+"@render-props/hover@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@render-props/hover/-/hover-0.1.1.tgz#d4ea80d7530e9a0099799e145d11ae6c8c53f15b"
   dependencies:
     "@babel/runtime" "^7.0.0-beta.39"
     "@render-props/events" "^0.1.1"
-    "@render-props/throttle" "^0.1.2"
+    "@render-props/toggle" "^0.1.17"
+    "@render-props/utils" "^0.1.4"
 
-"@render-props/throttle@^0.1.2":
+"@render-props/throttle@^0.1.3":
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/@render-props/throttle/-/throttle-0.1.3.tgz#afb6bef2973a82f7e92bd533d2f15e0c1df13401"
   dependencies:
     "@babel/runtime" "^7.0.0-beta.39"
     "@render-props/utils" "^0.1.0"
 
-"@render-props/utils@^0.1.0", "@render-props/utils@^0.1.3":
+"@render-props/toggle@^0.1.17":
+  version "0.1.17"
+  resolved "https://registry.yarnpkg.com/@render-props/toggle/-/toggle-0.1.17.tgz#255790ce0d2b662e7f0185b28c75cb5113c6ef0e"
+  dependencies:
+    "@babel/runtime" "^7.0.0-beta.39"
+    "@render-props/value" "^0.1.13"
+
+"@render-props/utils@^0.1.0", "@render-props/utils@^0.1.1", "@render-props/utils@^0.1.4":
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/@render-props/utils/-/utils-0.1.4.tgz#96a3d78eca9575d4697a5547464a98a8a434307e"
   dependencies:
     "@babel/runtime" "^7.0.0-beta.39"
 
-"@render-props/viewport@^0.1.15":
-  version "0.1.15"
-  resolved "https://registry.yarnpkg.com/@render-props/viewport/-/viewport-0.1.15.tgz#bde8acf1c3447b957d0d9b08d2200bae8245c851"
+"@render-props/value@^0.1.13":
+  version "0.1.14"
+  resolved "https://registry.yarnpkg.com/@render-props/value/-/value-0.1.14.tgz#cc5169174a7b05af1c1ebc0cb438ff19060fe894"
   dependencies:
     "@babel/runtime" "^7.0.0-beta.39"
-    "@render-props/events" "^0.1.1"
-    "@render-props/rect" "^0.1.0"
-    "@render-props/throttle" "^0.1.2"
-    "@render-props/utils" "^0.1.3"
+    "@render-props/utils" "^0.1.1"
 
 abbrev@1:
   version "1.1.1"
@@ -884,10 +889,6 @@ browserslist@^2.4.0:
 builtin-modules@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-1.1.1.tgz#270f076c5a72c02f5b65a47df94c5fe3a278892f"
-
-cancelable-promise@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/cancelable-promise/-/cancelable-promise-2.4.0.tgz#6c12d944d389029cd3d027b48f1dfcfd4ba4d0ea"
 
 caniuse-lite@^1.0.30000792:
   version "1.0.30000803"

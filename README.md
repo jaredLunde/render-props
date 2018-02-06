@@ -71,6 +71,14 @@ used supports hover according to `!(window.matchMedia('(hover: none)').matches)`
 
 _____
 
+**MousePosition** [**`@render-props/mouse-position`**](./packages/mouse-position)
+
+A component with a simple and performant interface for tracking
+the position of the mouse as it moves around the screen - perfect for UX
+analytic tracking and also in-browser gaming.
+
+_____
+
 **Counter** [**`@render-props/counter`**](./packages/counter)
 
 A component with a simple interface for bound-value counting.
