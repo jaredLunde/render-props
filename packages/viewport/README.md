@@ -30,7 +30,7 @@ to window events in a scalable fashion.
 
 ____
 
-# Viewport
+# ViewportProvider
 
 ## Usage
 ```js
