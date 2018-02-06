@@ -23,14 +23,14 @@ const initialState = {width: 0, height: 0}
 
 export default class SizeObserver extends React.Component {
   static propTypes = {
-    children: PropTypes.function.isRequired,
+    children: PropTypes.func.isRequired,
     useBoundingRect: PropTypes.bool,
-    wait: PropTypes.number.isRequired,
+    every: PropTypes.number.isRequired,
     onChange: PropTypes.func
   }
 
   static defaultProps = {
-    wait: 1000/60,
+    every: 1000/60,
   }
 
   constructor (props) {
@@ -45,7 +45,7 @@ export default class SizeObserver extends React.Component {
   }
 
   componentDidMount () {
-    this.recalcListener = requestInterval(this.recalcSize, this.props.wait)
+    this.recalcListener = requestInterval(this.recalcSize, this.props.every)
   }
 
   componentDidUpdate (prevProps, {width, height}) {

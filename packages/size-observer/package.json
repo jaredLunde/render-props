@@ -44,7 +44,8 @@
     "uglify-es": "^3.3.9"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0-beta.39"
+    "@babel/runtime": "^7.0.0-beta.39",
+    "@render-props/rect": "^0.1.0"
   },
   "peerDependencies": {
     "prop-types": "^15.6.0",

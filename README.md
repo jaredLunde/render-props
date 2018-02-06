@@ -39,6 +39,13 @@ A component with a simple interface for retrieving the `DOMRect` of an element.
 
 _____
 
+**SizeObserver** [**`@render-props/size-observer`**](./packages/size-observer)
+
+A component which provides a simple interface for constantly querying for
+changes to the size of the referenced element in its child function.
+
+_____
+
 **Toggle** [**`@render-props/toggle`**](./packages/toggle)
 
 A component with a simple interface for toggling values between on/off states

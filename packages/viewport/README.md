@@ -128,11 +128,11 @@ Note: these are only provided if `withCoords` is `true`.
   - returns `landscape` when `width > height`, `square` when `width == height`,
     and `portrait` when `width < height`
 - `screenOrientation {null|landscape-primary|landscape-secondary|portrait-primary|portrait-secondary}`
-  - returns `null` if orientation.type is unavailable
-    - `landscape-primary`: when the device is landscape oriented, e.g. a laptop and `width > height`
-    - `landscape-secondary`: when the device is portrait oriented, e.g. a phone and `width > height`
-    - `portrait-primary`: when the device is portrait oriented, e.g. a phone and `width < height`
-    - `portrait-secondary`: when the device is landscape oriented, e.g. a laptop and `width < height`
+  - `null`: when orientation.type is unavailable
+  - `'landscape-primary'`: when the device is landscape oriented, e.g. a laptop and `width > height`
+  - `'landscape-secondary'`: when the device is portrait oriented, e.g. a phone and `width > height`
+  - `'portrait-primary'`: when the device is portrait oriented, e.g. a phone and `width < height`
+  - `'portrait-secondary'`: when the device is landscape oriented, e.g. a laptop and `width < height`
 
 ____
 
