@@ -8,16 +8,16 @@ to window events in a scalable fashion.
 
 ### Navigate
 - [`Viewport`](#viewport)
-- [`ViewportProvider`](#viewportProvider)
-- [`ViewportConsumer`](#viewportConsumer)
-- [`ViewportOrientation`](#viewportOrientation)
-- [`ViewportQueries`](#viewportQueries)
-- [`ViewportScroll`](#viewportScroll)
-- [`ViewportSize`](#viewportSize)
+- [`ViewportProvider`](#viewportprovider)
+- [`ViewportConsumer`](#viewportconsumer)
+- [`ViewportOrientation`](#viewportorientation)
+- [`ViewportQueries`](#viewportqueries)
+- [`ViewportScroll`](#viewportscroll)
+- [`ViewportSize`](#viewportsize)
 
 ____
 
-# Viewport
+# ViewportProvider
 
 ## Usage
 ```js
