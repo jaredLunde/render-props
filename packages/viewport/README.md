@@ -100,13 +100,13 @@ ____
   - returns `true` if `@element` is partially or completely visible vertically
     within the window bounds, give or take `@leeway`
 - `inFullView` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
-  - returns `true` if `@element` is COMPLETELY visible within the window bounds,
+  - returns `true` if `@element` is **completely** visible within the window bounds,
     give or take `@leeway`
 - `inFullViewX` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
-  - returns `true` if `@element` is COMPLETELY visible horizontally within the
+  - returns `true` if `@element` is **completely** visible horizontally within the
     window bounds, give or take `@leeway`
 - `inFullViewY` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
-  - returns `true` if `@element` is COMPLETELY visible vertically within the
+  - returns `true` if `@element` is **completely** visible vertically within the
     window bounds, give or take `@leeway`
 
 #### State
@@ -346,13 +346,13 @@ ____
   - returns `true` if `@element` is partially or completely visible vertically
     within the window bounds, give or take `@leeway`
 - `inFullView` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
-  - returns `true` if `@element` is COMPLETELY visible within the window bounds,
+  - returns `true` if `@element` is **completely** visible within the window bounds,
     give or take `@leeway`
 - `inFullViewX` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
-  - returns `true` if `@element` is COMPLETELY visible horizontally within the
+  - returns `true` if `@element` is **completely** visible horizontally within the
     window bounds, give or take `@leeway`
 - `inFullViewY` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
-  - returns `true` if `@element` is COMPLETELY visible vertically within the
+  - returns `true` if `@element` is **completely** visible vertically within the
     window bounds, give or take `@leeway`
 
 
@@ -371,7 +371,7 @@ function ViewportScrollState (props) {
     <ViewportScroll>
       ({scrollX, scrollY, scrollTo}) => (
         <div>
-          width: {width}
+          scrollY: {scrollY}
         </div>
       )
     </ViewportScroll>
