@@ -52,7 +52,7 @@ ____
 ## Render Props
 
 #### Methods
-- `setValue` (`value`): sets state.value to `@value`. You can also
+- `setValue` `(value <!== undefined>)`: sets state.value to `@value`. You can also
   provide a function here, the return value of which will be the new value that
   gets set. The function receives two arguments, `(currentValue, props)`.
 - `resetValue`: sets value to the `initialValue` prop

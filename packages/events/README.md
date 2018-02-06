@@ -45,10 +45,10 @@ ____
 ## Render Props
 
 #### Methods
-- `addEvent` (`element, eventName <string>, listener <func>`)
+- `addEvent` `(element, eventName <string>, listener <func>)`
   - adds an event `@listener` for `@eventName` on the provided `@element`
-- `removeEvent` (`element, eventName <string>, listener <func>`)
+- `removeEvent` `(element, eventName <string>, listener <func>)`
   - removes an event `@listener` for `@eventName` on the provided `@element`
-- `removeAllEvents` (`[element]`)
-  - removes listeners from all registered events if no `@element` is provided, otherwise removes all listeners attached to
-  `@element`
+- `removeAllEvents` `([element])`
+  - removes listeners from all registered events if no `@element` is provided,
+    otherwise removes all listeners attached to `@element`

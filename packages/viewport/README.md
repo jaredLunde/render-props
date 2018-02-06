@@ -6,14 +6,27 @@ to window events in a scalable fashion.
 ### Installation
 ```yarn add @render-props/viewport``` or ```npm i @render-props/viewport```
 
-### Navigate
+### Contents
 - [`Viewport`](#viewport)
-- [`ViewportProvider`](#viewportProvider)
-- [`ViewportConsumer`](#viewportConsumer)
-- [`ViewportOrientation`](#viewportOrientation)
-- [`ViewportQueries`](#viewportQueries)
-- [`ViewportScroll`](#viewportScroll)
-- [`ViewportSize`](#viewportSize)
+  - God component which provides context from `ViewportQueries`,
+    `ViewportOrientation`, and `ViewportScroll`
+- [`ViewportProvider`](#viewportprovider)
+  - A top-level `Viewport` component which stores the viewport state
+    and provides it as context to `ViewportConsumer` components.
+- [`ViewportConsumer`](#viewportconsumer)
+  - Receives context updates from `ViewportProvider` when the viewport state changes
+- [`ViewportOrientation`](#viewportorientation)
+  - Provides context for `{width, height, aspect, orientation, screenOrientation}`
+    while receiving `{width, height, aspect}` from `ViewportSize` parent.
+  - Updates each time the window size or orientation changes.
+- [`ViewportSize`](#viewportsize)
+  - Provides context for `{width, height, aspect}`.
+  - Updates each time the window size or orientation changes.
+- [`ViewportQueries`](#viewportqueries)
+  - Provides context for `{inView, inViewX, inViewY, inFullView, inFullViewX, inFullViewY}`
+- [`ViewportScroll`](#viewportscroll)
+  - Provides context for `{scrollX, scrollY, scrollTo}`
+  - Updates each time the scroll position changes
 
 ____
 
@@ -21,25 +34,46 @@ ____
 
 ## Usage
 ```js
-import Rect from '@render-props/rect'
+import Viewport from '@render-props/viewport'
 
-function DivWithRect (props) {
+function ViewportState (props) {
   return (
-    <Rect>
-      ({rectRef, recalcRect, top, right, bottom, left, width, height}) => (
-        <div ref={rectRef}>
+    <Viewport>
+      ({
+        width,
+        height,
+        aspect,
+        orientation,
+        screenOrientation,
+        scrollX,
+        scrollY,
+        scrollTo,
+        inView,
+        inViewX,
+        inViewY,
+        inFullView,
+        inFullViewX,
+        inFullViewY,
+      }) => (
+        <>
           <div>
-            My width: {width}
+            width: {width}
           </div>
           <div>
-            My height: {height}
+            height: {height}
           </div>
           <div>
-            My position: {JSON.stringify({top, right, bottom, left})}
+            aspect: {aspect}
           </div>
-        </div>
+          <div>
+            is header at least partially visible?: {inView(document.getElementByID('#header'))}
+          </div>
+          <div>
+            is header completely visible?: {inFullView(document.getElementByID('#header'))}
+          </div>
+        </>
       )
-    </Rect>
+    </Viewport>
   )
 }
 ```
@@ -47,34 +81,312 @@ function DivWithRect (props) {
 ____
 
 ## Props
-- `recalcOnWindowResize {bool}`: if `true`, this component will update itself
-each time a window resize event is detected. Defaults to `true`.
-- `withCoords {bool}`: if `true`, this component will provide its child function
-with unpacked arguments for its bounding client rect, i.e.
-`{top, right, bottom, left, width, height}`. If `false`, it will provide a
-function `getRect` instead which will return the same object just mentioned.
-Defaults to `true`.
+- `withCoords {bool} {default: true}`: if `false`, the component will provide
+  `getScroll`, `getSize`, and `getAspect` functions as opposed to
+  `{scrollX, scrollY, width, height, aspect}`
 
 ## Render Props
 
-#### Ref
-- `rectRef` (`element`)
-  - This `ref` must be provided to whatever element you are trying to receive the
-    bounding client rect for. e.g. `<div ref={rectRef}>`
-
 #### Methods
-- `recalcRect`
-  - remeasures the element bound to `rectRef`
-- `getRect`
-  - only present if `withCoords` is set to `false`. Returns the bounding client
-    rect object.
+- `scrollTo` `(x <number>, [y <number>])`
+  - scrolls the window to `x`, `y` positions
+- `inView` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
+  - returns `true` if `@element` is partially or completely visible within the
+    window bounds, give or take `@leeway`
+- `inViewX` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
+  - returns `true` if `@element` is partially or completely visible horizontally
+    within the window bounds, give or take `@leeway`
+- `inViewY` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
+  - returns `true` if `@element` is partially or completely visible vertically
+    within the window bounds, give or take `@leeway`
+- `inFullView` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
+  - returns `true` if `@element` is COMPLETELY visible within the window bounds,
+    give or take `@leeway`
+- `inFullViewX` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
+  - returns `true` if `@element` is COMPLETELY visible horizontally within the
+    window bounds, give or take `@leeway`
+- `inFullViewY` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
+  - returns `true` if `@element` is COMPLETELY visible vertically within the
+    window bounds, give or take `@leeway`
 
 #### State
 Note: these are only provided if `withCoords` is `true`.
 
-- `top {number}`: the top coordinate value of the `DOMRect`
-- `right {number}`: the right coordinate value of the `DOMRect`
-- `bottom {number}`: the bottom coordinate value of the `DOMRect`
-- `left {number}`: the left coordinate value of the `DOMRect`
-- `width {number}`: the width of the `DOMRect`
-- `height {number}`: the height of the `DOMRect`
+- `scrollX {integer}`
+  - the current horizontal scroll position in px
+- `scrollY {integer}`
+  - the current vertical scroll position in px
+- `width {integer}`
+  - the `clientWidth` of the `documentElement`
+- `height {integer}`
+  - the `clientHeight` of the `documentElement`
+- `aspect {float}`
+  - the aspect ratio `(width / height = aspect)`
+- `orientation {landscape|square|portrait}`
+  - returns `landscape` when `width > height`, `square` when `width == height`,
+    and `portrait` when `width < height`
+- `screenOrientation {null|landscape-primary|landscape-secondary|portrait-primary|portrait-secondary}`
+  - returns `null` if orientation.type is unavailable
+    - `landscape-primary`: when the device is landscape oriented, e.g. a laptop and `width > height`
+    - `landscape-secondary`: when the device is portrait oriented, e.g. a phone and `width > height`
+    - `portrait-primary`: when the device is portrait oriented, e.g. a phone and `width < height`
+    - `portrait-secondary`: when the device is landscape oriented, e.g. a laptop and `width < height`
+
+____
+
+# ViewportProvider
+A top-level `Viewport` component which stores the viewport state
+and provides it as context to [`ViewportConsumer`](#viewportconsumer) components.
+It is in the only component in this package that is a not a render-prop component.
+It takes valid react elements as children.
+
+There are several benefits to using the `ViewportProvider`/`ViewportConsumer`
+components rather than `Viewport` alone. There is only one event
+listener of each type in the Provider model - so O(1) state is being
+throttled and consumed vs. O(n).
+
+## Usage
+```js
+import {ViewportProvider} from '@render-props/viewport'
+
+
+function AppViewportProvider (AppWithViewportConsumers) {
+  return (
+    <ViewportProvider>
+      {AppWithViewportConsumers}
+    </ViewportProvider>
+  )
+}
+```
+
+____
+
+## Props
+- `withCoords {bool} {default: true}`: if `false`, the component will provide
+  `getScroll`, `getSize`, and `getAspect` functions as opposed to
+  `{scrollX, scrollY, width, height, aspect}`
+
+____
+
+# ViewportConsumer
+Receives context updates from [`ViewportProvider`](#viewportprovider) when the
+viewport state changes
+
+## Usage
+```js
+import {ViewportConsumer} from '@render-props/viewport'
+
+
+function SomeComponent (props) {
+  return (
+    <ViewportConsumer>
+      ({
+        width,
+        height,
+        aspect,
+        orientation,
+        screenOrientation,
+        scrollX,
+        scrollY,
+        scrollTo,
+        inView,
+        inViewX,
+        inViewY,
+        inFullView,
+        inFullViewX,
+        inFullViewY,
+      }) => (
+        <div>
+          width: {width}
+        </div>
+      )
+    </ViewportConsumer>
+  )
+}
+```
+
+____
+
+
+## Props
+See (Viewport)[#viewport] for props
+
+## Render Props
+See (Viewport)[#viewport] for render props
+
+____
+
+# ViewportOrientation
+- Provides context for `{width, height, aspect, orientation, screenOrientation}`
+  while receiving `{width, height, aspect}` from [`ViewportSize`](#viewportsize)
+  parent.
+- Updates each time the window size or orientation changes.
+
+## Usage
+```js
+import {ViewportOrientation} from '@render-props/viewport'
+
+function ViewportOrientationState (props) {
+  return (
+    <ViewportOrientation>
+      ({
+        width,
+        height,
+        aspect,
+        orientation,
+        screenOrientation
+      }) => (
+        <div>
+          orientation: {orientation}
+        </div>
+      )
+    </Viewport>
+  )
+}
+```
+
+____
+
+## Props
+- `withCoords {bool} {default: true}`: if `false`, the component will provide
+  `getSize`, and `getAspect` functions as opposed to `{width, height, aspect}`
+
+## Render Props
+
+#### State
+- `width {integer}`
+  - the `clientWidth` of the `documentElement`
+- `height {integer}`
+  - the `clientHeight` of the `documentElement`
+- `aspect {float}`
+  - the aspect ratio `(width / height = aspect)`
+- `orientation {landscape|square|portrait}`
+  - returns `landscape` when `width > height`, `square` when `width == height`,
+    and `portrait` when `width < height`
+- `screenOrientation {null|landscape-primary|landscape-secondary|portrait-primary|portrait-secondary}`
+  - returns `null` if orientation.type is unavailable
+    - `landscape-primary`: when the device is landscape oriented, e.g. a laptop and `width > height`
+    - `landscape-secondary`: when the device is portrait oriented, e.g. a phone and `width > height`
+    - `portrait-primary`: when the device is portrait oriented, e.g. a phone and `width < height`
+    - `portrait-secondary`: when the device is landscape oriented, e.g. a laptop and `width < height`
+
+____
+
+# ViewportSize
+- Provides context for `{width, height, aspect}`.
+- Updates each time the window size or orientation changes.
+
+## Usage
+```js
+import {ViewportSize} from '@render-props/viewport'
+
+function ViewportSizeState (props) {
+  return (
+    <ViewportSize>
+      ({width, height, aspect}) => (
+        <div>
+          width: {width}
+        </div>
+      )
+    </ViewportSize>
+  )
+}
+```
+
+____
+
+## Props
+- `withCoords {bool} {default: true}`: if `false`, the component will provide
+  `getSize`, and `getAspect` functions as opposed to `{width, height, aspect}`
+
+## Render Props
+
+#### State
+- `width {integer}`
+  - the `clientWidth` of the `documentElement`
+- `height {integer}`
+  - the `clientHeight` of the `documentElement`
+- `aspect {float}`
+  - the aspect ratio `(width / height = aspect)`
+
+____
+
+# ViewportQueries
+Provides context for `{inView, inViewX, inViewY, inFullView, inFullViewX, inFullViewY}`
+
+## Usage
+```js
+import {ViewportQueries} from '@render-props/viewport'
+
+function ViewportQueriesState (props) {
+  return (
+    <ViewportQueries>
+      ({width, height, aspect}) => (
+        <div>
+          width: {width}
+        </div>
+      )
+    </ViewportQueries>
+  )
+}
+```
+
+____
+
+## Render Props
+
+#### Methods
+- `inView` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
+  - returns `true` if `@element` is partially or completely visible within the
+    window bounds, give or take `@leeway`
+- `inViewX` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
+  - returns `true` if `@element` is partially or completely visible horizontally
+    within the window bounds, give or take `@leeway`
+- `inViewY` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
+  - returns `true` if `@element` is partially or completely visible vertically
+    within the window bounds, give or take `@leeway`
+- `inFullView` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
+  - returns `true` if `@element` is COMPLETELY visible within the window bounds,
+    give or take `@leeway`
+- `inFullViewX` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
+  - returns `true` if `@element` is COMPLETELY visible horizontally within the
+    window bounds, give or take `@leeway`
+- `inFullViewY` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
+  - returns `true` if `@element` is COMPLETELY visible vertically within the
+    window bounds, give or take `@leeway`
+
+
+____
+
+# ViewportScroll
+- Provides context for `{scrollX, scrollY, scrollTo}`
+- Updates each time the scroll position changes
+
+## Usage
+```js
+import {ViewportScroll} from '@render-props/viewport'
+
+function ViewportScrollState (props) {
+  return (
+    <ViewportScroll>
+      ({scrollX, scrollY, scrollTo}) => (
+        <div>
+          width: {width}
+        </div>
+      )
+    </ViewportScroll>
+  )
+}
+```
+
+____
+
+## Props
+- `withCoords {bool} {default: true}`: if `false`, the component will provide
+  a `getScroll` function as opposed to `{scrollX, scrollY, width, height, aspect}`
+
+## Render Props
+
+#### Methods
+- `scrollTo` `(x <number>, [y <number>])`
+  - scrolls the window to `x`, `y` positions
