@@ -211,10 +211,10 @@ ____
 
 
 ## Props
-See [Viewport](#viewport) for props
+See [Viewport props](#props)
 
 ## Render Props
-See [Viewport](#viewport) for render props
+See [Viewport render props](#render-props)
 
 ____
 
