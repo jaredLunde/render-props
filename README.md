@@ -67,7 +67,7 @@ _____
 
 A component with a simple interface for listening to hover events on child
 components. The state of this component will only update if the device being
-used supports according to `!(window.matchMedia('(hover: none)').matches)`
+used supports hover according to `!(window.matchMedia('(hover: none)').matches)`
 
 _____
 
@@ -81,3 +81,11 @@ _____
 
 Multiple components for listening and responding to viewport events in a
 scalable fashion.
+
+_____
+
+**ImageProps** [**`@render-props/image-props`**](./packages/image-props)
+
+A component with a simple interface for getting the natural size,
+rendered size and orientation from `<img>` elements after they have loaded
+successfully.

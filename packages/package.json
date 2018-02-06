@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "cancelable-promise": "^2.4.0"
+  }
+}
