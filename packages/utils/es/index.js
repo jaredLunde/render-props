@@ -1,3 +1,5 @@
+import _bound from './bound';
+export { _bound as bound };
 import _callIfExists from './callIfExists';
 export { _callIfExists as callIfExists };
 import _perf from './perf';

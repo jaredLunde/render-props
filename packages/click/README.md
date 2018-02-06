@@ -54,13 +54,13 @@ no props are provided, all events trigger an update.
 - `clickTypes {array}`
   - checks for types specified in this array. Types are defined as such:
     - `detail=1`
-      - equality check, e.g. `event.detail === 1`
+      - equality check, i.e. `event.detail === 1`
     - `shiftKey`
-      - boolean check, e.g. `event.shiftKey === true`
+      - boolean check, i.e. `event.shiftKey === true`
     - `shiftKey+metaKey`
-      - AND, e.g. `event.shiftKey === true && event.metaKey === true`
+      - AND, i.e. `event.shiftKey === true && event.metaKey === true`
     - `shiftKey|metaKey+detail=1`
-      - OR, e.g. `event.shiftKey === true || event.metaKey === true && detail === 1`
+      - OR, i.e. `event.shiftKey === true || event.metaKey === true && detail === 1`
 - `single {bool}`
   - checks for `e.detail === 1`
 - `double {bool}`
@@ -95,11 +95,11 @@ no props are provided, all events trigger an update.
   - checks for `e.shiftKey === true && e.metaKey === true`
 - `controlOrMeta {bool}`
   - checks for `e.ctrlKey === true || e.metaKey === true`
-- `onClick {func}`
+- `preventDefault {bool}`
+  - calls `preventDefault()` on the event when clicked
+- `onClick {function}`
   - provides a callback for when the state is updated. Function should accept
     two arguments, `(nextState <object>, event <Event>)`.
-- `preventDefault {bool}`
-  - calls `e.preventDefault` on the event when clicked
 
 ## Render Props
 
@@ -125,5 +125,5 @@ no props are provided, all events trigger an update.
   - the `y` position of the click in relation to the element's `DOMRect`
 - `rectX {integer}`
   - the `x` coordinate of `DOMRect` for the element
-- `rectY {integer}
+- `rectY {integer}`
   - the `y` coordinate of `DOMRect` for the element

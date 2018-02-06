@@ -63,6 +63,12 @@ gaming.
 
 _____
 
+**Counter** [**`@render-props/counter`**](./packages/counter)
+
+A component with a simple interface for bound-value counting.
+
+_____
+
 **Viewport** [**`@render-props/viewport`**](./packages/viewport)
 
 Multiple components for listening and responding to viewport events in a

@@ -7,6 +7,12 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+Object.defineProperty(exports, "bound", {
+  enumerable: true,
+  get: function get() {
+    return _bound2.default;
+  }
+});
 Object.defineProperty(exports, "callIfExists", {
   enumerable: true,
   get: function get() {
@@ -61,6 +67,8 @@ Object.defineProperty(exports, "strictShallowEqual", {
     return _strictShallowEqual2.default;
   }
 });
+
+var _bound2 = _interopRequireDefault(require("./bound"));
 
 var _callIfExists2 = _interopRequireDefault(require("./callIfExists"));
 
