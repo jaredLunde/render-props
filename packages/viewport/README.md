@@ -7,24 +7,24 @@ to window events in a scalable fashion.
 ```yarn add @render-props/viewport``` or ```npm i @render-props/viewport```
 
 ### Contents
-- [`Viewport`](#viewport)
+- [**`Viewport`**](#viewport)
   - God component which provides context from `ViewportQueries`,
     `ViewportOrientation`, and `ViewportScroll`
-- [`ViewportProvider`](#viewportprovider)
+- [**`ViewportProvider`**](#viewportprovider)
   - A top-level `Viewport` component which stores the viewport state
     and provides it as context to `ViewportConsumer` components.
-- [`ViewportConsumer`](#viewportconsumer)
+- [**`ViewportConsumer`**](#viewportconsumer)
   - Receives context updates from `ViewportProvider` when the viewport state changes
-- [`ViewportOrientation`](#viewportorientation)
+- [**`ViewportOrientation`**](#viewportorientation)
   - Provides context for `{width, height, aspect, orientation, screenOrientation}`
     while receiving `{width, height, aspect}` from `ViewportSize` parent.
   - Updates each time the window size or orientation changes.
-- [`ViewportSize`](#viewportsize)
+- [**`ViewportSize`**](#viewportsize)
   - Provides context for `{width, height, aspect}`.
   - Updates each time the window size or orientation changes.
-- [`ViewportQueries`](#viewportqueries)
+- [**`ViewportQueries`**](#viewportqueries)
   - Provides context for `{inView, inViewX, inViewY, inFullView, inFullViewX, inFullViewY}`
-- [`ViewportScroll`](#viewportscroll)
+- [**`ViewportScroll`**](#viewportscroll)
   - Provides context for `{scrollX, scrollY, scrollTo}`
   - Updates each time the scroll position changes
 
