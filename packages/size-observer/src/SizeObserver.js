@@ -23,6 +23,7 @@ const initialState = {width: 0, height: 0}
 
 export default class SizeObserver extends React.Component {
   static propTypes = {
+    children: PropTypes.function.isRequired,
     useBoundingRect: PropTypes.bool,
     wait: PropTypes.number.isRequired,
     onChange: PropTypes.func

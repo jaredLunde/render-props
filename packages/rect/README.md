@@ -2,7 +2,7 @@
 A state container which provides a simple interface for retrieving the bounding
 client rect of a referenced element. The bounding client rect will update
 each time the window resizes - a behavior which can be turned off by setting
-the prop `recalcOnWindowChange` to `false`. It doesn't provide values for `x` and
+the prop `recalcOnWindowResize` to `false`. It doesn't provide values for `x` and
 `y`, as IE, Edge and Safari don't have them as part of their `DOMRect`.
 
 
@@ -41,7 +41,7 @@ function DivWithRect (props) {
 ____
 
 ## Props
-- `recalcOnWindowChange {bool}`: if `true`, this component will update itself
+- `recalcOnWindowResize {bool}`: if `true`, this component will update itself
 each time a window resize event is detected. Defaults to `true`.
 - `withCoords {bool}`: if `true`, this component will provide its child function
 with unpacked arguments for its bounding client rect, i.e.

@@ -27,12 +27,13 @@ import Rect from '@render-props/rect'
 class Rect_ extends React.Component {
   static displayName = 'Rect'
   static propTypes = {
-    recalcOnWindowChange: PropTypes.bool,
+    children: PropTypes.function.isRequired,
+    recalcOnWindowResize: PropTypes.bool,
     withCoords: PropTypes.bool
   }
 
   static defaultProps = {
-    recalcOnWindowChange: true,
+    recalcOnWindowResize: true,
     withCoords: true,
   }
 
@@ -50,7 +51,7 @@ class Rect_ extends React.Component {
   constructor (props) {
     super(props)
 
-    if (props.recalcOnWindowChange) {
+    if (props.recalcOnWindowResize) {
       props.addEvent(window, 'resize', this.recalcRect)
       props.addEvent(window, 'orientationchange', this.recalcRect)
     }

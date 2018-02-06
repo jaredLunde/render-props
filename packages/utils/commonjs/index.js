@@ -55,6 +55,12 @@ Object.defineProperty(exports, "clearRequestTimeout", {
     return _requestTimeout2.clearRequestTimeout;
   }
 });
+Object.defineProperty(exports, "strictShallowEqual", {
+  enumerable: true,
+  get: function get() {
+    return _strictShallowEqual2.default;
+  }
+});
 
 var _callIfExists2 = _interopRequireDefault(require("./callIfExists"));
 
@@ -65,3 +71,5 @@ var _requestAnimationFrame2 = _interopRequireWildcard(require("./requestAnimatio
 var _requestInterval2 = _interopRequireWildcard(require("./requestInterval"));
 
 var _requestTimeout2 = _interopRequireWildcard(require("./requestTimeout"));
+
+var _strictShallowEqual2 = _interopRequireDefault(require("./strictShallowEqual"));

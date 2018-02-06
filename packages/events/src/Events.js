@@ -1,8 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 
 export default class Events extends React.Component {
-  events = []
+  static propTypes = {
+    children: PropTypes.function.isRequired,
+  }
+  listeners = []
 
   constructor (props) {
     super(props)
@@ -14,29 +18,29 @@ export default class Events extends React.Component {
   }
 
   addEvent = (el, name, fn) => {
-    this.events.push([el, name, fn])
+    this.listeners.push([el, name, fn])
     el.addEventListener(name, fn)
   }
 
   removeEvent = (el, name, fn) => {
     el.removeEventListener(name, fn)
 
-    for (let x = 0; x < this.events.length; x++) {
-      const event = this.events[x]
+    for (let x = 0; x < this.listeners.length; x++) {
+      const event = this.listeners[x]
       const [el_, name_, fn_] = event
 
       if (el === el_ && name === name_ && fn === fn_) {
-        this.events.splice(x, 1)
+        this.listeners.splice(x, 1)
       }
     }
   }
 
   removeAllEvents = el => {
-    for (let x = 0; x < this.events.length; x++) {
-      const [el_, name, fn] = this.events[x]
+    for (let x = 0; x < this.listeners.length; x++) {
+      const [el_, name, fn] = this.listeners[x]
       if (!el || el_ === el) {
         el_.removeEventListener(name, fn)
-        this.events.splice(x, 1)
+        this.listeners.splice(x, 1)
       }
     }
   }
