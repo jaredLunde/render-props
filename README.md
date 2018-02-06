@@ -51,6 +51,14 @@ _____
 A component with a simple interface for toggling values between on/off states
 in a controlled or uncontrolled setting.
 
+_____
+
+**Click** [**`@render-props/click`**](./packages/click)
+
+A component with a simple interface for targeting specific types of click events
+(e.g. double-click) and extracting rich stats about click position within the
+client, window, etc. making it perfect for UX analytics work and in-browser
+gaming.
 
 _____
 

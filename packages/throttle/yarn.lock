@@ -651,7 +651,7 @@
     "@babel/plugin-syntax-dynamic-import" "7.0.0-beta.39"
     "@babel/plugin-syntax-import-meta" "7.0.0-beta.39"
 
-"@babel/runtime@^7.0.0-beta.36", "@babel/runtime@^7.0.0-beta.39":
+"@babel/runtime@^7.0.0-beta.39":
   version "7.0.0-beta.39"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-beta.39.tgz#e4b763b78d31a2c209165bae2772f103594a8972"
   dependencies:
@@ -854,10 +854,6 @@ builtin-modules@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-1.1.1.tgz#270f076c5a72c02f5b65a47df94c5fe3a278892f"
 
-cancelable-promise@^2.3.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/cancelable-promise/-/cancelable-promise-2.4.0.tgz#6c12d944d389029cd3d027b48f1dfcfd4ba4d0ea"
-
 caniuse-lite@^1.0.30000792:
   version "1.0.30000792"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000792.tgz#d0cea981f8118f3961471afbb43c9a1e5bbf0332"
@@ -1051,10 +1047,6 @@ extsprintf@1.3.0:
 extsprintf@^1.2.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
-
-fast-memoize@^2.2.7:
-  version "2.2.8"
-  resolved "https://registry.yarnpkg.com/fast-memoize/-/fast-memoize-2.2.8.tgz#d7f899f31d037b12d9db4281912f9018575720b1"
 
 filename-regex@^2.0.0:
   version "2.0.1"
@@ -1614,15 +1606,6 @@ rc@^1.1.7:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
-
-react-cake@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/react-cake/-/react-cake-0.6.0.tgz#e86cb01b7809ebbad7bc005a60d85fbd06d95888"
-  dependencies:
-    "@babel/runtime" "^7.0.0-beta.36"
-    cancelable-promise "^2.3.0"
-    fast-memoize "^2.2.7"
-    invariant "^2.2.2"
 
 readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.1.4:
   version "2.3.3"

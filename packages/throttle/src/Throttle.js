@@ -41,7 +41,10 @@ export default class Throttle extends React.Component {
     super(props)
     this.state = props.initialState || emptyObj
     this.throttleState = throttle(this._setState)
-    this.throttleContext = {throttleState: this.throttleState, state: this.state}
+    this.throttleContext = {
+      throttleState: this.throttleState,
+      state: this.state
+    }
   }
 
   _setState = (...args) => this.setState(...args)

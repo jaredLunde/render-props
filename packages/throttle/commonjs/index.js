@@ -11,5 +11,13 @@ Object.defineProperty(exports, "default", {
     return _Throttle.default;
   }
 });
+Object.defineProperty(exports, "throttle", {
+  enumerable: true,
+  get: function get() {
+    return _utils.throttle;
+  }
+});
 
 var _Throttle = _interopRequireDefault(require("./Throttle"));
+
+var _utils = require("./utils");
