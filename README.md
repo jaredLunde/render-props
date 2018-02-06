@@ -63,6 +63,14 @@ gaming.
 
 _____
 
+**Hover** [**`@render-props/hover`**](./packages/hover)
+
+A component with a simple interface for listening to hover events on child
+components. The state of this component will only update if the device being
+used supports according to `!(window.matchMedia('(hover: none)').matches)`
+
+_____
+
 **Counter** [**`@render-props/counter`**](./packages/counter)
 
 A component with a simple interface for bound-value counting.
