@@ -19,6 +19,12 @@ Object.defineProperty(exports, "callIfExists", {
     return _callIfExists2.default;
   }
 });
+Object.defineProperty(exports, "interpolate", {
+  enumerable: true,
+  get: function get() {
+    return _interpolate2.default;
+  }
+});
 Object.defineProperty(exports, "perf", {
   enumerable: true,
   get: function get() {
@@ -71,6 +77,8 @@ Object.defineProperty(exports, "strictShallowEqual", {
 var _bound2 = _interopRequireDefault(require("./bound"));
 
 var _callIfExists2 = _interopRequireDefault(require("./callIfExists"));
+
+var _interpolate2 = _interopRequireDefault(require("./interpolate"));
 
 var _perf2 = _interopRequireDefault(require("./perf"));
 

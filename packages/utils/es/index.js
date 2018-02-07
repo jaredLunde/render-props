@@ -2,6 +2,8 @@ import _bound from './bound';
 export { _bound as bound };
 import _callIfExists from './callIfExists';
 export { _callIfExists as callIfExists };
+import _interpolate from './interpolate';
+export { _interpolate as interpolate };
 import _perf from './perf';
 export { _perf as perf };
 import _requestAnimationFrame from './requestAnimationFrame';
