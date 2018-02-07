@@ -10,8 +10,6 @@ common needs
 
 https://www.npmjs.com/org/render-props
 
-# @render-props
-
 ## Packages
 
 **Throttle** [**`@render-props/throttle`**](./packages/throttle)
