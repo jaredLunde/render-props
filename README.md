@@ -2,13 +2,15 @@
   <img src='assets/logo.png'/>
 </p>
 
+______
 
-# @render-props
+
 Easy-to-use, performant render props (function as child) components for
 common needs
 
 https://www.npmjs.com/org/render-props
 
+# @render-props
 
 ## Packages
 
