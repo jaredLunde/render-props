@@ -1,3 +1,6 @@
+![render-props logo](assets/logo.png)
+
+
 # @render-props
 Easy-to-use, performant render props (function as child) components for
 common needs
