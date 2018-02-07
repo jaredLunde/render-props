@@ -97,3 +97,10 @@ _____
 A component with a simple interface for getting the natural size,
 rendered size and orientation from `<img>` elements after they have loaded
 successfully.
+
+_____
+
+**Point** [**`@render-props/point`**](./packages/point)
+
+A component with a simple interface for setting and moving coordinate `{x, y}`
+values.
