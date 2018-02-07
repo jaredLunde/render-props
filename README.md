@@ -104,3 +104,11 @@ _____
 
 A component with a simple interface for setting and moving coordinate `{x, y}`
 values.
+
+_____
+
+**Subscriptions** [**`@render-props/subscriptions`**](./packages/subscriptions)
+
+A component for communicating changes to the state of one component to
+another component(s). This was much more useful before the React.createContext
+API in React 16.3 for ensuring context updates reached their consumers.
