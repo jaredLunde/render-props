@@ -17,3 +17,6 @@ export { _requestTimeout as requestTimeout };
 export { clearRequestTimeout } from './requestTimeout';
 import _strictShallowEqual from './strictShallowEqual';
 export { _strictShallowEqual as strictShallowEqual };
+import _toKebabCase from './toKebabCase';
+export { _toKebabCase as toKebabCase };
+export { toKebabCaseTrimmed } from './toKebabCase';

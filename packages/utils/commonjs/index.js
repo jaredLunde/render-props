@@ -73,6 +73,18 @@ Object.defineProperty(exports, "strictShallowEqual", {
     return _strictShallowEqual2.default;
   }
 });
+Object.defineProperty(exports, "toKebabCase", {
+  enumerable: true,
+  get: function get() {
+    return _toKebabCase2.default;
+  }
+});
+Object.defineProperty(exports, "toKebabCaseTrimmed", {
+  enumerable: true,
+  get: function get() {
+    return _toKebabCase2.toKebabCaseTrimmed;
+  }
+});
 
 var _bound2 = _interopRequireDefault(require("./bound"));
 
@@ -89,3 +101,5 @@ var _requestInterval2 = _interopRequireWildcard(require("./requestInterval"));
 var _requestTimeout2 = _interopRequireWildcard(require("./requestTimeout"));
 
 var _strictShallowEqual2 = _interopRequireDefault(require("./strictShallowEqual"));
+
+var _toKebabCase2 = _interopRequireWildcard(require("./toKebabCase"));

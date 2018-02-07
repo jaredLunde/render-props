@@ -6,3 +6,4 @@ export requestAnimationFrame, {cancelAnimationFrame} from './requestAnimationFra
 export requestInterval, {clearRequestInterval} from './requestInterval'
 export requestTimeout, {clearRequestTimeout} from './requestTimeout'
 export strictShallowEqual from './strictShallowEqual'
+export toKebabCase, {toKebabCaseTrimmed} from './toKebabCase'
