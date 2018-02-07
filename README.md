@@ -120,3 +120,13 @@ _____
 A component for communicating changes to the state of one component to
 another component(s). This was much more useful before the React.createContext
 API in React 16.3 for ensuring context updates reached their consumers.
+
+_____
+
+**WillChange** [**`@render-props/will-change`**](./packages/will-change)
+
+A component with a simple interface for applying CSS `will-change`
+styles to its child components when given events fire. This is incredibly useful
+because browsers recommend that you use this CSS property sparingly, as it's
+a GPU-hog. You should really only be applying it *directly before* the event
+occurs.
