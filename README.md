@@ -92,6 +92,14 @@ scalable fashion.
 
 _____
 
+**Scrollable** [**`@render-props/scrollable`**](./packages/scrollable)
+
+A component with a simple interface for listening to the scroll
+event of its child component and providing valuable data about direction, distance,
+and more. It also provides convenience functions for scrollTo with optional animation.
+
+_____
+
 **ImageProps** [**`@render-props/image-props`**](./packages/image-props)
 
 A component with a simple interface for getting the natural size,

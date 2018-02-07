@@ -91,7 +91,7 @@ ____
     the scroll behavior of. e.g. `<div ref={scrollRef}>`
 
 #### Methods
-- `scrollTo` `(x <integer>, y<integer>, options <object{duration <ms>, timing <function>}>)`
+- `scrollTo` `(x <integer>, y<integer>, [options <object{duration <ms>, timing <function>}>])`
   - scrolls to the provided `x`, `y` coordinates in the container. You can optionally
     animate this by providing an options object with a duration. By default the
     timing function is linear, but you could for example use this bezier-easing
@@ -103,9 +103,9 @@ ____
     const cubicIn = x => x * x * x
     scrollTo(0, 250, {timing: cubicIn, duration: 400})
     ```
-- `scrollToY` `(y, options <object{duration <ms>, timing <function>}>)`
+- `scrollToY` `(y, [options <object{duration <ms>, timing <function>}>])`
   - scrolls to the provided `y` coordinate in the container
-- `scrollToX` `(x, options <object{duration <ms>, timing <function>}>)`
+- `scrollToX` `(x, [options <object{duration <ms>, timing <function>}>])`
   - scrolls to the provided `x` coordinate in the container
 
 #### State

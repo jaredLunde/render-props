@@ -12,7 +12,7 @@ function calcPosition (from, to, t) {
 }
 
 
-function calcAny (from, to, t) {
+function calcObjOrInt (from, to, t) {
   let output
 
   if (typeof from === 'object') {
@@ -47,10 +47,10 @@ export default function interpolate (
 
     if (p <= 1) {
       requestAnimationFrame(loop)
-      fn(calcAny(from, to, t))
+      fn(calcObjOrInt(from, to, t))
     }
     else {
-      fn(calcAny(from, to, t > 1 ? 1 :  t))
+      fn(calcObjOrInt(from, to, t > 1 ? 1 :  t))
     }
   }
 

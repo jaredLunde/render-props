@@ -1,0 +1,34 @@
+{
+  "env": {
+    "commonjs": {
+      "presets": [
+        "@babel/env",
+        "@babel/react",
+        "@babel/stage-0"
+      ],
+      "plugins": [
+        "@babel/transform-runtime",
+        "transform-react-pure-components",
+        "transform-react-remove-prop-types",
+        "@babel/transform-react-constant-elements",
+        "@babel/transform-react-inline-elements",
+        "closure-elimination"
+      ]
+    },
+    "es": {
+      "presets": [
+        "@babel/react",
+        ["@babel/env", {"modules": false}],
+        "@babel/stage-0"
+      ],
+      "plugins": [
+        "@babel/transform-runtime",
+        "transform-react-pure-components",
+        "transform-react-remove-prop-types",
+        "@babel/transform-react-constant-elements",
+        "@babel/transform-react-inline-elements",
+        "closure-elimination"
+      ]
+    }
+  }
+}

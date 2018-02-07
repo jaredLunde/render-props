@@ -92,7 +92,7 @@ ____
 ## Render Props
 
 #### Methods
-- `scrollTo` `(x <number>, [y <number>])`
+- `scrollTo` `(x <integer>, [y <integer>], [options <object{duration <ms>, timing <function>}>])`
   - scrolls to the provided `x`, `y` coordinates in the window. You can optionally
     animate this by providing an options object with a duration. By default the
     timing function is linear, but you could for example use this bezier-easing
@@ -410,5 +410,31 @@ ____
 ## Render Props
 
 #### Methods
-- `scrollTo` `(x <number>, [y <number>])`
-  - scrolls the window to `x`, `y` positions
+- `scrollTo` `(x <integer>, [y <integer>], [options <object{duration <ms>, timing <function>}>])`
+  - scrolls to the provided `x`, `y` coordinates in the window. You can optionally
+    animate this by providing an options object with a duration. By default the
+    timing function is linear, but you could for example use this bezier-easing
+    library: https://github.com/gre/bezier-easing
+    ```js
+    const bezierCurve = BezierEasing(0, 0, 1, 0.5);
+    scrollTo(0, 250, {timing: bezierCurve})
+
+    const cubicIn = x => x * x * x
+    scrollTo(0, 250, {timing: cubicIn, duration: 400})
+    ```
+    
+#### State
+Note: these are only provided if `withCoords` is `true`.
+
+- `scrollX {integer}`
+  - the current horizontal scroll position in px
+- `scrollY {integer}`
+  - the current vertical scroll position in px
+- `direction {object: {x <integer>, y <integer>}}`
+  - the direction the window was just scrolled
+    - `1` = `right` for `x`, `down` for `y`
+    - `-1` = `left` for `x`, `up` for `y`
+    - `0` = had no direction
+- `distance {object: {x <integer>, y <integer>}}`
+  - the distance between the latest recorded scroll activity in the window and
+    the previous scroll activity
