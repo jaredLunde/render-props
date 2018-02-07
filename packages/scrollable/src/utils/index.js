@@ -1,0 +1,1 @@
+export scrollTo from './scrollTo'
