@@ -1,8 +1,8 @@
 import bound from './bound'
 
 
-const addItem = (...newItems) => (state, {propName}) => {
-  let items = state[propName]
+const addItem = (...newItems) => state => {
+  let items = state.items
   const hasPush = items.push !== void 0
 
   if (hasPush) {
@@ -12,15 +12,17 @@ const addItem = (...newItems) => (state, {propName}) => {
     items = new Set(items)
   }
 
+  const addProp = hasPush ? 'push' : 'add'
+
   for (let x = 0; x < newItems.length; x++) {
-    items[hasPush ? 'push' : 'add'](newItems[x])
+    items[addProp](newItems[x])
   }
 
-  return {[propName]: items}
+  return {items}
 }
 
 export const boundAddItem = (...newItems) => (state, props) => bound({
-  result: addItem(...newItems)(state, props),
+  result: addItem(...newItems)(state),
   ...state,
   ...props
 })

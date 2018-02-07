@@ -82,9 +82,9 @@ const umdConfig = Object.assign({}, baseConfig, {
   ),
   output: [
     {
-      file: './dist/INSERT_NAME.js',
+      file: './dist/render-props.items.js',
       format: 'umd',
-      name: INSERT_NAME,
+      name: 'Items',
       globals: {react: 'React', 'react-dom': 'ReactDOM', 'prop-types': 'PropTypes', preact: 'preact'},
     }
   ],

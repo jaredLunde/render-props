@@ -10,21 +10,32 @@ export default ({
   maxItems,
   onBoundMin,
   onBoundMax,
-  propName,
   ...otherProps
 }) => {
+  let boundOutput = otherProps
+  const boundProps = {onBoundMin, onBoundMax, minItems, maxItems}
   const cbOpt = {
-    [propName]: otherProps[propName],
-    addItem: (...newItems) => boundAddItem(...newItems),
-    deleteItem: (...newItems) => boundDeleteItem(...newItems)
+    items: result.items,
+    addItem: function (...newItems) {
+      boundOutput = boundAddItem(...newItems)(boundOutput, boundProps)
+    },
+    deleteItem: function (...newItems) {
+      boundOutput = boundDeleteItem(...newItems)(boundOutput, boundProps)
+    }
   }
 
   return bound({
-    value: result[propName][result[propName].length !== void 0 ? 'length' : 'size'],
+    value: result.items[result.items.length !== void 0 ? 'length' : 'size'],
     lower: minItems,
     upper: maxItems,
-    outOfLower: () => callIfExists(onBoundMin, cbOpt),
-    outOfUpper: () => callIfExists(onBoundMax, cbOpt),
+    outOfLower: () => {
+      callIfExists(onBoundMin, cbOpt)
+      return boundOutput
+    },
+    outOfUpper: () => {
+      callIfExists(onBoundMax, cbOpt)
+      return boundOutput
+    },
     inBounds: () => result
   })
 }

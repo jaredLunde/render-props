@@ -60,8 +60,14 @@ export default function bound ({
       value: result[axis],
       lower: props[`min${uppercaseAxis}`],
       upper: props[`max${uppercaseAxis}`],
-      outOfUpper: () => callIfExists(props[`onBoundMax${uppercaseAxis}`], cbOpt),
-      outOfLower: () => callIfExists(props[`onBoundMin${uppercaseAxis}`], cbOpt),
+      outOfUpper: () => {
+        callIfExists(props[`onBoundMax${uppercaseAxis}`], cbOpt)
+        return output[axis]
+      },
+      outOfLower: () => {
+        callIfExists(props[`onBoundMin${uppercaseAxis}`], cbOpt)
+        return output[axis]
+      },
       inBounds: () => result[axis]
     })
 

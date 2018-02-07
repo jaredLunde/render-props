@@ -135,3 +135,11 @@ styles to its child components when given events fire. This is incredibly useful
 because browsers recommend that you use this CSS property sparingly, as it's
 a GPU-hog. You should really only be applying it *directly before* the event
 occurs.
+
+_____
+
+**Items** [**`@render-props/items`**](./packages/items)
+
+Components called `Items` and `ItemSet` with a simple interface for adding and
+removing items from arrays and sets while maintaining immutability on those
+arrays and sets, allowing for strict-comparison in child components.

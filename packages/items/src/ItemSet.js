@@ -30,7 +30,7 @@ const OrderedSetOfItems = props => (
           </form>
 
           {
-            items.map(item => (
+            Array.from(items).map(item => (
               <button
                 key={item}
                 className={`
@@ -58,5 +58,9 @@ const OrderedSetOfItems = props => (
 
 
 export default function ({initialItems = new Set(), ...props}) {
+  if (initialItems.size === void 0) {
+    initialItems = new Set(initialItems)
+  }
+
   return React.createElement(Items, {initialItems, ...props})
 }

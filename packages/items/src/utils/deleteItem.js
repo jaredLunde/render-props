@@ -1,8 +1,8 @@
 import bound from './bound'
 
 
-const deleteItem = (...deletedItems) => (state, {propName}) => {
-  let items = state[propName]
+const deleteItem = (...deletedItems) => (state) => {
+  let items = state.items
   const hasHas = items.has !== void 0
 
   if (hasHas) {
@@ -22,13 +22,13 @@ const deleteItem = (...deletedItems) => (state, {propName}) => {
     }
   }
 
-  return {[propName]: items}
+  return {items}
 }
 
 
 export const boundDeleteItem = (...newItems) => (state, props) =>
 bound({
-  result: deleteItem(...newItems)(state, props),
+  result: deleteItem(...newItems)(state),
   ...state,
   ...props
 })

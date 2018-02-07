@@ -7,9 +7,6 @@ import {boundAddItem, boundDeleteItem} from './utils'
 
 export default class Items extends React.PureComponent {
   static propTypes = {
-    // The name of the property passed to the child component representing
-    // the current sequence of items
-    propName: PropTypes.string.isRequired,
     // The initial items in the sequence
     initialItems: PropTypes.oneOfType([
       PropTypes.array,
@@ -41,17 +38,19 @@ export default class Items extends React.PureComponent {
     super(props)
 
     let {initialItems} = props
-    initialItems = initialItems.push !== void 0 ? [] : new Set()
+    if (initialItems.push && initialItems.length === 0) {
+      initialItems = []
+    }
+    else if (initialItems.add && initialItems.size === 0) {
+      initialItems = new Set()
+    }
 
     this.state = {
       ...boundAddItem(...initialItems)(
         {
-          items: initialItems
+          items: initialItems.push ? [] : new Set()
         },
-        {
-          ...props,
-          items: void 0
-        }
+        props
       )
     }
     this.itemsContext = {
@@ -60,27 +59,29 @@ export default class Items extends React.PureComponent {
       setItems: this.setItems,
       clearItems: this.clearItems,
       includes: this.includes,
-      items: initialItems
+      items: this.state.items
+    }
+  }
+
+  componentDidUpdate (_, {items}) {
+    if (items !== this.state.items) {
+      callIfExists(this.props.onChange, this.state.items)
+
+      const lProp = this.state.items.add ? 'size' : 'length'
+      if (this.state.items[lProp] > items[lProp]) {
+        callIfExists(this.props.onAdd, this.state.items)
+      }
+      else if (this.state.items[lProp] < items[lProp])  {
+        callIfExists(this.props.onDelete, this.state.items)
+      }
     }
   }
 
   handleChange = () => callIfExists(this.props.onChange, this.state.items)
 
-  addItem = (...items) => this.setState(
-    boundAddItem(...items),
-    () => {
-      this.handleChange()
-      callIfExists(this.props.onAdd, this.state.items)
-    }
-  )
+  addItem = (...items) => this.setState(boundAddItem(...items))
 
-  deleteItem = (...items) => this.setState(
-    boundDeleteItem(...items),
-    () => {
-      this.handleChange()
-      callIfExists(this.props.onDelete, this.state.items)
-    }
-  )
+  deleteItem = (...items) => this.setState(boundDeleteItem(...items))
 
   clearItems = () => this.setState(
     (state, {minItems}) => {
@@ -97,8 +98,7 @@ export default class Items extends React.PureComponent {
         items: state.items.push !== void 0 ? [] : new Set()
       })
     )
-
-    this.setState(boundAddItem(...newItems), this.handleChange)
+    this.setState(boundAddItem(...newItems))
   }
 
   includes = value => {
