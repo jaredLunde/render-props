@@ -1,0 +1,6 @@
+export boundSetX from './setX'
+export boundSetY from './setY'
+export boundSet from './set'
+export boundMove from './move'
+export boundMoveX from './moveX'
+export boundMoveY from './moveY'
