@@ -1,4 +1,6 @@
-![render-props logo](assets/logo.png)
+<p align=center>
+  ![render-props logo](assets/logo.png)
+</p>
 
 
 # @render-props
