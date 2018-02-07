@@ -12,6 +12,23 @@ function calcPosition (from, to, t) {
 }
 
 
+function calcAny (from, to, t) {
+  let output
+
+  if (typeof from === 'object') {
+    output = Array.isArray(from) ? [] : {}
+
+    for (let key in from) {
+      output[key] = calcPosition(from[key], to[key], t)
+    }
+  }
+  else {
+    output = calcPosition(from, to, t)
+  }
+
+  return output
+}
+
 export default function interpolate (
   fn,
   {
@@ -21,28 +38,19 @@ export default function interpolate (
     timing = linear
   }
 ) {
-  const time = perf.now() + duration
+  const start = perf.now()
+  const time = start + duration
 
   function loop () {
-    const p = perf.now() / time
+    const p = 1 - ((time - perf.now()) / (time - start))
+    const t = timing(p)
 
     if (p <= 1) {
-      const t = timing(p)
       requestAnimationFrame(loop)
-      let output
-
-      if (typeof from === 'object') {
-        output = {}
-
-        for (let key in from) {
-          output[key] = calcPosition(from[key], to[key], t)
-        }
-      }
-      else {
-        output = calcPosition(from, to, t)
-      }
-
-      fn(output)
+      fn(calcAny(from, to, t))
+    }
+    else {
+      fn(calcAny(from, to, t > 1 ? 1 :  t))
     }
   }
 

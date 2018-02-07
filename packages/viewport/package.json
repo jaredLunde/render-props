@@ -1,5 +1,5 @@
 {
-  "version": "0.1.15",
+  "version": "0.1.17",
   "main": "commonjs/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -47,6 +47,7 @@
     "@babel/runtime": "^7.0.0-beta.39",
     "@render-props/events": "^0.1.1",
     "@render-props/rect": "^0.1.0",
+    "@render-props/scrollable": "^0.1.4",
     "@render-props/throttle": "^0.1.2",
     "@render-props/utils": "^0.1.3"
   },

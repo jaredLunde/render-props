@@ -4,7 +4,7 @@ event of its child component and providing valuable data about direction, distan
 and more. It also provides convenience functions for scrollTo with optional animation.
 
 ### Installation
-```yarn add @render-props/size-observer``` or ```npm i @render-props/size-observer```
+```yarn add @render-props/scrollable``` or ```npm i @render-props/scrollable```
 
 ## Usage
 ```js
@@ -131,4 +131,4 @@ ____
     - `0` = had no direction
 - `distance {object: {x <integer>, y <integer>}}`
   - the distance between the latest recorded scroll activity in the frame and
-    the last scroll activity
+    the previous scroll activity

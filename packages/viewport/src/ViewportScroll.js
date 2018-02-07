@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Events from '@render-props/events'
 import throttle from '@render-props/throttle/es/utils/throttle'
+import {getDistance, getDirection, scrollTo} from '@render-props/scrollable/es/utils'
 import {win} from './statics'
 import {viewportQueriesContext} from './ViewportQueries'
 
@@ -51,8 +52,23 @@ export class ViewportScroll extends React.Component {
     super(props)
     props.addEvent(win, 'scroll', this.setScroll)
     this.viewportScrollContext = {
-      scrollTo: win.scrollTo
+      scrollTo: function (x, y, opt) {
+        if (typeof opt !== 'object') {
+          win.scrollTo(x, y)
+        }
+        else {
+          const currentPos = getScroll()
+          
+          scrollTo(
+            win,
+            {x: currentPos.scrollX, y: currentPos.scrollY},
+            {x, y},
+            opt
+          )
+        }
+      }
     }
+    this.prevState = {}
   }
 
   componentWillUnmount () {
@@ -62,14 +78,21 @@ export class ViewportScroll extends React.Component {
   setScroll = throttle(() => this.forceUpdate())
 
   render () {
+    const scroll = getScroll()
+    const prevState = this.prevState
+
     if (this.props.withCoords === true) {
-      const scroll = getScroll()
       this.viewportScrollContext.scrollX = scroll.scrollX
       this.viewportScrollContext.scrollY = scroll.scrollY
+      this.viewportScrollContext.distance = getDistance(prevState, scroll)
+      this.viewportScrollContext.direction = getDirection(prevState, scroll)
     }
     else {
       this.viewportScrollContext.getScroll = getScroll
+      this.viewportScrollContext.getDistance = () => getDistance(prevState, scroll)
+      this.viewportScrollContext.getDirection = () => getDirection(prevState, scroll)
     }
+    this.prevState = scroll
 
     return this.props.children(this.viewportScrollContext)
   }
