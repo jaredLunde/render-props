@@ -90,6 +90,13 @@ API in React 16.3 for ensuring context updates reached their consumers.
 
 _____
 
+**Paragraphs** [**`@render-props/paragraphs`**](./packages/paragraphs)
+
+A component a simple interface for creating paragraphs with line breaks from
+raw text with `\n` new lines.
+
+_____
+
 ### Throttling State
 
 _____
