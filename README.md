@@ -140,7 +140,7 @@ _____
 
 **MousePosition** [**`@render-props/mouse-position`**](./packages/mouse-position)
 
-A component with an and performant interface for tracking
+A component with a performant interface for tracking
 the position of the mouse as it moves around the screen - perfect for UX
 analytic tracking and also in-browser gaming.
 
@@ -158,7 +158,7 @@ _____
 
 **SizeObserver** [**`@render-props/size-observer`**](./packages/size-observer)
 
-A component which provides an interface for constantly querying for
+A component with an interface for constantly querying for
 changes to the size of the referenced element in its child function.
 
 _____
