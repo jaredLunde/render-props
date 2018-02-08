@@ -1,5 +1,9 @@
 <p align=center>
+  <br/>
+  <br/>
   <img src='assets/logo.png'/>
+  <br/>
+  <br/>
 </p>
 
 ______
