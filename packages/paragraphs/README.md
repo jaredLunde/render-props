@@ -1,7 +1,7 @@
 # Paragraphs
-A state container which provides a simple interface for creating paragraphs
-with line breaks from raw text with `\n` new lines. The default render
-child is:
+A function as child component which provides a simple interface for creating
+paragraphs with line breaks from raw text with `\n` new lines. The default
+render child is:
 ```js
 const defaultParagraph = props => <p key={props.key} children={props.text}/>
 ```

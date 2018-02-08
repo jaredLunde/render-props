@@ -82,7 +82,7 @@ const umdConfig = Object.assign({}, baseConfig, {
   ),
   output: [
     {
-      file: './dist/react-paragraphs.js',
+      file: './dist/render-props.paragraphs.js',
       format: 'umd',
       name: 'Paragraphs',
       globals: {react: 'React', 'react-dom': 'ReactDOM', 'prop-types': 'PropTypes', preact: 'preact'},
