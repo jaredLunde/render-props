@@ -24,7 +24,7 @@ function SomeComponent (props) {
     <Toggle initialValue={true}>
       {function (toggleContext) {
         return (
-          <Counter initialValue={6} step={4}>
+          <Counter initialValue={6} initialStep={4}>
             {function (counterContext) {
               const derivedProps = {
                 toggle: toggleContext,
