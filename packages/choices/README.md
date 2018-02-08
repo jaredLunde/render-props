@@ -7,6 +7,7 @@ selections. It does not have to be used with these components, however.
 ### Installation
 ```yarn add @render-props/choices``` or ```npm i @render-props/choices```
 
+### Contents
 - [**`Choices`**](#choices)
   - This main component which must be used
 - [**`Choice`**](#choice)
@@ -138,27 +139,27 @@ ____
 
 ## Render Props
 #### Methods
--`select` `(...items <any choice>)`
+- `select` `(...items <any choice>)`
   - adds one or several selections if they are available in `choices`
--`deselect` `(...items <any selection>)`
+- `deselect` `(...items <any selection>)`
   - removes one or several `selections`
--`toggle` `(item <any choice>)`
+- `toggle` `(item <any choice>)`
   - removes an item if it is in selections, otherwise adds it to selections
--`setSelections` `(items <array|set>)`
+- `setSelections` `(items <array|set>)`
   - sets `selections` to whatever the value of `@items` is
--`clearSelections` `()`
+- `clearSelections` `()`
   - clears all selections
--`isSelected` `(<item>)`
+- `isSelected` `(<item>)`
   - returns `true` if `@item` is in `selections`
 
--`addChoice` `(...items <any choice>)`
+- `addChoice` `(...items <any choice>)`
   - adds one or several `choices`
--`deleteChoice` `(...items <any selection>)`
+- `deleteChoice` `(...items <any selection>)`
   - removes one or several `choices`
--`setChoices` `(items <array|set>)`
+- `setChoices` `(items <array|set>)`
   - sets `choices` to whatever the value of `@items` is
--`clearChoices` `()`
--`isChoice` `(<item>)`
+- `clearChoices` `()`
+- `isChoice` `(<item>)`
   - returns `true` if `@item` is in `choices`
 
 #### State
@@ -179,11 +180,11 @@ _____
 
 ## Render Props
 #### Methods
--`select` `()`
+- `select` `()`
   - selects this choice in `Choices`
--`deselect` `()`
+- `deselect` `()`
   - deselects this choice from `selections`
--`toggle` `()`
+- `toggle` `()`
   - either selects or deselects this choice
 
 #### State
