@@ -213,6 +213,10 @@ _____
 A utility for flattening nested render props component calls safely and
 in a way that doesn't take a huge performance hit.
 ```js
+import compose from '@render-props/compose'
+import Toggle from '@render-props/toggle'
+import Counter from '@render-props/counter'
+
 const Composed = compose({
   toggle: Toggle,
   counter: Counter
