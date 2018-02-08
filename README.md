@@ -15,14 +15,14 @@ https://www.npmjs.com/org/render-props
 - [**General Purpose**](#general-purpose)
 - [**Throttling State**](#throttling-state)
 - [**DOM**](#dom)
-  - [**Mouse**](#mouse)
+  - [**Mouse Events**](#mouse-events)
   - [**Sizing**](#sizing)
-  - [**Scrolling + Window**](#scrolling-window)
+  - [**Scrolling + Window**](#scrolling--window)
   - [**Styles**](#styles)
-  
+
 ______
 
-### General purpose
+### General Purpose
 
 ______
 
@@ -106,7 +106,7 @@ _____
 
 _____
 
-#### Mouse
+#### Mouse Events
 _____
 
 **Click** [**`@render-props/click`**](./packages/click)
