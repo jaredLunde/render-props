@@ -54,5 +54,20 @@
   "peerDependencies": {
     "prop-types": "^15.6.0",
     "react": "^16.3.0-alpha"
-  }
+  },
+  "keywords": [
+    "react",
+    "render props",
+    "function as child",
+    "hoc",
+    "state container",
+    "viewport",
+    "window",
+    "window size",
+    "window scroll",
+    "window orientation",
+    "viewport size",
+    "viewport scroll",
+    "viewport orientation"
+  ]
 }

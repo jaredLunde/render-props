@@ -53,5 +53,14 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/jaredlunde/render-props/tree/master/packages/throttle"
-  }
+  },
+  "keywords": [
+    "react",
+    "render props",
+    "function as child",
+    "hoc",
+    "state container",
+    "throttle",
+    "requestAnimationFrame"
+  ]
 }

@@ -50,5 +50,14 @@
   "peerDependencies": {
     "prop-types": "^15.6.0",
     "react": "^16.2.0"
-  }
+  },
+  "keywords": [
+    "react",
+    "render props",
+    "function as child",
+    "hoc",
+    "state container",
+    "size observer",
+    "observer"
+  ]
 }

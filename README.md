@@ -143,3 +143,12 @@ _____
 Components called `Items` and `ItemSet` with a simple interface for adding and
 removing items from arrays and sets while maintaining immutability on those
 arrays and sets, allowing for strict-comparison in child components.
+
+_____
+
+**Choices** [**`@render-props/choices`**](./packages/choices)
+
+Components that provides a simple interface for making selections from
+a group of choices. The `Choices` component itself is a context provider which
+can be used with the `Choice` and `ChoicesConsumer` components for deep-tree
+selections. It does not have to be used with these components, however.

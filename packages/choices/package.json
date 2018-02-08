@@ -1,5 +1,5 @@
 {
-  "version": "0.1.3",
+  "version": "0.1.2",
   "main": "commonjs/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -18,8 +18,8 @@
   "sideEffects": false,
   "analyze": true,
   "license": "MIT",
-  "repository": "https://github.com/jaredlunde/render-props/tree/master/packages/point",
-  "name": "@render-props/point",
+  "repository": "https://github.com/jaredlunde/render-props/tree/master/packages/choices",
+  "name": "@render-props/choices",
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.39",
     "@babel/core": "^7.0.0-beta.39",
@@ -45,7 +45,10 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.39",
-    "@render-props/utils": "^0.1.4"
+    "@render-props/items": "^0.1.8",
+    "@render-props/utils": "^0.1.8",
+    "fast-memoize": "^2.3.0",
+    "invariant": "^2.2.2"
   },
   "peerDependencies": {
     "prop-types": "^15.6.0",
@@ -55,9 +58,9 @@
     "react",
     "render props",
     "function as child",
-    "hoc",
     "state container",
-    "point",
-    "coordinate"
+    "hoc",
+    "selections",
+    "choices"
   ]
 }
