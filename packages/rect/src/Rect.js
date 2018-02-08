@@ -27,7 +27,7 @@ import Rect from '@render-props/rect'
 class Rect_ extends React.Component {
   static displayName = 'Rect'
   static propTypes = {
-    children: PropTypes.function.isRequired,
+    children: PropTypes.func.isRequired,
     recalcOnWindowResize: PropTypes.bool,
     withCoords: PropTypes.bool
   }

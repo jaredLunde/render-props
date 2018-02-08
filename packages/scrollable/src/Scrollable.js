@@ -83,6 +83,7 @@ const initialState = {
 export class Scrollable_ extends React.Component {
   static displayName = 'Scrollable'
   static propTypes = {
+    children: PropTypes.func.isRequired,
     onScroll: PropTypes.func,
     initialX: PropTypes.number,
     initialY: PropTypes.number

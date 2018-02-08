@@ -55,6 +55,7 @@ const initialState = {
 
 export class MousePosition_ extends React.Component {
   static propTypes = {
+    children: PropTypes.func.isRequired,
     enterDelay: PropTypes.number,
     leaveDelay: PropTypes.number,
     onMove: PropTypes.func,

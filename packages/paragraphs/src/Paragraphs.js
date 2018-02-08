@@ -35,7 +35,7 @@ export default function Paragraphs (props) {
   return paragraphs
 }
 
-Paragraphs.PropTypes = {
+Paragraphs.propTypes = {
   text: PropTypes.string.isRequired,
   children: PropTypes.func.isRequired
 }

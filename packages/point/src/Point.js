@@ -44,6 +44,7 @@ function MovablePoint (props) {
 
 export default class Point extends React.Component {
   static propTypes = {
+    children: PropTypes.func.isRequired,
     initialX: PropTypes.number.isRequired,
     initialY: PropTypes.number.isRequired,
     minX: PropTypes.number,

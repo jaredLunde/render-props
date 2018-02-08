@@ -36,6 +36,7 @@ const Likes = props => (
 class Counter_ extends React.Component {
   static displayName = 'Counter'
   static propTypes = {
+    children: PropTypes.func.isRequired,
     minValue: PropTypes.number,
     maxValue: PropTypes.number,
     onBoundMin: PropTypes.func,

@@ -5,6 +5,7 @@ import ChoicesContext from './ChoicesContext'
 
 class Choice extends React.Component {
   static propTypes = {
+    children: PropTypes.func.isRequired,
     value: PropTypes.any.isRequired
   }
 

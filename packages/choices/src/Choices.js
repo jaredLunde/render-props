@@ -126,6 +126,7 @@ export default function Choices (props) {
 
 
 Choices.propTypes = {
+  children: PropTypes.func.isRequired,
   // choices
   initialChoices: PropTypes.oneOfType([PropTypes.array, PropTypes.instanceOf(Set)]),
   minChoices: PropTypes.number,

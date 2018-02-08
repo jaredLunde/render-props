@@ -7,6 +7,7 @@ import {boundAddItem, boundDeleteItem} from './utils'
 
 export default class Items extends React.PureComponent {
   static propTypes = {
+    children: PropTypes.func.isRequired,
     // The initial items in the sequence
     initialItems: PropTypes.oneOfType([
       PropTypes.array,

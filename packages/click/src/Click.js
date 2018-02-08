@@ -102,6 +102,7 @@ export const CLICK_TYPES = {
 class Click_ extends React.Component {
   static displayName = 'Click'
   static propTypes = {
+    children: PropTypes.func.isRequired,
     clickTypes: PropTypes.array,
     // Click Types
     single: PropTypes.bool,

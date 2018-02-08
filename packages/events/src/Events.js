@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 export default class Events extends React.Component {
   static propTypes = {
-    children: PropTypes.function.isRequired,
+    children: PropTypes.func.isRequired,
   }
   listeners = []
 

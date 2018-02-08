@@ -1,9 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {loadImage} from './utils'
 import getOrientation from '@render-props/viewport/es/utils/getOrientation'
 
 
 export default class ImageProps extends React.Component {
+  static propTypes = {
+    children: PropTypes.func.isRequired,
+  }
+  
   constructor (props) {
     super(props)
     this.element = null

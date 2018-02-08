@@ -27,6 +27,7 @@ export const canHover = !(window.matchMedia('(hover: none)').matches)
 
 class Hover_ extends React.Component {
   static propTypes = {
+    children: PropTypes.func.isRequired,
     enterDelay: PropTypes.number,
     leaveDelay: PropTypes.number,
     on: PropTypes.func.isRequired,
