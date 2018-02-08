@@ -146,9 +146,8 @@ ____
   - sets `selections` to whatever the value of `@items` is
 - `clearSelections` `()`
   - clears all selections
-- `isSelected` `(<item>)`
+- `isSelected` `(item <any>)`
   - returns `true` if `@item` is in `selections`
-
 - `addChoice` `(...items <any choice>)`
   - adds one or several `choices`
 - `deleteChoice` `(...items <any selection>)`
@@ -156,7 +155,8 @@ ____
 - `setChoices` `(items <array|set>)`
   - sets `choices` to whatever the value of `@items` is
 - `clearChoices` `()`
-- `isChoice` `(<item>)`
+  - clears all choices
+- `isChoice` `(item <any>)`
   - returns `true` if `@item` is in `choices`
 
 #### State

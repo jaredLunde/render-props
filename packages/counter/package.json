@@ -1,5 +1,5 @@
 {
-  "version": "0.1.8",
+  "version": "0.1.9",
   "main": "commonjs/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -45,8 +45,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.39",
-    "@render-props/utils": "^0.1.4",
-    "@render-props/value": "^0.1.14"
+    "@render-props/utils": "^0.1.9",
+    "@render-props/value": "^0.1.15"
   },
   "peerDependencies": {
     "prop-types": "^15.6.0",
