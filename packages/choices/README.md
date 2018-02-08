@@ -59,26 +59,25 @@ const PetsControl = ({
     <span>
       Number of favorites: {selections.size}
     </span>
-    {
-      Array.from(choices).map(pet => (
-        <Choice key={pet} value={pet}>
-          {function ({select, deselect, toggle, isSelected}) {
-            return  (
-              <button
-                onClick={toggle}
-                style={
-                  isSelected
-                    ? {backgroundColor: 'green'}
-                    : {backgroundColor: 'grey'}
-                }
-              >
-                {pet}
-              </button>
-            )
-          }}
-        </Choice>
-      ))
-    }
+    
+    {Array.from(choices).map(pet => (
+      <Choice key={pet} value={pet}>
+        {function ({select, deselect, toggle, isSelected}) {
+          return  (
+            <button
+              onClick={toggle}
+              style={
+                isSelected
+                  ? {backgroundColor: 'green'}
+                  : {backgroundColor: 'grey'}
+              }
+            >
+              {pet}
+            </button>
+          )
+        }}
+      </Choice>
+    ))}
   </div>
 )
 ```
