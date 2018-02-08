@@ -59,7 +59,7 @@ const PetsControl = ({
     <span>
       Number of favorites: {selections.size}
     </span>
-    
+
     {Array.from(choices).map(pet => (
       <Choice key={pet} value={pet}>
         {function ({select, deselect, toggle, isSelected}) {
@@ -178,11 +178,13 @@ _____
 ## Render Props
 #### Methods
 - `select` `()`
-  - selects this choice in `Choices`
+  - selects this choice from `choices`
 - `deselect` `()`
   - deselects this choice from `selections`
 - `toggle` `()`
-  - either selects or deselects this choice
+  - selects if `isSelected`, otherwise deselects
+- `delete` `()`
+  - deletes this choice from `choices` and `selections`
 
 #### State
 - `isSelected {bool>}`

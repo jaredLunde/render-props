@@ -14,6 +14,7 @@ class Choice extends React.Component {
       select: this.select,
       deselect: this.deselect,
       toggle: this.toggle,
+      delete: this.delete,
       isSelected: this.props.isSelected(props.value),
     }
   }
@@ -21,6 +22,7 @@ class Choice extends React.Component {
   select = () => this.props.select(this.props.value)
   deselect = () => this.props.deselect(this.props.value)
   toggle = () => this.props.toggle(this.props.value)
+  delete = () => this.props.deleteChoice(this.props.value)
 
   render () {
     this.choiceContext.isSelected = this.props.isSelected(this.props.value)
