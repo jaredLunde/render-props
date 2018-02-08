@@ -44,33 +44,31 @@ function SomeComponent (props) {
   return (
     <ToggleCounter
       toggle={{initialValue: true}}
-      counter={{initialValue: 6, step: 4}}
+      counter={{initialValue: 6, initialStep: 4}}
     >
-      ({toggle, counter}) => (
-        return (
+      {({toggle, counter}) => (
+        <div>
           <div>
-            <div>
-              Toggle value: {toggle.value}
+            Toggle value: {JSON.stringify(toggle.value)}
 
-              <button onClick={toggle}>
-                Toggle me to {toggle.value === true ? 'false' : 'true'}
-              </button>
-            </div>
-
-            <div>
-              Counter value: {counter.value}
-
-              <button onClick={counter.incr}>
-                incr() me by {counter.step}
-              </button>
-
-              <button onClick={counter.decr}>
-                decr() me by {counter.step}
-              </button>
-            </div>
+            <button onClick={toggle.toggle}>
+              Toggle me to {toggle.value === true ? 'false' : 'true'}
+            </button>
           </div>
-        )
-      )
+
+          <div>
+            Counter value: {counter.value}
+
+            <button onClick={counter.incr}>
+              incr() me by {counter.step}
+            </button>
+
+            <button onClick={counter.decr}>
+              decr() me by {counter.step}
+            </button>
+          </div>
+        </div>
+      )}
     </ToggleCounter>
   )
 }
