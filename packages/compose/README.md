@@ -17,6 +17,30 @@ import Counter from '@render-props/counter'
 const ToggleCounter = compose({toggle: Toggle, counter: Counter})
 
 function SomeComponent (props) {
+  /**
+  This is the same as:
+
+  function SomeComponent (props) {
+    <Toggle initialValue={true}>
+      {function (toggleContext) {
+        return (
+          <Counter initialValue={6} step={4}>
+            {function (counterContext) {
+              const derivedProps = {
+                toggle: toggleContext,
+                counter: counterContext
+              }
+
+              return (
+                ...
+              )
+            }}
+          </Counter>
+        )
+      }}
+    </Toggle>
+  }
+  **/
   return (
     <ToggleCounter
       toggle={{initialValue: true}}
