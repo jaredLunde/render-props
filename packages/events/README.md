@@ -1,6 +1,6 @@
 # Events
 A state container which provides a simple interface for managing event listeners
-in its children. This component will automatically clean up all of its
+in its children. This component will automatically garbage collect all of its
 registered listeners on unmount.
 
 

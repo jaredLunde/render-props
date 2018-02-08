@@ -75,7 +75,7 @@ class Rect_ extends React.Component {
   render () {
     const props = this.rectContext
 
-    if (withCoords === true) {
+    if (this.props.withCoords === true) {
       props.top = this.state.top
       props.right = this.state.right
       props.bottom = this.state.bottom

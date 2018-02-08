@@ -23,6 +23,7 @@ https://www.npmjs.com/org/render-props
   - [**Sizing**](#sizing)
   - [**Scrolling + Window**](#scrolling--window)
   - [**Styles**](#styles)
+- [**Utils**](#utils)
 
 ______
 
@@ -47,7 +48,7 @@ _____
 **Events** [**`@render-props/events`**](./packages/events)
 
 A component with a simple interface for managing events registered by its child
-components. This component will automatically 'clean up' listeners when it
+components. This component will automatically 'garbage collect' listeners when it
 unmounts.
 
 _____
@@ -200,3 +201,27 @@ styles to its child components when given events fire. This is incredibly useful
 because browsers recommend that you use this CSS property sparingly, as it's
 a GPU-hog. You should really only be applying it *directly before* the event
 occurs.
+
+_____
+
+#### Utils
+
+_____
+
+**compose** [**`@render-props/compose`**](./packages/compose)
+
+A utility for flattening nested render props component calls safely and
+in a way that doesn't take a huge performance hit.
+```js
+const Composed = compose({
+  toggle: Toggle,
+  counter: Counter
+})
+
+<Composed toggle={yourToggleProps} counter={yourCounterProps}>
+  {function ({toggle, counter}) {
+    // toggle = render props returned by the Toggle component
+    // counter = render props returned by the Counter component
+  }}
+</Composed>
+```
