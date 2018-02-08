@@ -14,9 +14,8 @@ import WillChange from '@render-props/will-change'
 
 
 const WillChangeButton = props => (
-  <WillChange properties={['padding', 'background-color']} onHover>
+  <WillChange properties={['padding', 'font-size']} onHover>
     {({
-      hoverableRef,
       willChangeRef,
       willChange,
       style
@@ -87,7 +86,8 @@ ____
 
 #### Methods
 - `willChange` `()`
-  - turns on the `will-change` style property, regardless of events firing
+  - turns on the `will-change` style property, regardless of prop-defined
+    events firing
     ```js
     <WillChange properties={['background-color']}>
       {({willChange}) => <div onClick={willChange}/>}
