@@ -14,7 +14,7 @@ const Composed = compose({
   counter: Counter
 })
 
-<Composed toggle={yourToggleProps} counter={yourCounterProps}>
+<Composed toggle={propsPassedToToggle} counter={propsPassedToCounter}>
   {function ({toggle, counter}) {
     // toggle = render props returned by the Toggle component
     // counter = render props returned by the Counter component
