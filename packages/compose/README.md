@@ -1,9 +1,26 @@
 # compose ()
-A utility for flattening nested render props component calls safely and
-in a way that doesn't take a huge performance hit.
+A utility for flattening nested render props (function as child) component calls
+safely and in a way that doesn't take a huge performance hit.
 
 ### Installation
 ```yarn add @render-props/compose``` or ```npm i @render-props/compose```
+
+____
+
+## `compose(Components <object {propName: Component}>)`
+```js
+const Composed = compose({
+  toggle: Toggle,
+  counter: Counter
+})
+
+<Composed toggle={yourToggleProps} counter={yourCounterProps}>
+  {function ({toggle, counter}) {
+    // toggle = render props returned by the Toggle component
+    // counter = render props returned by the Counter component
+  }}
+</Composed>
+```
 
 ____
 
@@ -72,23 +89,4 @@ function SomeComponent (props) {
     </ToggleCounter>
   )
 }
-```
-
-____
-
-## `compose(Components <object {propName: Component}>)`
-Given an object `{toggle: Toggle, counter: Counter}`, you would compose the
-component as such:
-```js
-const Composed = compose({
-  toggle: Toggle,
-  counter: Counter
-})
-
-<Composed toggle={yourToggleProps} counter={yourCounterProps}>
-  {function ({toggle, counter}) {
-    // toggle = render props returned by the Toggle component
-    // counter = render props returned by the Counter component
-  }}
-</Composed>
 ```
