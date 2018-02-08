@@ -1,5 +1,5 @@
 # Items
-A state container which provides a simple interface for adding and removing
+A state container which provides an interface for adding and removing
 items from simple arrays and sets while maintaining immutability on those
 arrays and sets, allowing for strict-comparison in child components.
 

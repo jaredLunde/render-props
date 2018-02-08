@@ -1,5 +1,5 @@
 # Value
-A state container which provides a simple interface for setting single
+A state container which provides an interface for setting single
 values.
 
 

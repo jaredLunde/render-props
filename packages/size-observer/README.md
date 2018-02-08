@@ -1,5 +1,5 @@
 # SizeObserver
-A state container which provides a simple interface for constantly querying for
+A state container which provides an interface for constantly querying for
 changes to the size of the referenced element in its child function.
 
 ### Installation

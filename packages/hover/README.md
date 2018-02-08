@@ -1,5 +1,5 @@
 # Hover
-A state container which provides a simple interface for listening to hover
+A state container which provides an interface for listening to hover
 events on child components. The state of this component will only update if
 the device being used supports hover according to
 `!(window.matchMedia('(hover: none)').matches)`

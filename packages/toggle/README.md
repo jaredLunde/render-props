@@ -1,5 +1,5 @@
 # Toggle
-A state container which provides a simple interface for toggling between two
+A state container which provides an interface for toggling between two
 values.
 
 

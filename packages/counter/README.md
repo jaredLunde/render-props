@@ -1,5 +1,5 @@
 # Counter
-A state container which provides a simple interface for bound-value counting.
+A state container which provides an interface for bound-value counting.
 
 ### Installation
 ```yarn add @render-props/counter``` or ```npm i @render-props/counter```

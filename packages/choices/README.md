@@ -1,5 +1,5 @@
 # Choices
-A state container which provides a simple interface for making selections from
+A state container which provides an interface for making selections from
 a group of choices. The `Choices` component itself is a context provider which
 can be used with the `Choice` and `ChoicesConsumer` components for deep-tree
 selections. It does not have to be used with these components, however.

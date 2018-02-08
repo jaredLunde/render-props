@@ -1,5 +1,5 @@
 # Scrollable
-A state container which provides a simple interface for listening to the scroll
+A state container which provides an interface for listening to the scroll
 event of its child component and providing valuable data about direction, distance,
 and more. It also provides convenience functions for scrollTo with optional animation.
 

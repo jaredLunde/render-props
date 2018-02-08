@@ -1,5 +1,5 @@
 # WillChange
-A state container which provides a simple interface for applying CSS `will-change`
+A state container which provides an interface for applying CSS `will-change`
 styles to its child components when given events fire. This is incredibly useful
 because browsers recommend that you use this CSS property sparingly, as it's
 a GPU-hog. You should really only be applying it *directly before* the event

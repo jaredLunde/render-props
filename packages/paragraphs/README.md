@@ -1,5 +1,5 @@
 # Paragraphs
-A function as child component which provides a simple interface for creating
+A function as child component which provides an interface for creating
 paragraphs with line breaks from raw text with `\n` new lines. The default
 render child is:
 ```js

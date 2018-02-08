@@ -1,5 +1,5 @@
 # ImageProps
-A state container which provides a simple interface for getting the natural size,
+A state container which provides an interface for getting the natural size,
 rendered size and orientation from `<img>` elements.
 
 ### Installation

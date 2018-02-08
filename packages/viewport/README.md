@@ -1,5 +1,5 @@
 # Viewport
-State containers which provide a simple interface for listening and responding
+State containers which provide an interface for listening and responding
 to window events in a scalable fashion.
 
 
@@ -422,7 +422,7 @@ ____
     const cubicIn = x => x * x * x
     scrollTo(0, 250, {timing: cubicIn, duration: 400})
     ```
-    
+
 #### State
 Note: these are only provided if `withCoords` is `true`.
 

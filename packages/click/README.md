@@ -1,5 +1,5 @@
 # Click
-A state container which provides a simple interface for targeting specific
+A state container which provides an interface for targeting specific
 types of click events (e.g. double-click) and extracting rich stats about click
 position within the client, window, etc. making it perfect for UX analytics work.
 

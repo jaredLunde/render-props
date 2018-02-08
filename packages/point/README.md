@@ -1,5 +1,5 @@
 # Point
-A state container which provides a simple interface for setting and moving
+A state container which provides an interface for setting and moving
 coordinate `{x, y}` values.
 
 

@@ -1,5 +1,5 @@
 # Events
-A state container which provides a simple interface for managing event listeners
+A state container which provides an interface for managing event listeners
 in its children. This component will automatically garbage collect all of its
 registered listeners on unmount.
 

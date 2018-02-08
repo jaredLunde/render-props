@@ -1,5 +1,5 @@
 # MousePosition
-A state container which provides a simple and performant interface for tracking
+A state container which provides an and performant interface for tracking
 the position of the mouse as it moves around the screen - perfect for UX
 analytic tracking and also in-browser gaming.
 

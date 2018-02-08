@@ -1,5 +1,5 @@
 # Rect
-A state container which provides a simple interface for retrieving the bounding
+A state container which provides an interface for retrieving the bounding
 client rect of a referenced element. The bounding client rect will update
 each time the window resizes - a behavior which can be turned off by setting
 the prop `recalcOnWindowResize` to `false`. It doesn't provide values for `x` and
