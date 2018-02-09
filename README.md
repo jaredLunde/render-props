@@ -36,14 +36,12 @@ ______
 A component with an interface for setting, clearing and resetting values
 in a controlled or uncontrolled setting.
 
-_____
 
 **Toggle** [**`@render-props/toggle`**](./packages/toggle)
 
 A component with an interface for toggling values between on/off states
 in a controlled or uncontrolled setting.
 
-_____
 
 **Events** [**`@render-props/events`**](./packages/events)
 
@@ -51,20 +49,17 @@ A component with an interface for managing events registered by its child
 components. This component will automatically 'garbage collect' listeners when it
 unmounts.
 
-_____
 
 **Counter** [**`@render-props/counter`**](./packages/counter)
 
 A component with an interface for bound-value counting.
 
-_____
 
 **Point** [**`@render-props/point`**](./packages/point)
 
 A component with an interface for setting and moving coordinate `{x, y}`
 values.
 
-_____
 
 **Items** [**`@render-props/items`**](./packages/items)
 
@@ -72,7 +67,6 @@ Components called `Items` and `ItemSet` with an interface for adding and
 removing items from arrays and sets while maintaining immutability on those
 arrays and sets, allowing for strict-comparison in child components.
 
-_____
 
 **Choices** [**`@render-props/choices`**](./packages/choices)
 
@@ -81,7 +75,6 @@ a group of choices. The `Choices` component itself is a context provider which
 can be used with the `Choice` and `ChoicesConsumer` components for deep-tree
 selections. It does not have to be used with these components, however.
 
-_____
 
 **Subscriptions** [**`@render-props/subscriptions`**](./packages/subscriptions)
 
@@ -89,7 +82,6 @@ A component for communicating changes to the state of one component to
 another component(s). This was much more useful before the React.createContext
 API in React 16.3 for ensuring context updates reached their consumers.
 
-_____
 
 **Paragraphs** [**`@render-props/paragraphs`**](./packages/paragraphs)
 
@@ -106,7 +98,6 @@ _____
 
 A component for throttling state changes with requestAnimationFrame
 
-_____
 
 **Debounce** [**`@render-props/debounce`**](./packages/debounce)
 
@@ -128,7 +119,6 @@ A component with an interface for targeting specific types of click events
 client, window, etc. making it perfect for UX analytics work and in-browser
 gaming.
 
-_____
 
 **Hover** [**`@render-props/hover`**](./packages/hover)
 
@@ -136,7 +126,6 @@ A component with an interface for listening to hover events on child
 components. The state of this component will only update if the device being
 used supports hover according to `!(window.matchMedia('(hover: none)').matches)`
 
-_____
 
 **MousePosition** [**`@render-props/mouse-position`**](./packages/mouse-position)
 
@@ -154,14 +143,12 @@ _____
 
 A component with an interface for retrieving the `DOMRect` of an element.
 
-_____
 
 **SizeObserver** [**`@render-props/size-observer`**](./packages/size-observer)
 
 A component with an interface for constantly querying for
 changes to the size of the referenced element in its child function.
 
-_____
 
 **ImageProps** [**`@render-props/image-props`**](./packages/image-props)
 
@@ -180,7 +167,6 @@ _____
 Multiple components for listening and responding to viewport events in a
 scalable fashion.
 
-_____
 
 **Scrollable** [**`@render-props/scrollable`**](./packages/scrollable)
 
