@@ -42,7 +42,7 @@ Outputs:
 <p className='margin--b3'>
   bar
 </p>
-<p className='margin--b3'>
+<p className='margin--b0'>
   baz
   <br/>
   boz
