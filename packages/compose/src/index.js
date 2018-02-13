@@ -29,7 +29,7 @@ export default function compose (Components) {
         const nextProps = props[key]
         return React.createElement(
           Component,
-          typeof nextProps === 'function' ? nextProps(renderProps) : nextProps,
+          typeof nextProps === 'function' ? nextProps(derivedProps) : nextProps,
           PrevComponent
         )
       }
