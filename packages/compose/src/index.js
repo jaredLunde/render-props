@@ -2,9 +2,9 @@ import React from 'react'
 import getDisplayName from 'react-display-name'
 
 
-export default function (Components) {
+export default function compose (Components) {
   let x
-  const componentKeys = Object.keys(Components)
+  const componentKeys = Object.getOwnPropertyNames(Components)
   const maxIdx = componentKeys.length - 1
 
   function Output (props) {
@@ -26,7 +26,12 @@ export default function (Components) {
           derivedProps[prevKey] = renderProps
         }
 
-        return React.createElement(Component, props[key], PrevComponent)
+        const nextProps = props[key]
+        return React.createElement(
+          Component,
+          typeof nextProps === 'function' ? nextProps(renderProps) : nextProps,
+          PrevComponent
+        )
       }
     }
 

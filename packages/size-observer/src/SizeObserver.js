@@ -63,9 +63,9 @@ export default class SizeObserver extends React.Component {
       let newWidth, newHeight
 
       if (this.props.useBoundingRect) {
-        let rect = rect(this.element)
-        newWidth = rect.width
-        newHeight = rect.height
+        let r = rect(this.element)
+        newWidth = r.width
+        newHeight = r.height
       } else {
         newWidth = this.element.offsetWidth
         newHeight = this.element.offsetHeight
@@ -80,7 +80,7 @@ export default class SizeObserver extends React.Component {
   )
 
   element = null
-  sizeRef = element =>  this.element = element
+  sizeRef = element => this.element = element
 
   render () {
     this.sizeObserverContext.width = this.state.width

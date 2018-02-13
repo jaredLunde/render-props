@@ -9,12 +9,32 @@ ____
 
 ## `compose(Components <object {propName: Component}>)`
 ```js
+// the order is important because render props from Toggle will only
+// be available in a Counter prop callback if Toggle is defined before
+// Counter in the composition
 const Composed = compose({
-  toggle: Toggle,
-  counter: Counter
+  toggle: Toggle,  // cannot receive render props from Counter
+  counter: Counter // can receive render props from Toggle
 })
 
+// Plain objects as props
 <Composed toggle={propsPassedToToggle} counter={propsPassedToCounter}>
+  {function ({toggle, counter}) {
+    // toggle = render props returned by the Toggle component
+    // counter = render props returned by the Counter component
+  }}
+</Composed>
+
+// Function as props
+<Composed
+  toggle={propsPassedToToggle/*plain object*/}
+  counter={
+    ({toggle/*render props returned by Toggle component*/}) => ({
+      initialValue: toggle.value ? 0 : 1,
+      ...otherCounterProps
+    })
+  }
+>
   {function ({toggle, counter}) {
     // toggle = render props returned by the Toggle component
     // counter = render props returned by the Counter component
@@ -41,7 +61,7 @@ function SomeComponent (props) {
     <Toggle initialValue={true}>
       {function (toggleContext) {
         return (
-          <Counter initialValue={6} initialStep={4}>
+          <Counter initialValue={toggleContext.value ? 6 : 0} initialStep={4}>
             {function (counterContext) {
               const derivedProps = {
                 toggle: toggleContext,
@@ -61,7 +81,7 @@ function SomeComponent (props) {
   return (
     <ToggleCounter
       toggle={{initialValue: true}}
-      counter={{initialValue: 6, initialStep: 4}}
+      counter={({toggle}) => ({initialValue: toggle.value ? 6 : 0, initialStep: 4})}
     >
       {({toggle, counter}) => (
         <div>
