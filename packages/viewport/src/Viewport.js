@@ -76,6 +76,7 @@ export default function Viewport ({children, withCoords}) {
         // scroll position, viewport queries
         withCoords,
         children: function (scrollContext) {
+          // glue
           if (
             scrollContext.scrollY !== prevContext.scrollY
             || orientationContext.aspect !== prevContext.aspect
@@ -86,15 +87,15 @@ export default function Viewport ({children, withCoords}) {
             prevContext = mutableContext
             mutableContext = {}
           }
-          // glue
-          const renderProps = Object.assign(
-            mutableContext, // see first comment
-            viewportQueriesContext, // inView, inFullView, etc.
-            orientationContext,
-            scrollContext
-          )
 
-          return children(renderProps)
+          return children(
+            Object.assign(
+              mutableContext, // see first comment
+              viewportQueriesContext, // inView, inFullView, etc.
+              orientationContext,
+              scrollContext
+            )
+          )
         }
       })
     }

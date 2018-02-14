@@ -5,11 +5,7 @@ import Viewport from './Viewport'
 import ViewportContext from './ViewportContext'
 
 
-const emptyObj = {}
-
 export default function ViewportProvider (props) {
-  let prevContext = emptyObj
-
   return Viewport({
     children: function (context) {
       return (

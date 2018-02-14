@@ -26,12 +26,10 @@ export default function compose (Components) {
           derivedProps[prevKey] = renderProps
         }
 
-        const nextProps = props[key]
-        return React.createElement(
-          Component,
-          typeof nextProps === 'function' ? nextProps(derivedProps) : nextProps,
-          PrevComponent
-        )
+        let nextProps = props[key]
+        nextProps = typeof nextProps === 'function' ? nextProps(derivedProps) : nextProps
+
+        return React.createElement(Component, nextProps, PrevComponent)
       }
     }
 
