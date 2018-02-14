@@ -40,13 +40,15 @@ export default function compose (Components) {
     let componentNames = ''
 
     for (x = 0; x <= maxIdx; x++) {
-      componentNames += getDisplayName(Components[componentKeys[x]])
+      const key = componentKeys[x]
+      componentNames += `${key}: ${getDisplayName(Components[key])}`
+      
       if (x !== maxIdx) {
         componentNames += ', '
       }
     }
 
-    Output.displayName = `compose(${componentNames})`
+    Output.displayName = `compose({${componentNames}})`
   }
 
   return Output

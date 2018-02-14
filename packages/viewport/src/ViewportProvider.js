@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import strictShallowEqual from '@render-props/utils/es/strictShallowEqual'
 import Viewport from './Viewport'
 import ViewportContext from './ViewportContext'
 
