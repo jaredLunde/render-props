@@ -85,8 +85,12 @@ export class ViewportScroll_ extends React.Component {
     if (this.props.withCoords === true) {
       this.viewportScrollContext.scrollX = scroll.scrollX
       this.viewportScrollContext.scrollY = scroll.scrollY
-      this.viewportScrollContext.distance = getDistance(prevState, scroll)
-      this.viewportScrollContext.direction = getDirection(prevState, scroll)
+      const distance = getDistance(prevState, scroll)
+      const direction = getDirection(prevState, scroll)
+      this.viewportScrollContext.distance = distance
+      this.viewportScrollContext.direction = direction
+      scroll.distance = distance
+      scroll.direction = direction
     }
     else {
       this.viewportScrollContext.getScroll = getScroll
