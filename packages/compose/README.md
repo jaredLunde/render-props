@@ -7,7 +7,7 @@ safely and in a way that doesn't take a huge performance hit.
 
 ____
 
-## `compose(Components <object {propName: Component}>)`
+#### `compose(Components <object {propName: Component}>)`
 ```js
 // the order is important because render props from Toggle will only
 // be available in a Counter prop callback if Toggle is defined before
