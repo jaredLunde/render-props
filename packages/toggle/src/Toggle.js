@@ -41,11 +41,10 @@ export default function Toggle (props) {
   const onValue = props.onValue === void 0 ? true : props.onValue
   const offValue = props.offValue === void 0 ? false : props.offValue
 
-  const initialValue = (
+  const initialValue =
     props.value === void 0
       ? (props.initialValue === void 0 ? onValue : props.initialValue)
       : void 0
-  )
 
   if (__DEV__) {
     if (
@@ -71,15 +70,13 @@ export default function Toggle (props) {
       value={props.value}
       onChange={props.onChange}
     >
-      {function ({value, setValue, resetValue}) {
-        return props.children({
-          value,
-          on: () => setValue(onValue),
-          off: () => setValue(offValue),
-          toggle: () => setValue(toggleValues),
-          reset: resetValue
-        })
-      }}
+      {({value, setValue, resetValue}) => props.children({
+        value,
+        on: () => setValue(onValue),
+        off: () => setValue(offValue),
+        toggle: () => setValue(toggleValues),
+        reset: resetValue
+      })}
     </Value>
   )
 }

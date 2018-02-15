@@ -6,7 +6,6 @@ import callIfExists from '@render-props/utils/es/callIfExists'
 /**
 import Value from '@render-props/value'
 
-
 function ValueSetter () {
   return (
     <Value initialValue='foo'>
@@ -32,11 +31,11 @@ function ValueSetter () {
 
 
 function maybeSetValue (value) {
-  function maybeSetValue_ (prevState, props) {
+  return function (prevState, props) {
     if (props.value === void 0) {
       let nextValue = value
 
-      if (typeof nextValue === 'function') {
+      if (typeof value === 'function') {
         nextValue = value(prevState.value, props)
       }
 
@@ -47,7 +46,7 @@ function maybeSetValue (value) {
       return {value: nextValue}
     }
 
-    if (typeof process !== void 0 && process.env.NODE_ENV !== 'production') {
+    if (__DEV__) {
       throw new Error(
         `[Value] You called 'setValue', 'resetValue' or 'clearValue' on a ` +
         `controlled component. Did you mean to set 'initialValue' instead of ` +
@@ -57,8 +56,6 @@ function maybeSetValue (value) {
 
     return null
   }
-
-  return maybeSetValue_
 }
 
 
@@ -72,8 +69,7 @@ export default class Value extends React.Component {
 
   constructor (props) {
     super(props)
-    const {initialValue, value, propName} = props
-    this.state = {value: value === void 0 ? initialValue : value}
+    this.state = {value: props.value === void 0 ? props.initialValue : props.value}
     this.valueContext = {
       setValue: this.setValue,
       resetValue: this.resetValue,

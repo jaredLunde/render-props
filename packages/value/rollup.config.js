@@ -36,7 +36,8 @@ const basePlugins = [
       "transform-react-remove-prop-types",
       "@babel/transform-react-constant-elements",
       "@babel/transform-react-inline-elements",
-      "closure-elimination"
+      "closure-elimination",
+      "dev-expression"
     ],
     babelrc: false
   }),
