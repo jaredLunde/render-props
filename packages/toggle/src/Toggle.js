@@ -36,28 +36,6 @@ function Toggler () {
 }
 */
 
-function Toggler (props) {
-  function toggleValues (currentValue) {
-    return currentValue === props.onValue ? props.offValue : props.onValue
-  }
-
-  return props.children({
-    on: function () {
-      props.setValue(props.onValue)
-    },
-    off: function () {
-      props.setValue(props.offValue)
-    },
-    toggle: function () {
-      props.setValue(toggleValues)
-    },
-    reset: function () {
-      props.resetValue()
-    },
-    value: props.value
-  })
-}
-
 
 export default function Toggle (props) {
   const onValue = props.onValue === void 0 ? true : props.onValue
@@ -69,7 +47,7 @@ export default function Toggle (props) {
       : void 0
   )
 
-  if (typeof process !== void 0 && process.env.NODE_ENV !== 'production') {
+  if (__DEV__) {
     if (
       initialValue !== onValue
       && initialValue !== offValue
@@ -83,20 +61,23 @@ export default function Toggle (props) {
     }
   }
 
+  function toggleValues (currentValue) {
+    return currentValue === onValue ? offValue : onValue
+  }
+
   return (
     <Value
       initialValue={initialValue}
       value={props.value}
       onChange={props.onChange}
     >
-      {function (valueContext) {
-        return Toggler({
-          onValue,
-          offValue,
-          value: valueContext.value,
-          setValue: valueContext.setValue,
-          resetValue: valueContext.resetValue,
-          children: props.children
+      {function ({value, setValue, resetValue}) {
+        return props.children({
+          value,
+          on: () => setValue(onValue),
+          off: () => setValue(offValue),
+          toggle: () => setValue(toggleValues),
+          reset: resetValue
         })
       }}
     </Value>

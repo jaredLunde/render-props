@@ -12,7 +12,8 @@
         "transform-react-remove-prop-types",
         "@babel/transform-react-constant-elements",
         "@babel/transform-react-inline-elements",
-        "closure-elimination"
+        "closure-elimination",
+        "dev-expression"
       ]
     },
     "es": {
@@ -27,7 +28,8 @@
         "transform-react-remove-prop-types",
         "@babel/transform-react-constant-elements",
         "@babel/transform-react-inline-elements",
-        "closure-elimination"
+        "closure-elimination",
+        "dev-expression"
       ]
     }
   }
