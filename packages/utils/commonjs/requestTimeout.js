@@ -1,42 +1,49 @@
-"use strict";
+'use strict'
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+var _interopRequireDefault = require('@babel/runtime/helpers/interopRequireDefault')
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+var _interopRequireWildcard = require('@babel/runtime/helpers/interopRequireWildcard')
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.clearRequestTimeout = clearRequestTimeout;
-exports.default = _default;
+Object.defineProperty(exports, '__esModule', {
+  value: true,
+})
+exports.clearRequestTimeout = clearRequestTimeout
+exports.default = requestTimeout
 
-var _requestAnimationFrame = _interopRequireWildcard(require("./requestAnimationFrame"));
+var _requestAnimationFrame = _interopRequireWildcard(
+  require('./requestAnimationFrame')
+)
 
-var _perf = _interopRequireDefault(require("./perf"));
+var _perf = _interopRequireDefault(require('./perf'))
 
 /**  Copyright 2011, Joe Lambert.
  **  Free to use under the MIT license.
  **  http://www.opensource.org/licenses/mit-license.php
  **/
 function clearRequestTimeout(handle) {
-  _requestAnimationFrame.cancelAnimationFrame ? (0, _requestAnimationFrame.cancelAnimationFrame)(handle.value) : window.clearTimeout(handle);
+  _requestAnimationFrame.cancelAnimationFrame
+    ? (0, _requestAnimationFrame.cancelAnimationFrame)(handle.value)
+    : window.clearTimeout(handle)
 }
 
-function _default(fn, delay) {
+function requestTimeout(fn, delay) {
   if (!_requestAnimationFrame.default) {
-    return window.setTimeout(fn, delay);
+    return window.setTimeout(fn, delay)
   }
 
-  var start = _perf.default.now(),
-      handle = new Object();
+  var start = _perf.default.now()
+
+  var handle = {}
 
   function loop() {
-    var current = _perf.default.now(),
-        delta = current - start;
+    var current = _perf.default.now()
 
-    delta >= delay ? fn.call() : handle.value = (0, _requestAnimationFrame.default)(loop);
+    var delta = current - start
+    delta >= delay
+      ? fn.call()
+      : (handle.value = (0, _requestAnimationFrame.default)(loop))
   }
 
-  handle.value = (0, _requestAnimationFrame.default)(loop);
-  return handle;
+  handle.value = (0, _requestAnimationFrame.default)(loop)
+  return handle
 }

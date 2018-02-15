@@ -92,7 +92,7 @@ export default class Value extends React.Component {
 
   setValue = value => this.setState(maybeSetValue(value))
   resetValue = () => this.setState(maybeSetValue(this.props.initialValue))
-  clearValue = value => this.setState(maybeSetValue(void 0))
+  clearValue = () => this.setState(maybeSetValue(void 0))
 
   render () {
     this.valueContext.value = this.state.value

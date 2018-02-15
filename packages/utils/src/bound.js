@@ -1,6 +1,8 @@
 import callIfExists from './callIfExists'
 
 
+function emptyFunc () {}
+
 export default function ({
   value,
   lower,
@@ -13,7 +15,7 @@ export default function ({
   value = cast(value)
   lower = cast(lower)
   upper = cast(upper)
-  inBounds = inBounds || (() => {})
+  inBounds = inBounds || emptyFunc
 
   if (isNaN(value)) {
     return inBounds()

@@ -1,10 +1,10 @@
-"use strict";
+'use strict'
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
+Object.defineProperty(exports, '__esModule', {
+  value: true,
+})
+exports.default = void 0
 
-var _default = window && window.performance ? window.performance : Date;
+var _default = window && window.performance ? window.performance : Date
 
-exports.default = _default;
+exports.default = _default

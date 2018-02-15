@@ -13,17 +13,17 @@ export function clearRequestInterval (handle) {
 }
 
 
-export default function (fn, delay) {
+export default function requestInterval (fn, delay) {
   if (!requestAnimationFrame) {
     return window.setInterval(fn, delay)
   }
 
-  var start = perf.now(),
-      handle = new Object()
+  let start = perf.now()
+  let handle = {}
 
-  function loop() {
-    var current = perf.now(),
-        delta = current - start
+  function loop () {
+    const current = perf.now()
+    const delta = current - start
 
     if(delta >= delay) {
       fn.call()
