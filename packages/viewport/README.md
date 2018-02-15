@@ -130,12 +130,12 @@ Note: these are only provided if `withCoords` is `true`.
   - the current horizontal scroll position in px
 - `scrollY {integer}`
   - the current vertical scroll position in px
-- `direction {object: {x <integer>, y <integer>}}`
+- `direction {object {x <integer>, y <integer>}}`
   - the direction the window was just scrolled
     - `1` = `right` for `x`, `down` for `y`
     - `-1` = `left` for `x`, `up` for `y`
     - `0` = had no direction
-- `distance {object: {x <integer>, y <integer>}}`
+- `distance {object {x <integer>, y <integer>}}`
   - the distance between the latest recorded scroll activity in the window and
     the previous scroll activity
 - `width {integer}`
@@ -391,7 +391,7 @@ import {ViewportScroll} from '@render-props/viewport'
 function ViewportScrollState (props) {
   return (
     <ViewportScroll>
-      ({scrollX, scrollY, scrollTo}) => (
+      ({scrollX, scrollY, scrollTo, direction, distance}) => (
         <div>
           scrollY: {scrollY}
         </div>
@@ -430,11 +430,11 @@ Note: these are only provided if `withCoords` is `true`.
   - the current horizontal scroll position in px
 - `scrollY {integer}`
   - the current vertical scroll position in px
-- `direction {object: {x <integer>, y <integer>}}`
+- `direction {object {x <integer>, y <integer>}}`
   - the direction the window was just scrolled
     - `1` = `right` for `x`, `down` for `y`
     - `-1` = `left` for `x`, `up` for `y`
     - `0` = had no direction
-- `distance {object: {x <integer>, y <integer>}}`
+- `distance {object {x <integer>, y <integer>}}`
   - the distance between the latest recorded scroll activity in the window and
     the previous scroll activity

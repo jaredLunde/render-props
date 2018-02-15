@@ -21,7 +21,9 @@ import {win} from './statics'
 
 
 
-export class ViewportSize extends React.Component {
+export class ViewportSize_ extends React.Component {
+  static displayName = 'ViewportSize'
+  
   static propTypes = {
     children: PropTypes.func.isRequired,
     withCoords: PropTypes.bool
@@ -58,14 +60,14 @@ export class ViewportSize extends React.Component {
 }
 
 
-export default function ({withCoords, children}) {
+export default function ViewportSize (props) {
   return (
     <Events>
       {function (eventsContext) {
-        return <ViewportSize
+        return <ViewportSize_
           {...eventsContext}
-          withCoords={withCoords}
-          children={children}
+          withCoords={props.withCoords}
+          children={props.children}
         />
       }}
     </Events>

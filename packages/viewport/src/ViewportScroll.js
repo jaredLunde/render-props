@@ -38,7 +38,8 @@ function getScroll () {
 }
 
 
-export class ViewportScroll extends React.Component {
+export class ViewportScroll_ extends React.Component {
+  static displayName = 'ViewportScroll'
   static propTypes = {
     children: PropTypes.func.isRequired,
     withCoords: PropTypes.bool
@@ -58,7 +59,7 @@ export class ViewportScroll extends React.Component {
         }
         else {
           const currentPos = getScroll()
-          
+
           scrollTo(
             win,
             {x: currentPos.scrollX, y: currentPos.scrollY},
@@ -99,14 +100,14 @@ export class ViewportScroll extends React.Component {
 }
 
 
-export default function ({withCoords, children}) {
+export default function ViewportScroll (props) {
   return (
     <Events>
       {function (eventsContext) {
-        return <ViewportScroll
+        return <ViewportScroll_
           {...eventsContext}
-          withCoords={withCoords}
-          children={children}
+          withCoords={props.withCoords}
+          children={props.children}
         />
       }}
     </Events>
