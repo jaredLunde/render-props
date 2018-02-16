@@ -8,7 +8,7 @@ export default function (el, pad) {
   const rect = el.getBoundingClientRect()
 
   if (pad === void 0 || pad === null) {
-    return rect
+    return Object.assign({}, rect)
   }
 
   pad = (

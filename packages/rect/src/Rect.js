@@ -38,16 +38,7 @@ class Rect_ extends React.Component {
   }
 
   element = null
-  state = {
-    top: null,
-    right: null,
-    bottom: null,
-    left: null,
-    width: null,
-    height: null
-  }
-
-
+  
   constructor (props) {
     super(props)
 
@@ -61,7 +52,7 @@ class Rect_ extends React.Component {
       recalcRect: this.recalcRect
     }
   }
-  
+
   rectRef = el => {
     if (el !== null && el !== this.element) {
       this.element = el
