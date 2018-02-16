@@ -61,7 +61,7 @@ class Rect_ extends React.Component {
       recalcRect: this.recalcRect
     }
   }
-
+  
   rectRef = el => {
     if (el !== null && el !== this.element) {
       this.element = el
@@ -70,24 +70,23 @@ class Rect_ extends React.Component {
   }
 
   recalcRect = () => this.props.throttleState(rect(this.element))
-  getRect = () => this.state
+  getRect = () => this.props.state
 
   render () {
     const props = this.rectContext
 
     if (this.props.withCoords === true) {
-      props.top = this.state.top
-      props.right = this.state.right
-      props.bottom = this.state.bottom
-      props.left = this.state.left
-      props.width = this.state.width
-      props.height = this.state.height
+      props.top = this.props.state.top
+      props.right = this.props.state.right
+      props.bottom = this.props.state.bottom
+      props.left = this.props.state.left
+      props.width = this.props.state.width
+      props.height = this.props.state.height
     }
     else {
       props.getRect = this.getRect
     }
 
-    /** rectRef, recalcRect, getRect, top, right, bottom, left, width, height */
     return this.props.children(props)
   }
 }
