@@ -8,7 +8,14 @@ export default function (el, pad) {
   const rect = el.getBoundingClientRect()
 
   if (pad === void 0 || pad === null) {
-    return Object.assign({}, rect)
+    return {
+      top: rect.top,
+      right: rect.right,
+      bottom: rect.bottom,
+      left: rect.left,
+      width: rect.width,
+      height: rect.height
+    }
   }
 
   pad = (
