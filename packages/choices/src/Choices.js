@@ -238,6 +238,13 @@ class Choices_ extends React.Component {
   }
 
   render () {
+    if (
+      this.choicesContext.selections !== this.props.selections
+      || this.choicesContext.choices !== this.props.choices
+    ) {
+      this.choicesContext = {...this.choicesContext}
+    }
+
     this.choicesContext.selections = this.props.selections
     this.choicesContext.choices = this.props.choices
 

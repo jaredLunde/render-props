@@ -150,8 +150,6 @@ export class MousePosition_ extends React.Component {
   }
 
   componentWillUnmount () {
-    this.onMove.cancel()
-
     if (this.timeout) {
       clearRequestTimeout(this.timeout)
     }
