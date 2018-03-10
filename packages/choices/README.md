@@ -124,7 +124,7 @@ ____
   - called when the maximum bound of `selections` has been reached. Callback should include one
     argument for object: `{selections, select, deselect}` where `selections` is the
     set of items which triggered the bounding error
-- `onSelectionsChange {function (items <array|set>)}`
+- `onChange {function (items <array|set>)}`
   - called whenever an item is added or removed from the set of `selections`.
     Receives one argument for `selections` which reflects the latest state
 - `onSelect {function (items <array|set>)}`

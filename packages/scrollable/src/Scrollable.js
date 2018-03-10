@@ -189,8 +189,8 @@ export class Scrollable_ extends React.Component {
     }
   }
 
-  scrollToX = (posX, opt) => this.scrollTo(posX, null, opt)
-  scrollToY = (posY, opt) => this.scrollTo(null, posY, opt)
+  scrollToX = (posX, opt) => this.scrollTo(posX, void 0, opt)
+  scrollToY = (posY, opt) => this.scrollTo(void 0, posY, opt)
 
   render () {
     return this.props.children(Object.assign(this.scrollableContext, this.props.state))
