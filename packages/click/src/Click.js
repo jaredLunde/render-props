@@ -179,7 +179,10 @@ class Click_ extends React.Component {
 
     if (clickChanged) {
       this.element = el
-      this.props.addEvent(el, 'click', this.onClick)
+      
+      if (this.element !== null) {
+        this.props.addEvent(this.element, 'click', this.onClick)
+      }
     }
   }
 
