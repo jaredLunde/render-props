@@ -62,40 +62,39 @@ import ViewportContext from './ViewportContext'
 **/
 
 
-export default function Viewport ({children, withCoords}) {
+export default function Viewport ({children, withCoords = true}) {
   // should be safely mutable because there aren't variable state keys
   // and we are localizing it to this component
-  let mutableContext = {}
-  let prevContext = {}
+  //
+  // viewportQueriesContext provides: inView, inFullView, etc.
+  const mutableContext = Object.assign({}, viewportQueriesContext)
 
   return ViewportOrientation({
     // orientation, size
     withCoords,
     children: function (orientationContext) {
+      Object.assign(mutableContext, orientationContext)
+
       return ViewportScroll({
         // scroll position, viewport queries
         withCoords,
         children: function (scrollContext) {
           // glue
-          if (
-            scrollContext.scrollY !== prevContext.scrollY
-            || orientationContext.aspect !== prevContext.aspect
-            || scrollContext.scrollX !== prevContext.scrollX
-          ) {
-            // Here to ensure strict immutability and allow for === comparisons
-            // between objects for sCU and pure components
-            prevContext = mutableContext
-            mutableContext = {}
+          mutableContext.scrollTo = scrollContext.scrollTo
+
+          if (withCoords === true) {
+            mutableContext.scrollX = scrollContext.scrollX
+            mutableContext.scrollY = scrollContext.scrollY
+            mutableContext.distance = scrollContext.distance
+            mutableContext.direction = scrollContext.direction
+          }
+          else {
+            mutableContext.getScroll = scrollContext.getScroll
+            mutableContext.getDistance = scrollContext.getDistance
+            mutableContext.getDirection = scrollContext.getDirection
           }
 
-          return children(
-            Object.assign(
-              mutableContext, // see first comment
-              viewportQueriesContext, // inView, inFullView, etc.
-              orientationContext,
-              scrollContext
-            )
-          )
+          return children(mutableContext)
         }
       })
     }

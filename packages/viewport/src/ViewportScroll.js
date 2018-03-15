@@ -53,27 +53,29 @@ export class ViewportScroll_ extends React.Component {
     super(props)
     props.addEvent(win, 'scroll', this.setScroll)
     this.viewportScrollContext = {
-      scrollTo: function (x, y, opt) {
-        if (typeof opt !== 'object') {
-          win.scrollTo(x, y)
-        }
-        else {
-          const currentPos = getScroll()
-
-          scrollTo(
-            win,
-            {x: currentPos.scrollX, y: currentPos.scrollY},
-            {x, y},
-            opt
-          )
-        }
-      }
+      scrollTo: this.scrollTo
     }
     this.prevState = {}
   }
 
   componentWillUnmount () {
     this.setScroll.cancel()
+  }
+
+  scrollTo = (x, y, opt) => {
+    if (typeof opt !== 'object') {
+      win.scrollTo(x, y)
+    }
+    else {
+      const currentPos = getScroll()
+
+      scrollTo(
+        win,
+        {x: currentPos.scrollX, y: currentPos.scrollY},
+        {x, y},
+        opt
+      )
+    }
   }
 
   setScroll = throttle(() => this.forceUpdate())
