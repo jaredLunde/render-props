@@ -68,35 +68,34 @@ export default function Viewport ({children, withCoords = true}) {
   //
   // viewportQueriesContext provides: inView, inFullView, etc.
   const mutableContext = Object.assign({}, viewportQueriesContext)
+  const scrollProps = {withCoords}
+
+  if (withCoords === true) {
+    scrollProps.children = function (scrollContext) {
+      mutableContext.scrollTo = scrollContext.scrollTo
+      mutableContext.scrollX = scrollContext.scrollX
+      mutableContext.scrollY = scrollContext.scrollY
+      mutableContext.distance = scrollContext.distance
+      mutableContext.direction = scrollContext.direction
+      return children(mutableContext)
+    }
+  }
+  else {
+    scrollProps.children = function (scrollContext) {
+      mutableContext.scrollTo = scrollContext.scrollTo
+      mutableContext.getScroll = scrollContext.getScroll
+      mutableContext.getDistance = scrollContext.getDistance
+      mutableContext.getDirection = scrollContext.getDirection
+      return children(mutableContext)
+    }
+  }
 
   return ViewportOrientation({
     // orientation, size
     withCoords,
     children: function (orientationContext) {
       Object.assign(mutableContext, orientationContext)
-
-      return ViewportScroll({
-        // scroll position, viewport queries
-        withCoords,
-        children: function (scrollContext) {
-          // glue
-          mutableContext.scrollTo = scrollContext.scrollTo
-
-          if (withCoords === true) {
-            mutableContext.scrollX = scrollContext.scrollX
-            mutableContext.scrollY = scrollContext.scrollY
-            mutableContext.distance = scrollContext.distance
-            mutableContext.direction = scrollContext.direction
-          }
-          else {
-            mutableContext.getScroll = scrollContext.getScroll
-            mutableContext.getDistance = scrollContext.getDistance
-            mutableContext.getDirection = scrollContext.getDirection
-          }
-
-          return children(mutableContext)
-        }
-      })
+      return ViewportScroll(scrollProps)
     }
   })
 }

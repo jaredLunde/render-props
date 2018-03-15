@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0-alpha.2",
+  "version": "0.2.0-alpha.5",
   "main": "commonjs/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
