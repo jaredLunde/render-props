@@ -201,9 +201,9 @@ import {ViewportConsumer, observe} from '@render-props/viewport'
 
 
 function SomeComponent (props) {
-  // This consumer only listens to changes in viewport size
+  // This consumer listens to all changes in the viewport
   return (
-    <ViewportConsumer observe={observe.SIZE}>
+    <ViewportConsumer>
       ({
         width,
         height,
@@ -242,12 +242,12 @@ function ScrollingComponent (props) {
 }
 
 function ScrollingComponent (props) {
-  // This consumer only listens to any changes in the viewport
+  // This consumer only listens to size changes in the viewport
   return (
-    <ViewportConsumer>
-      (context) => (
+    <ViewportConsumer observe={observe.SIZE}>
+      ({width, height}) => (
         <div>
-          context: {JSON.stringify(context)}
+          width: {width}
         </div>
       )
     </ViewportConsumer>
