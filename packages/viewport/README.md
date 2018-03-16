@@ -231,7 +231,7 @@ function SomeComponent (props) {
 function ScrollingComponent (props) {
   // This consumer only listens to changes in viewport scroll position
   return (
-    <ViewportConsumer observe={observe.SCROLL}>
+    <ViewportConsumer observe='scroll'>
       ({scrollX}) => (
         <div>
           scrollX: {scrollX}
@@ -241,10 +241,10 @@ function ScrollingComponent (props) {
   )
 }
 
-function ScrollingComponent (props) {
+function SizeComponent (props) {
   // This consumer only listens to size changes in the viewport
   return (
-    <ViewportConsumer observe={observe.SIZE}>
+    <ViewportConsumer observe='size'>
       ({width, height}) => (
         <div>
           width: {width}
