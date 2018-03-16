@@ -266,9 +266,13 @@ ____
       import {ViewportConsumer, observe} from '@render-props/viewport'
 
       /**
-       * observe.SCROLL (0b1)
-       * observe.SIZE (0b1010)
-       * observe.ANY (0b1011)
+       * observe.SCROLL_X: 0b0001,
+       * observe.SCROLL_Y: 0b0010,
+       * observe.SCROLL: 0b0011,
+       * observe.WIDTH: 0b0100,
+       * observe.HEIGHT: 0b1000,
+       * observe.SIZE: 0b1100,
+       * observe.ANY: 0b1111,
        */
 
       // listens to scroll position changes

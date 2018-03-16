@@ -1,24 +1,32 @@
 import React from 'react'
 
 
-export const observe = {
-  SCROLL: 0b1, // 1
-  SIZE: 0b1010, // 10
-  ANY: 0b1011 // 11
+export var observe = {
+  SCROLL_X: 0b0001,
+  SCROLL_Y: 0b0010,
+  SCROLL: 0b0011,
+  WIDTH: 0b0100,
+  HEIGHT: 0b1000,
+  SIZE: 0b1100,
+  ANY: 0b1111,
+  NONE: 0b10000
 }
 
 function calculateChangedBits (prevValue, nextValue) {
-  if (
-    prevValue.scrollY !== nextValue.scrollY
-    || prevValue.scrollX !== nextValue.scrollX
-  ) {
-    return observe.SCROLL
+  if (prevValue.scrollY !== nextValue.scrollY) {
+    return prevValue.scrollX !== nextValue.scrollX ? observe.SCROLL : observe.SCROLL_Y
   }
-  else if (prevValue.aspect !== nextValue.aspect) {
-    return observe.SIZE
+  else if (prevValue.scrollX !== nextValue.scrollX) {
+    return observe.SCROLL_X
+  }
+  else if (prevValue.width !== nextValue.width) {
+    return prevValue.height !== nextValue.height ? observe.SIZE : observe.WIDTH
+  }
+  else if (prevValue.height !== nextValue.height) {
+    return observe.HEIGHT
   }
 
-  return observe.ANY
+  return observe.NONE
 }
 
 

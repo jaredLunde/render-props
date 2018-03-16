@@ -26,7 +26,7 @@ export default function ViewportConsumer (props) {
 
   return (
     <ViewportContext.Consumer
-      observedBits={props.observe === void 0 ? observe.ANY : props.observe}
+      unstable_observedBits={props.observe === void 0 ? observe.ANY : props.observe}
       children={Consumer}
     />
   )
