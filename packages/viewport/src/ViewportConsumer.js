@@ -21,7 +21,7 @@ const ViewportContext = () => (
 
 export default function ViewportConsumer (props) {
   function Consumer (context) {
-    return context.inView === null ? Viewport(props) : props.children(context)
+    return props.children(context)
   }
 
   return (
