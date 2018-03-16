@@ -192,16 +192,18 @@ ____
 
 # ViewportConsumer
 Receives context updates from [`ViewportProvider`](#viewportprovider) when the
-viewport state changes
+viewport state changes. You can configure this component to only listen to
+size or scroll events by using the `observe` propert. See below for more details.
 
 ## Usage
 ```js
-import {ViewportConsumer} from '@render-props/viewport'
+import {ViewportConsumer, observe} from '@render-props/viewport'
 
 
 function SomeComponent (props) {
+  // This consumer only listens to changes in viewport size
   return (
-    <ViewportConsumer>
+    <ViewportConsumer observe={observe.SIZE}>
       ({
         width,
         height,
@@ -225,13 +227,59 @@ function SomeComponent (props) {
     </ViewportConsumer>
   )
 }
+
+function ScrollingComponent (props) {
+  // This consumer only listens to changes in viewport scroll position
+  return (
+    <ViewportConsumer observe={observe.SCROLL}>
+      ({scrollX}) => (
+        <div>
+          scrollX: {scrollX}
+        </div>
+      )
+    </ViewportConsumer>
+  )
+}
+
+function ScrollingComponent (props) {
+  // This consumer only listens to any changes in the viewport
+  return (
+    <ViewportConsumer>
+      (context) => (
+        <div>
+          context: {JSON.stringify(context)}
+        </div>
+      )
+    </ViewportConsumer>
+  )
+}
 ```
 
 ____
 
 
 ## Props
-See [Viewport props](#props)
+- `observe {bits}`
+  - Configures the consumer to only update on changes to size or scroll position.
+    By default this consumer listens to all updates.
+    ```js
+      import {ViewportConsumer, observe} from '@render-props/viewport'
+
+      /**
+       * observe.SCROLL (0b1)
+       * observe.SIZE (0b1010)
+       * observe.ANY (0b1011)
+       */
+
+      // listens to scroll position changes
+      <ViewportConsumer observe={observe.SCROLL}/>
+      // listens to size changes
+      <ViewportConsumer observe={observe.SIZE}/>
+      // listens to all changes
+      <ViewportConsumer/>
+    ```
+
+Also see [Viewport props](#props)
 
 ## Render Props
 See [Viewport render props](#render-props)

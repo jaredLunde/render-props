@@ -35,22 +35,18 @@ export const supportsScreenOrientation = (
 export default function ViewportOrientation (props) {
   // should be safely mutable because there aren't variable state keys
   // and we are localizing it to this component
-  const mutableObj = {}
+  function children (sizeContext) {
+    sizeContext.orientation = getOrientation(sizeContext)
+    sizeContext.screenOrientation = (
+      supportsScreenOrientation
+      ? winScreen.orientation.type
+      : null
+    )
 
-  return ViewportSize({
-    withCoords: props.withCoords,
-    children: function (sizeContext) {
-      sizeContext = Object.assign(mutableObj, sizeContext)
-      sizeContext.orientation = getOrientation(sizeContext)
-      sizeContext.screenOrientation = (
-        supportsScreenOrientation
-        ? winScreen.orientation.type
-        : null
-      )
+    return props.children(sizeContext)
+  }
 
-      return props.children(sizeContext)
-    }
-  })
+  return ViewportSize({withCoords: props.withCoords, children})
 }
 
 

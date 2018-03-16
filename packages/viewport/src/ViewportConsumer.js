@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Viewport from './Viewport'
-import ViewportContext from './ViewportContext'
+import ViewportContext, {observe} from './ViewportContext'
 
 
 /**
@@ -20,17 +20,15 @@ const ViewportContext = () => (
 **/
 
 export default function ViewportConsumer (props) {
+  function Consumer (context) {
+    return context.inView === null ? Viewport(props) : props.children(context)
+  }
+
   return (
-    <ViewportContext.Consumer>
-      {function (context) {
-        if (context.inView === null) {
-          return Viewport(props)
-        }
-        else {
-          return props.children(context)
-        }
-      }}
-    </ViewportContext.Consumer>
+    <ViewportContext.Consumer
+      observedBits={props.observe === void 0 ? observe.ANY : props.observe}
+      children={Consumer}
+    />
   )
 }
 

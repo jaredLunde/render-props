@@ -9,7 +9,7 @@ export ViewportQueries, {
   inFullViewY,
   inFullView,
 } from './ViewportQueries'
-export ViewportContext from './ViewportContext'
+export ViewportContext, {observe} from './ViewportContext'
 export ViewportProvider from './ViewportProvider'
 export ViewportConsumer from './ViewportConsumer'
 export {getSize, getRect, getOrientation, getAspect} from './utils'

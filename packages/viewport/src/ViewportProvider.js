@@ -35,7 +35,7 @@ export default function ViewportProvider (props) {
           width: context.width,
           aspect: context.aspect,
         }
-        
+
         prevContext = context
       }
 

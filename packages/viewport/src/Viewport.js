@@ -69,6 +69,7 @@ export default function Viewport ({children, withCoords = true}) {
   // viewportQueriesContext provides: inView, inFullView, etc.
   const mutableContext = Object.assign({}, viewportQueriesContext)
   const scrollProps = {withCoords}
+  const orientationProps = {withCoords}
 
   if (withCoords === true) {
     scrollProps.children = function (scrollContext) {
@@ -79,6 +80,15 @@ export default function Viewport ({children, withCoords = true}) {
       mutableContext.direction = scrollContext.direction
       return children(mutableContext)
     }
+
+    orientationProps.children = function (orientationContext) {
+       mutableContext.orientation = orientationContext.orientation
+       mutableContext.screenOrientation = orientationContext.screenOrientation
+       mutableContext.aspect = orientationContext.aspect
+       mutableContext.height = orientationContext.height
+       mutableContext.width = orientationContext.width
+       return ViewportScroll(scrollProps)
+    }
   }
   else {
     scrollProps.children = function (scrollContext) {
@@ -88,16 +98,17 @@ export default function Viewport ({children, withCoords = true}) {
       mutableContext.getDirection = scrollContext.getDirection
       return children(mutableContext)
     }
-  }
 
-  return ViewportOrientation({
-    // orientation, size
-    withCoords,
-    children: function (orientationContext) {
-      Object.assign(mutableContext, orientationContext)
+    orientationProps.children = function (orientationContext) {
+      mutableContext.getSize = orientationContext.getSize
+      mutableContext.getAspect = orientationContext.getAspect
+      mutableContext.orientation = orientationContext.orientation
+      mutableContext.screenOrientation = orientationContext.screenOrientation
       return ViewportScroll(scrollProps)
     }
-  })
+  }
+
+  return ViewportOrientation(orientationProps)
 }
 
 
