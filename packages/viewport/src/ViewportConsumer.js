@@ -24,12 +24,25 @@ export default function ViewportConsumer (props) {
     return props.children(context)
   }
 
-  return (
-    <ViewportContext.Consumer
-      unstable_observedBits={props.observe === void 0 ? observe.ANY : props.observe}
-      children={Consumer}
-    />
-  )
+  let observer
+
+  if (props.observe === void 0) {
+    observer = observe.any
+  }
+  else if (Array.isArray(props.observe)) {
+    observer = props.observe[0]
+    for (let x = 1; x < props.observe.length; x++) {
+      observer = observe | props.observe[x]
+    }
+  }
+  else {
+    observer = observe[props.observe]
+  }
+
+  return <ViewportContext.Consumer
+    unstable_observedBits={observer}
+    children={Consumer}
+  />
 }
 
 

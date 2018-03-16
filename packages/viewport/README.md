@@ -259,26 +259,26 @@ ____
 
 
 ## Props
-- `observe {bits}`
+- `observe {string|array<string>}`
   - Configures the consumer to only update on changes to size or scroll position.
     By default this consumer listens to all updates.
     ```js
-      import {ViewportConsumer, observe} from '@render-props/viewport'
+      import {ViewportConsumer} from '@render-props/viewport'
 
       /**
-       * observe.SCROLL_X: 0b0001,
-       * observe.SCROLL_Y: 0b0010,
-       * observe.SCROLL: 0b0011,
-       * observe.WIDTH: 0b0100,
-       * observe.HEIGHT: 0b1000,
-       * observe.SIZE: 0b1100,
-       * observe.ANY: 0b1111,
+       * observe.scrollX: 0b0001,
+       * observe.scrollY: 0b0010,
+       * observe.scroll: 0b0011,
+       * observe.width: 0b0100,
+       * observe.height: 0b1000,
+       * observe.size: 0b1100,
+       * observe.any: 0b1111,
        */
 
       // listens to scroll position changes
-      <ViewportConsumer observe={observe.SCROLL}/>
-      // listens to size changes
-      <ViewportConsumer observe={observe.SIZE}/>
+      <ViewportConsumer observe='scroll'/>
+      // listens to width and scrollY changes
+      <ViewportConsumer observe={['width', 'scrollY']}/>
       // listens to all changes
       <ViewportConsumer/>
     ```
