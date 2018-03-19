@@ -41,7 +41,7 @@ import Viewport from '@render-props/viewport'
 function ViewportState (props) {
   return (
     <Viewport>
-      ({
+      {{
         width,
         height,
         aspect,
@@ -76,7 +76,7 @@ function ViewportState (props) {
             is header completely visible?: {inFullView(document.getElementByID('#header'))}
           </div>
         </>
-      )
+      )}
     </Viewport>
   )
 }
@@ -204,7 +204,7 @@ function SomeComponent (props) {
   // This consumer listens to all changes in the viewport
   return (
     <ViewportConsumer>
-      ({
+      {({
         width,
         height,
         aspect,
@@ -223,7 +223,7 @@ function SomeComponent (props) {
         <div>
           width: {width}
         </div>
-      )
+      )}
     </ViewportConsumer>
   )
 }
@@ -232,11 +232,11 @@ function ScrollingComponent (props) {
   // This consumer only listens to changes in viewport scroll position
   return (
     <ViewportConsumer observe='scroll'>
-      ({scrollX}) => (
+      {({scrollX}) => (
         <div>
           scrollX: {scrollX}
         </div>
-      )
+      )}
     </ViewportConsumer>
   )
 }
@@ -245,11 +245,11 @@ function SizeComponent (props) {
   // This consumer only listens to size changes in the viewport
   return (
     <ViewportConsumer observe='size'>
-      ({width, height}) => (
+      {({width, height}) => (
         <div>
           width: {width}
         </div>
-      )
+      )}
     </ViewportConsumer>
   )
 }
@@ -303,7 +303,7 @@ import {ViewportOrientation} from '@render-props/viewport'
 function ViewportOrientationState (props) {
   return (
     <ViewportOrientation>
-      ({
+      {({
         width,
         height,
         aspect,
@@ -313,7 +313,7 @@ function ViewportOrientationState (props) {
         <div>
           orientation: {orientation}
         </div>
-      )
+      )}
     </Viewport>
   )
 }
@@ -357,11 +357,11 @@ import {ViewportSize} from '@render-props/viewport'
 function ViewportSizeState (props) {
   return (
     <ViewportSize>
-      ({width, height, aspect}) => (
+      {({width, height, aspect}) => (
         <div>
           width: {width}
         </div>
-      )
+      )}
     </ViewportSize>
   )
 }
@@ -395,11 +395,11 @@ import {ViewportQueries} from '@render-props/viewport'
 function ViewportQueriesState (props) {
   return (
     <ViewportQueries>
-      ({width, height, aspect}) => (
+      {({width, height, aspect}) => (
         <div>
           width: {width}
         </div>
-      )
+      )}
     </ViewportQueries>
   )
 }
@@ -443,11 +443,11 @@ import {ViewportScroll} from '@render-props/viewport'
 function ViewportScrollState (props) {
   return (
     <ViewportScroll>
-      ({scrollX, scrollY, scrollTo, direction, distance}) => (
+      {({scrollX, scrollY, scrollTo, direction, distance}) => (
         <div>
           scrollY: {scrollY}
         </div>
-      )
+      )}
     </ViewportScroll>
   )
 }
