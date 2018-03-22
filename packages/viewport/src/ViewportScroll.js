@@ -51,11 +51,14 @@ export class ViewportScroll_ extends React.Component {
 
   constructor (props) {
     super(props)
-    props.addEvent(win, 'scroll', this.setScroll)
     this.viewportScrollContext = {
       scrollTo: this.scrollTo
     }
     this.prevState = {}
+  }
+
+  componentDidMount () {
+    this.props.addEvent(win, 'scroll', this.setScroll)
   }
 
   componentWillUnmount () {

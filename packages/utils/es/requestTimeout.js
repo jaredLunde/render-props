@@ -9,11 +9,11 @@ import perf from './perf'
 export function clearRequestTimeout(handle) {
   cancelAnimationFrame
     ? cancelAnimationFrame(handle.value)
-    : window.clearTimeout(handle)
+    : clearTimeout(handle)
 }
 export default function requestTimeout(fn, delay) {
   if (!requestAnimationFrame) {
-    return window.setTimeout(fn, delay)
+    return setTimeout(fn, delay)
   }
 
   var start = perf.now()

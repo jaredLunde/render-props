@@ -1,1 +1,3 @@
-export default (window && window.performance ? window.performance : Date)
+export default (typeof window !== 'undefined' && window.performance
+  ? window.performance
+  : Date)

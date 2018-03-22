@@ -8,21 +8,15 @@ import perf from './perf'
  **/
 
 export function clearRequestInterval(handle) {
-  cancelAnimationFrame
-    ? cancelAnimationFrame(handle.value)
-    : window.clearInterval(handle)
+  cancelAnimationFrame(handle.value)
 }
 export default function requestInterval(fn, delay) {
-  if (!requestAnimationFrame) {
-    return window.setInterval(fn, delay)
-  }
-
   var start = perf.now()
   var handle = {}
 
   function loop() {
-    var current = perf.now(),
-      delta = current - start
+    var current = perf.now()
+    var delta = current - start
 
     if (delta >= delay) {
       fn.call()

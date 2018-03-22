@@ -1,9 +1,3 @@
-export var cancelAnimationFrame = (
-  window.cancelAnimationFrame || window.mozCancelAnimationFrame
-).bind(window)
-export default (
-  window.requestAnimationFrame ||
-  window.webkitRequestAnimationFrame ||
-  window.mozRequestAnimationFrame ||
-  window.msRequestAnimationFrame
-).bind(window)
+import raf, {cancel} from 'raf'
+export var cancelAnimationFrame = cancel
+export default raf

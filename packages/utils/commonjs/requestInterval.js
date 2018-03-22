@@ -21,23 +21,18 @@ var _perf = _interopRequireDefault(require('./perf'))
  **  http://www.opensource.org/licenses/mit-license.php
  **/
 function clearRequestInterval(handle) {
-  _requestAnimationFrame.cancelAnimationFrame
-    ? (0, _requestAnimationFrame.cancelAnimationFrame)(handle.value)
-    : window.clearInterval(handle)
+  ;(0, _requestAnimationFrame.cancelAnimationFrame)(handle.value)
 }
 
 function requestInterval(fn, delay) {
-  if (!_requestAnimationFrame.default) {
-    return window.setInterval(fn, delay)
-  }
-
   var start = _perf.default.now()
 
   var handle = {}
 
   function loop() {
-    var current = _perf.default.now(),
-      delta = current - start
+    var current = _perf.default.now()
+
+    var delta = current - start
 
     if (delta >= delay) {
       fn.call()

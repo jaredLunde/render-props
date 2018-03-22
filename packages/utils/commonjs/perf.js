@@ -5,6 +5,9 @@ Object.defineProperty(exports, '__esModule', {
 })
 exports.default = void 0
 
-var _default = window && window.performance ? window.performance : Date
+var _default =
+  typeof window !== 'undefined' && window.performance
+    ? window.performance
+    : Date
 
 exports.default = _default

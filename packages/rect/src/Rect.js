@@ -38,18 +38,19 @@ class Rect_ extends React.Component {
   }
 
   element = null
-  
+
   constructor (props) {
     super(props)
-
-    if (props.recalcOnWindowResize) {
-      props.addEvent(window, 'resize', this.recalcRect)
-      props.addEvent(window, 'orientationchange', this.recalcRect)
-    }
-
     this.rectContext = {
       rectRef: this.rectRef,
       recalcRect: this.recalcRect
+    }
+  }
+
+  componentDidMount () {
+    if (this.props.recalcOnWindowResize && typeof window !== 'undefined') {
+      this.props.addEvent(window, 'resize', this.recalcRect)
+      this.props.addEvent(window, 'orientationchange', this.recalcRect)
     }
   }
 

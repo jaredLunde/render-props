@@ -23,12 +23,12 @@ var _perf = _interopRequireDefault(require('./perf'))
 function clearRequestTimeout(handle) {
   _requestAnimationFrame.cancelAnimationFrame
     ? (0, _requestAnimationFrame.cancelAnimationFrame)(handle.value)
-    : window.clearTimeout(handle)
+    : clearTimeout(handle)
 }
 
 function requestTimeout(fn, delay) {
   if (!_requestAnimationFrame.default) {
-    return window.setTimeout(fn, delay)
+    return setTimeout(fn, delay)
   }
 
   var start = _perf.default.now()

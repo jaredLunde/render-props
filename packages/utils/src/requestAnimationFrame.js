@@ -1,11 +1,5 @@
-export const cancelAnimationFrame = (
-  window.cancelAnimationFrame ||
-  window.mozCancelAnimationFrame
-).bind(window)
+import raf, {cancel} from 'raf'
 
-export default (
-  window.requestAnimationFrame ||
-  window.webkitRequestAnimationFrame ||
-  window.mozRequestAnimationFrame ||
-  window.msRequestAnimationFrame
-).bind(window)
+
+export const cancelAnimationFrame = cancel
+export default raf

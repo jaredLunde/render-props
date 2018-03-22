@@ -7,17 +7,11 @@ import perf from './perf'
  **  http://www.opensource.org/licenses/mit-license.php
  **/
 export function clearRequestInterval (handle) {
-  cancelAnimationFrame
-  ? cancelAnimationFrame(handle.value)
-  : window.clearInterval(handle)
+  cancelAnimationFrame(handle.value)
 }
 
 
 export default function requestInterval (fn, delay) {
-  if (!requestAnimationFrame) {
-    return window.setInterval(fn, delay)
-  }
-
   let start = perf.now()
   let handle = {}
 

@@ -22,7 +22,10 @@ const HoverableButton = props => (
 */
 
 
-export const canHover = !(window.matchMedia('(hover: none)').matches)
+export const canHover =
+  typeof window !== 'undefined'
+  ? !(window.matchMedia('(hover: none)').matches)
+  : false
 
 
 class Hover_ extends React.Component {
