@@ -710,30 +710,32 @@
   dependencies:
     "@babel/runtime" "^7.0.0-beta.39"
 
-"@render-props/rect@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@render-props/rect/-/rect-0.1.1.tgz#a0e2a58385805fdace123752b84d06cef517c246"
+"@render-props/rect@^0.1.9":
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/@render-props/rect/-/rect-0.1.9.tgz#9f16f6122783e0be55da74f96ab8653ec9488842"
   dependencies:
     "@babel/runtime" "^7.0.0-beta.39"
     "@render-props/events" "^0.1.2"
-    "@render-props/throttle" "^0.1.4"
+    "@render-props/throttle" "^0.1.5"
+    prettier "^1.10.2"
 
-"@render-props/throttle@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@render-props/throttle/-/throttle-0.1.4.tgz#c1382fa38806006cd1cf7e6aa1e2a8b3e47021d1"
+"@render-props/throttle@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@render-props/throttle/-/throttle-0.1.5.tgz#40afb2f3fd685b8f0899c283ebb177fb401a4add"
   dependencies:
     "@babel/runtime" "^7.0.0-beta.39"
-    "@render-props/utils" "^0.1.9"
-
-"@render-props/utils@^0.1.9":
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/@render-props/utils/-/utils-0.1.9.tgz#3de9d897345fa7f4980d5a34b4be30a262708908"
-  dependencies:
-    "@babel/runtime" "^7.0.0-beta.39"
+    "@render-props/utils" "^0.2.0"
 
 "@render-props/utils@^0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@render-props/utils/-/utils-0.2.0.tgz#f0126cbf8dfa3c7c665610304e329a13f1c71e6d"
+  dependencies:
+    "@babel/runtime" "^7.0.0-beta.39"
+    raf "^3.4.0"
+
+"@render-props/utils@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@render-props/utils/-/utils-0.2.1.tgz#dffc9f6d14bdaf50fa642c95378a6e3fc473191b"
   dependencies:
     "@babel/runtime" "^7.0.0-beta.39"
     raf "^3.4.0"
@@ -1621,6 +1623,10 @@ performance-now@^2.1.0:
 preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
+
+prettier@^1.10.2:
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.11.1.tgz#61e43fc4cd44e68f2b0dfc2c38cd4bb0fccdcc75"
 
 private@^0.1.6:
   version "0.1.8"

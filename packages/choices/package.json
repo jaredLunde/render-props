@@ -1,5 +1,5 @@
 {
-  "version": "0.1.7",
+  "version": "0.1.8",
   "main": "commonjs/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -48,8 +48,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.39",
-    "@render-props/items": "^0.1.9",
-    "@render-props/utils": "^0.1.9",
+    "@render-props/items": "^0.1.10",
+    "@render-props/utils": "^0.2.1",
     "fast-memoize": "^2.3.0",
     "invariant": "^2.2.2"
   },
