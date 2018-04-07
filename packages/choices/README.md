@@ -174,7 +174,11 @@ _____
 
 
 # Choice
+## Props
+- `value`
+  - the value of the choice from the `Set`/`Array` of choices in the `Choices` component
 
+  
 ## Render Props
 #### Methods
 - `select` `()`
@@ -188,9 +192,7 @@ _____
 
 #### State
 - `isSelected {bool>}`
-  - the selections currently in the state of the component. Is an `Array` if
-    `initialSelections` was an `Array` and a `Set` if  `initialSelections` was
-    a `Set`
+  - returns `true` if the prop `value` provided to this component resides in `Choices.selections`
 
 
 _____
