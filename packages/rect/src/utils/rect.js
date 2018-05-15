@@ -34,7 +34,7 @@ export default function (el, pad) {
     right: pad.right + rect.right,
     bottom: pad.bottom + rect.bottom,
     left: pad.left + rect.left,
-    width: pad.left + rect.pad.right + rect.width,
+    width: pad.left + pad.right + rect.width,
     height: pad.top + pad.bottom + rect.height,
   }
 }
