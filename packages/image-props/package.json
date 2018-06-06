@@ -1,5 +1,5 @@
 {
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "commonjs/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.39",
-    "@render-props/rect": "^0.1.9",
+    "@render-props/rect": "0.1.11",
     "@render-props/scrollable": "^0.1.8",
     "@render-props/viewport": "^0.2.3",
     "cancelable-promise": "^2.4.0"

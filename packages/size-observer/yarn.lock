@@ -710,9 +710,9 @@
   dependencies:
     "@babel/runtime" "^7.0.0-beta.39"
 
-"@render-props/rect@^0.1.9":
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/@render-props/rect/-/rect-0.1.9.tgz#9f16f6122783e0be55da74f96ab8653ec9488842"
+"@render-props/rect@0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@render-props/rect/-/rect-0.1.11.tgz#63ae386f094267980069f284d06b508fcf8ff345"
   dependencies:
     "@babel/runtime" "^7.0.0-beta.39"
     "@render-props/events" "^0.1.2"
