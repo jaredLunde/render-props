@@ -3,12 +3,6 @@
 exports.__esModule = true
 exports.default = strictShallowEqual
 
-require('core-js/modules/web.dom.iterable')
-
-require('core-js/modules/es6.array.iterator')
-
-require('core-js/modules/es6.object.keys')
-
 function strictShallowEqual(objA, objB) {
   if (objA === objB) {
     return true

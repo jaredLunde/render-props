@@ -2,7 +2,7 @@
   "env": {
     "commonjs": {
       "presets": [
-        ["@babel/env", {"useBuiltIns": "usage", "loose": true}],
+        ["@babel/env", {"loose": true}],
         "@babel/react"
       ],
       "plugins": [
@@ -29,7 +29,7 @@
     "es": {
       "presets": [
         "@babel/react",
-        ["@babel/env", {"useBuiltIns": "usage", "modules": false, "loose": true}]
+        ["@babel/env", {"modules": false, "loose": true}]
       ],
       "plugins": [
         "@babel/transform-runtime",

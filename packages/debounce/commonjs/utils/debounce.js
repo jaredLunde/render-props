@@ -3,8 +3,6 @@
 exports.__esModule = true;
 exports.default = debounce;
 
-require("core-js/modules/es6.date.now");
-
 var _utils = require("@render-props/utils");
 
 /** Credit to lodash, all I did was switch to requestTimeout */
