@@ -1,9 +1,6 @@
-import _Object$getPrototypeOf from "@babel/runtime/core-js/object/get-prototype-of";
-import _classCallCheck from "@babel/runtime/helpers/classCallCheck";
-import _createClass from "@babel/runtime/helpers/createClass";
-import _possibleConstructorReturn from "@babel/runtime/helpers/possibleConstructorReturn";
-import _inherits from "@babel/runtime/helpers/inherits";
+import _inheritsLoose from "@babel/runtime/helpers/inheritsLoose";
 import _assertThisInitialized from "@babel/runtime/helpers/assertThisInitialized";
+import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import React from 'react';
 import PropTypes from 'prop-types';
 import throttle from './utils/throttle';
@@ -49,24 +46,19 @@ function _render() {
 var Throttle =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(Throttle, _React$Component);
+  _inheritsLoose(Throttle, _React$Component);
 
   function Throttle(props) {
     var _this;
 
-    _classCallCheck(this, Throttle);
+    _this = _React$Component.call(this, props) || this;
 
-    _this = _possibleConstructorReturn(this, (Throttle.__proto__ || _Object$getPrototypeOf(Throttle)).call(this, props));
-    Object.defineProperty(_assertThisInitialized(_this), "_setState", {
-      configurable: true,
-      enumerable: true,
-      writable: true,
-      value: function value() {
-        var _this2;
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "_setState", function () {
+      var _this2;
 
-        return (_this2 = _this).setState.apply(_this2, arguments);
-      }
+      return (_this2 = _this).setState.apply(_this2, arguments);
     });
+
     _this.state = props.initialState || emptyObj;
     _this.throttleState = throttle(_this._setState);
     _this.throttleContext = {
@@ -76,14 +68,9 @@ function (_React$Component) {
     return _this;
   }
 
-  _createClass(Throttle, [{
-    key: "componentWillUnmount",
-    value: _componentWillUnmount
-  }, {
-    key: "render",
-    value: _render
-  }]);
-
+  var _proto = Throttle.prototype;
+  _proto.componentWillUnmount = _componentWillUnmount;
+  _proto.render = _render;
   return Throttle;
 }(React.Component);
 

@@ -4,9 +4,7 @@ var _interopRequireDefault = require('@babel/runtime/helpers/interopRequireDefau
 
 var _interopRequireWildcard = require('@babel/runtime/helpers/interopRequireWildcard')
 
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
+exports.__esModule = true
 exports.clearRequestInterval = clearRequestInterval
 exports.default = requestInterval
 

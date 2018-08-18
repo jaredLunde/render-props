@@ -2,22 +2,13 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "default", {
-  enumerable: true,
-  get: function get() {
-    return _Debounce.default;
-  }
-});
-Object.defineProperty(exports, "debounce", {
-  enumerable: true,
-  get: function get() {
-    return _utils.debounce;
-  }
-});
+exports.__esModule = true;
+exports.debounce = void 0;
 
 var _Debounce = _interopRequireDefault(require("./Debounce"));
 
+exports.default = _Debounce.default;
+
 var _utils = require("./utils");
+
+exports.debounce = _utils.debounce;

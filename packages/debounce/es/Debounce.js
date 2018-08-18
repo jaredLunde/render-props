@@ -1,9 +1,6 @@
-import _Object$getPrototypeOf from "@babel/runtime/core-js/object/get-prototype-of";
-import _classCallCheck from "@babel/runtime/helpers/classCallCheck";
-import _createClass from "@babel/runtime/helpers/createClass";
-import _possibleConstructorReturn from "@babel/runtime/helpers/possibleConstructorReturn";
-import _inherits from "@babel/runtime/helpers/inherits";
+import _inheritsLoose from "@babel/runtime/helpers/inheritsLoose";
 import _assertThisInitialized from "@babel/runtime/helpers/assertThisInitialized";
+import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import React from 'react';
 import PropTypes from 'prop-types';
 import { debounce } from './utils';
@@ -63,24 +60,19 @@ function _render() {
 var Debounce =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(Debounce, _React$Component);
+  _inheritsLoose(Debounce, _React$Component);
 
   function Debounce(props) {
     var _this;
 
-    _classCallCheck(this, Debounce);
+    _this = _React$Component.call(this, props) || this;
 
-    _this = _possibleConstructorReturn(this, (Debounce.__proto__ || _Object$getPrototypeOf(Debounce)).call(this, props));
-    Object.defineProperty(_assertThisInitialized(_this), "_setState", {
-      configurable: true,
-      enumerable: true,
-      writable: true,
-      value: function value() {
-        var _this2;
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "_setState", function () {
+      var _this2;
 
-        return (_this2 = _this).setState.apply(_this2, arguments);
-      }
+      return (_this2 = _this).setState.apply(_this2, arguments);
     });
+
     _this.state = props.initialState || emptyObj;
     _this.debounceState = debounce(_this._setState, props.wait, {
       leading: props.leading,
@@ -93,26 +85,15 @@ function (_React$Component) {
     return _this;
   }
 
-  _createClass(Debounce, [{
-    key: "componentDidUpdate",
-    value: _componentDidUpdate
-  }, {
-    key: "componentWillUnmount",
-    value: _componentWillUnmount
-  }, {
-    key: "render",
-    value: _render
-  }]);
-
+  var _proto = Debounce.prototype;
+  _proto.componentDidUpdate = _componentDidUpdate;
+  _proto.componentWillUnmount = _componentWillUnmount;
+  _proto.render = _render;
   return Debounce;
 }(React.Component);
 
-Object.defineProperty(Debounce, "defaultProps", {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  value: {
-    wait: 100
-  }
+_defineProperty(Debounce, "defaultProps", {
+  wait: 100
 });
+
 export { Debounce as default };

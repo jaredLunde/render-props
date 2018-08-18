@@ -1,4 +1,11 @@
+import 'core-js/modules/web.dom.iterable'
+import 'core-js/modules/es6.array.iterator'
+import 'core-js/modules/es6.object.keys'
 export default function strictShallowEqual(objA, objB) {
+  if (objA === objB) {
+    return true
+  }
+
   var aKeys = Object.keys(objA)
 
   if (aKeys.length !== Object.keys(objB).length) {

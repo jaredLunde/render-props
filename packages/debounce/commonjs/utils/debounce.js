@@ -2,14 +2,10 @@
 
 var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = debounce;
 
-var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/typeof"));
+require("core-js/modules/es6.date.now");
 
 var _requestTimeout = _interopRequireWildcard(require("@render-props/utils/es/requestTimeout"));
 
@@ -27,7 +23,7 @@ function debounce(func, wait, options) {
 
   wait = +wait || 0;
 
-  if ((0, _typeof2.default)(options) === 'object') {
+  if (typeof options === 'object') {
     leading = !!options.leading;
     maxing = 'maxWait' in options;
     maxWait = maxing ? Math.max(+options.maxWait || 0, wait) : maxWait;

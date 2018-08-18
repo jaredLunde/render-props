@@ -2,22 +2,14 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = void 0;
 
-var _getPrototypeOf = _interopRequireDefault(require("@babel/runtime/core-js/object/get-prototype-of"));
-
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
-
-var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
 var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -66,22 +58,16 @@ function _render() {
 var Throttle =
 /*#__PURE__*/
 function (_React$Component) {
-  (0, _inherits2.default)(Throttle, _React$Component);
+  (0, _inheritsLoose2.default)(Throttle, _React$Component);
 
   function Throttle(props) {
     var _this;
 
-    (0, _classCallCheck2.default)(this, Throttle);
-    _this = (0, _possibleConstructorReturn2.default)(this, (Throttle.__proto__ || (0, _getPrototypeOf.default)(Throttle)).call(this, props));
-    Object.defineProperty((0, _assertThisInitialized2.default)(_this), "_setState", {
-      configurable: true,
-      enumerable: true,
-      writable: true,
-      value: function value() {
-        var _this2;
+    _this = _React$Component.call(this, props) || this;
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), "_setState", function () {
+      var _this2;
 
-        return (_this2 = _this).setState.apply(_this2, arguments);
-      }
+      return (_this2 = _this).setState.apply(_this2, arguments);
     });
     _this.state = props.initialState || emptyObj;
     _this.throttleState = (0, _throttle.default)(_this._setState);
@@ -92,13 +78,9 @@ function (_React$Component) {
     return _this;
   }
 
-  (0, _createClass2.default)(Throttle, [{
-    key: "componentWillUnmount",
-    value: _componentWillUnmount
-  }, {
-    key: "render",
-    value: _render
-  }]);
+  var _proto = Throttle.prototype;
+  _proto.componentWillUnmount = _componentWillUnmount;
+  _proto.render = _render;
   return Throttle;
 }(_react.default.Component);
 

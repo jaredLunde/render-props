@@ -1,20 +1,22 @@
 'use strict'
 
-var _interopRequireDefault = require('@babel/runtime/helpers/interopRequireDefault')
-
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-})
+exports.__esModule = true
 exports.default = strictShallowEqual
 
-var _keys = _interopRequireDefault(
-  require('@babel/runtime/core-js/object/keys')
-)
+require('core-js/modules/web.dom.iterable')
+
+require('core-js/modules/es6.array.iterator')
+
+require('core-js/modules/es6.object.keys')
 
 function strictShallowEqual(objA, objB) {
-  var aKeys = (0, _keys.default)(objA)
+  if (objA === objB) {
+    return true
+  }
 
-  if (aKeys.length !== (0, _keys.default)(objB).length) {
+  var aKeys = Object.keys(objA)
+
+  if (aKeys.length !== Object.keys(objB).length) {
     return false
   }
 

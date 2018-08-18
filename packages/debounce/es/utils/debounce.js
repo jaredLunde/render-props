@@ -1,4 +1,4 @@
-import _typeof from "@babel/runtime/helpers/typeof";
+import "core-js/modules/es6.date.now";
 import requestTimeout, { clearRequestTimeout } from '@render-props/utils/es/requestTimeout';
 /** Credit to lodash, all I did was switch to requestTimeout */
 
@@ -15,7 +15,7 @@ export default function debounce(func, wait, options) {
 
   wait = +wait || 0;
 
-  if (_typeof(options) === 'object') {
+  if (typeof options === 'object') {
     leading = !!options.leading;
     maxing = 'maxWait' in options;
     maxWait = maxing ? Math.max(+options.maxWait || 0, wait) : maxWait;

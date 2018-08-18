@@ -2,9 +2,7 @@
 
 var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = throttle;
 
 var _requestAnimationFrame = _interopRequireWildcard(require("@render-props/utils/es/requestAnimationFrame"));
