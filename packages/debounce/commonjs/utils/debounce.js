@@ -1,13 +1,11 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 exports.__esModule = true;
 exports.default = debounce;
 
 require("core-js/modules/es6.date.now");
 
-var _requestTimeout = _interopRequireWildcard(require("@render-props/utils/es/requestTimeout"));
+var _utils = require("@render-props/utils");
 
 /** Credit to lodash, all I did was switch to requestTimeout */
 function debounce(func, wait, options) {
@@ -44,10 +42,10 @@ function debounce(func, wait, options) {
     lastInvokeTime = time; // Start the timer for the trailing edge.
 
     if (timerId !== void 0) {
-      (0, _requestTimeout.clearRequestTimeout)(timerId);
+      (0, _utils.clearRequestTimeout)(timerId);
     }
 
-    timerId = (0, _requestTimeout.default)(timerExpired, wait); // Invoke the leading edge.
+    timerId = (0, _utils.requestTimeout)(timerExpired, wait); // Invoke the leading edge.
 
     return leading ? invokeFunc(time) : result;
   }
@@ -77,10 +75,10 @@ function debounce(func, wait, options) {
 
 
     if (timerId !== void 0) {
-      (0, _requestTimeout.clearRequestTimeout)(timerId);
+      (0, _utils.clearRequestTimeout)(timerId);
     }
 
-    timerId = (0, _requestTimeout.default)(timerExpired, remainingWait(time));
+    timerId = (0, _utils.requestTimeout)(timerExpired, remainingWait(time));
   }
 
   function trailingEdge(time) {
@@ -97,7 +95,7 @@ function debounce(func, wait, options) {
 
   function cancel() {
     if (timerId !== void 0) {
-      (0, _requestTimeout.clearRequestTimeout)(timerId);
+      (0, _utils.clearRequestTimeout)(timerId);
     }
 
     lastInvokeTime = 0;
@@ -132,16 +130,16 @@ function debounce(func, wait, options) {
       if (maxing) {
         // Handle invocations in a tight loop.
         if (timerId !== void 0) {
-          (0, _requestTimeout.clearRequestTimeout)(timerId);
+          (0, _utils.clearRequestTimeout)(timerId);
         }
 
-        timerId = (0, _requestTimeout.default)(timerExpired, wait);
+        timerId = (0, _utils.requestTimeout)(timerExpired, wait);
         return invokeFunc(lastCallTime);
       }
     }
 
     if (timerId === void 0) {
-      timerId = (0, _requestTimeout.default)(timerExpired, wait);
+      timerId = (0, _utils.requestTimeout)(timerExpired, wait);
     }
 
     return result;

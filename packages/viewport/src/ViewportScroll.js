@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Events from '@render-props/events'
-import throttle from '@render-props/throttle/es/utils/throttle'
-import {getDistance, getDirection, scrollTo} from '@render-props/scrollable/es/utils'
+import {throttle} from '@render-props/throttle'
+import {getDistance, getDirection, scrollTo} from '@render-props/scrollable'
 import {win} from './statics'
 import {viewportQueriesContext} from './ViewportQueries'
 

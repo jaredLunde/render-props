@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import callIfExists from '@render-props/utils/es/callIfExists'
+import {callIfExists} from '@render-props/utils'
 import {minLengthInvariant} from './invariants'
 import {boundAddItem, boundDeleteItem} from './utils'
 

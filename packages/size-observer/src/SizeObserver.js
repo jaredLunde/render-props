@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {callIfExists, requestInterval, clearRequestInterval} from '@render-props/utils'
-import rect from '@render-props/rect/es/utils/rect'
+import {rect} from '@render-props/rect'
 
 
 

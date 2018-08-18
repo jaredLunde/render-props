@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Value from '@render-props/value'
+import {callIfExists} from '@render-props/utils'
 import {boundDecr, boundIncr} from './utils'
-import callIfExists from '@render-props/utils/es/callIfExists'
 
 
 /**

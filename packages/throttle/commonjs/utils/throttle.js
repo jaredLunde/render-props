@@ -1,11 +1,9 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 exports.__esModule = true;
 exports.default = throttle;
 
-var _requestAnimationFrame = _interopRequireWildcard(require("@render-props/utils/es/requestAnimationFrame"));
+var _utils = require("@render-props/utils");
 
 function throttle(cb) {
   var frame;
@@ -23,13 +21,13 @@ function throttle(cb) {
         args[_key] = arguments[_key];
       }
 
-      frame = (0, _requestAnimationFrame.default)(later(this, args));
+      frame = (0, _utils.requestAnimationFrame)(later(this, args));
     }
   }
 
   throttled.cancel = function () {
     if (frame !== void 0) {
-      (0, _requestAnimationFrame.cancelAnimationFrame)(frame);
+      (0, _utils.cancelAnimationFrame)(frame);
     }
   };
 

@@ -4,8 +4,7 @@ import boundSetY from './setY'
 import boundMove from './move'
 import boundMoveX from './moveX'
 import boundMoveY from './moveY'
-import callIfExists from '@render-props/utils/es/callIfExists'
-import bounds from '@render-props/utils/es/bound'
+import {callIfExists, bound as bounds} from '@render-props/utils'
 
 
 const axes = ['x', 'y']

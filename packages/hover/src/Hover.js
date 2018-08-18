@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Toggle from '@render-props/toggle'
 import Events from '@render-props/events'
-import requestTimeout, {clearRequestTimeout} from '@render-props/utils/es/requestTimeout'
+import {requestTimeout, clearRequestTimeout} from '@render-props/utils'
 
 
 /**

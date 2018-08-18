@@ -1,4 +1,4 @@
-import rect from '@render-props/rect/es/utils/rect'
+import {rect} from '@render-props/rect'
 import getRect from './getRect'
 import {win} from '../statics'
 

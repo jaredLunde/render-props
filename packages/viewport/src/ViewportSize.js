@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Events from '@render-props/events'
-import throttle from '@render-props/throttle/es/utils/throttle'
+import {throttle} from '@render-props/throttle'
 import {getSize, getAspect} from './utils'
 import {win} from './statics'
 
@@ -23,7 +23,7 @@ import {win} from './statics'
 
 export class ViewportSize_ extends React.Component {
   static displayName = 'ViewportSize'
-  
+
   static propTypes = {
     children: PropTypes.func.isRequired,
     withCoords: PropTypes.bool

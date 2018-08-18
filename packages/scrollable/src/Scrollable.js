@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Events from '@render-props/events'
 import Throttle from '@render-props/throttle'
-import callIfExists from '@render-props/utils/es/callIfExists'
+import {callIfExists} from '@render-props/utils'
 import {scrollTo, getDistance, getDirection} from './utils'
 
 /**

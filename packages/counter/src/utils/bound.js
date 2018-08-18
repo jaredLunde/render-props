@@ -1,7 +1,6 @@
 import {boundIncr} from './incr'
 import {boundDecr} from './decr'
-import bound from '@render-props/utils/es/bound'
-import callIfExists from '@render-props/utils/es/callIfExists'
+import {bound, callIfExists} from '@render-props/utils'
 
 
 export default ({

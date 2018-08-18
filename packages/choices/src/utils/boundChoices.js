@@ -1,5 +1,5 @@
 import memoize from 'fast-memoize'
-import callIfExists from '@render-props/utils/es/callIfExists'
+import {callIfExists} from '@render-props/utils'
 
 
 export default memoize(

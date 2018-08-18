@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import callIfExists from '@render-props/utils/es/callIfExists'
+import {callIfExists} from '@render-props/utils'
 import Items from '@render-props/items'
 import ChoicesContext from './ChoicesContext'
 import {includesInvariant} from './invariants'

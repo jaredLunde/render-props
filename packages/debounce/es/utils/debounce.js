@@ -1,5 +1,5 @@
 import "core-js/modules/es6.date.now";
-import requestTimeout, { clearRequestTimeout } from '@render-props/utils/es/requestTimeout';
+import { requestTimeout, clearRequestTimeout } from '@render-props/utils';
 /** Credit to lodash, all I did was switch to requestTimeout */
 
 export default function debounce(func, wait, options) {

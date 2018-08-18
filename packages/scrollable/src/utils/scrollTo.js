@@ -1,4 +1,4 @@
-import interpolate from '@render-props/utils/es/interpolate'
+import {interpolate} from '@render-props/utils'
 
 
 export default function scrollTo (element, from, to, {duration, timing}) {

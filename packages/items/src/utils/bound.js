@@ -1,7 +1,6 @@
 import {boundAddItem} from './addItem'
 import {boundDeleteItem} from './deleteItem'
-import bound from '@render-props/utils/es/bound'
-import callIfExists from '@render-props/utils/es/callIfExists'
+import {bound, callIfExists} from '@render-props/utils'
 
 
 export default ({

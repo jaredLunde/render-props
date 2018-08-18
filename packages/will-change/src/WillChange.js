@@ -2,9 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Toggle from '@render-props/toggle'
 import Events from '@render-props/events'
-import toKebabCase from '@render-props/utils/es/toKebabCase'
-import requestTimeout, {clearRequestTimeout} from '@render-props/utils/es/requestTimeout'
-import callIfExists from '@render-props/utils/es/callIfExists'
+import {
+  toKebabCase,
+  callIfExists,
+  requestTimeout,
+  clearRequestTimeout
+} from '@render-props/utils'
 
 
 /**

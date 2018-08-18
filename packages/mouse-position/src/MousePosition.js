@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import Events from '@render-props/events'
 import {canHover} from '@render-props/hover'
 import Throttle from '@render-props/throttle'
-import requestTimeout, {clearRequestTimeout} from '@render-props/utils/es/requestTimeout'
-import callIfExists from '@render-props/utils/es/callIfExists'
+import {requestTimeout, clearRequestTimeout, callIfExists} from '@render-props/utils'
 
 
 /**

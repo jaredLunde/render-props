@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import rect from '@render-props/rect/es/utils/rect'
+import {rect} from '@render-props/rect'
 import {win} from './statics'
 import {getRect} from './utils'
 

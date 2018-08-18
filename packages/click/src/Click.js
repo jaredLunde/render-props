@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Events from '@render-props/events'
-import callIfExists from '@render-props/utils/es/callIfExists'
+import {callIfExists} from '@render-props/utils'
 
 
 /**
@@ -179,7 +179,7 @@ class Click_ extends React.Component {
 
     if (clickChanged) {
       this.element = el
-      
+
       if (this.element !== null) {
         this.props.addEvent(this.element, 'click', this.onClick)
       }
