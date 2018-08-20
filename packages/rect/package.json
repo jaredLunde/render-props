@@ -1,5 +1,5 @@
 {
-  "version": "0.1.14",
+  "version": "0.1.15",
   "main": "commonjs/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -52,7 +52,7 @@
     "prettier": "^1.10.2"
   },
   "dependencies": {
-    "@babel/runtime-corejs2": "^7.0.0-rc.1",
+    "@babel/runtime": "^7.0.0-rc.1",
     "@render-props/events": "^0.1.2",
     "@render-props/throttle": "^0.1.5"
   },
