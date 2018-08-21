@@ -1,6 +1,4 @@
 import _inheritsLoose from "@babel/runtime/helpers/inheritsLoose";
-import _assertThisInitialized from "@babel/runtime/helpers/assertThisInitialized";
-import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import React from 'react';
 import PropTypes from 'prop-types';
 import throttle from './utils/throttle';
@@ -53,11 +51,11 @@ function (_React$Component) {
 
     _this = _React$Component.call(this, props) || this;
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "_setState", function () {
+    _this._setState = function () {
       var _this2;
 
       return (_this2 = _this).setState.apply(_this2, arguments);
-    });
+    };
 
     _this.state = props.initialState || emptyObj;
     _this.throttleState = throttle(_this._setState);

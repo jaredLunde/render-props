@@ -7,10 +7,6 @@ exports.default = void 0;
 
 var _inheritsLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/inheritsLoose"));
 
-var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
-
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
-
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
@@ -64,11 +60,13 @@ function (_React$Component) {
     var _this;
 
     _this = _React$Component.call(this, props) || this;
-    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), "_setState", function () {
+
+    _this._setState = function () {
       var _this2;
 
       return (_this2 = _this).setState.apply(_this2, arguments);
-    });
+    };
+
     _this.state = props.initialState || emptyObj;
     _this.throttleState = (0, _throttle.default)(_this._setState);
     _this.throttleContext = {

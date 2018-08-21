@@ -1,6 +1,4 @@
 import _inheritsLoose from "@babel/runtime/helpers/inheritsLoose";
-import _assertThisInitialized from "@babel/runtime/helpers/assertThisInitialized";
-import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import React from 'react';
 import PropTypes from 'prop-types';
 import { debounce } from './utils';
@@ -67,11 +65,11 @@ function (_React$Component) {
 
     _this = _React$Component.call(this, props) || this;
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "_setState", function () {
+    _this._setState = function () {
       var _this2;
 
       return (_this2 = _this).setState.apply(_this2, arguments);
-    });
+    };
 
     _this.state = props.initialState || emptyObj;
     _this.debounceState = debounce(_this._setState, props.wait, {
@@ -92,8 +90,7 @@ function (_React$Component) {
   return Debounce;
 }(React.Component);
 
-_defineProperty(Debounce, "defaultProps", {
+Debounce.defaultProps = {
   wait: 100
-});
-
+};
 export { Debounce as default };

@@ -1,55 +1,35 @@
 {
+  "plugins": [
+    "@babel/transform-runtime",
+    "transform-react-pure-components",
+    "@babel/transform-react-constant-elements",
+    "@babel/proposal-do-expressions",
+    "@babel/proposal-export-default-from",
+    "@babel/proposal-export-namespace-from",
+    "@babel/proposal-logical-assignment-operators",
+    "@babel/proposal-nullish-coalescing-operator",
+    "@babel/proposal-optional-chaining",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-syntax-import-meta",
+    "@babel/plugin-proposal-object-rest-spread",
+    ["@babel/plugin-proposal-class-properties", {"loose": true}],
+    "@babel/plugin-proposal-json-strings",
+    "transform-react-remove-prop-types",
+    "closure-elimination",
+    "tailcall-optimization",
+    "dev-expression"
+  ],
   "env": {
     "commonjs": {
       "presets": [
         ["@babel/env", {"loose": true}],
         "@babel/react"
-      ],
-      "plugins": [
-        "@babel/transform-runtime",
-        "transform-react-pure-components",
-        "@babel/transform-react-constant-elements",
-        "@babel/proposal-do-expressions",
-        "@babel/proposal-export-default-from",
-        "@babel/proposal-export-namespace-from",
-        "@babel/proposal-logical-assignment-operators",
-        "@babel/proposal-nullish-coalescing-operator",
-        "@babel/proposal-optional-chaining",
-        "@babel/plugin-syntax-dynamic-import",
-        "@babel/plugin-syntax-import-meta",
-        "@babel/plugin-proposal-object-rest-spread",
-        ["@babel/plugin-proposal-class-properties", {"loose": false}],
-        "@babel/plugin-proposal-json-strings",
-        "transform-react-remove-prop-types",
-        "closure-elimination",
-        "tailcall-optimization",
-        "dev-expression"
       ]
     },
     "es": {
       "presets": [
-        "@babel/react",
-        ["@babel/env", {"modules": false, "loose": true}]
-      ],
-      "plugins": [
-        "@babel/transform-runtime",
-        "transform-react-pure-components",
-        "@babel/transform-react-constant-elements",
-        "@babel/proposal-do-expressions",
-        "@babel/proposal-export-default-from",
-        "@babel/proposal-export-namespace-from",
-        "@babel/proposal-logical-assignment-operators",
-        "@babel/proposal-nullish-coalescing-operator",
-        "@babel/proposal-optional-chaining",
-        "@babel/plugin-syntax-dynamic-import",
-        "@babel/plugin-syntax-import-meta",
-        "@babel/plugin-proposal-object-rest-spread",
-        ["@babel/plugin-proposal-class-properties", {"loose": false}],
-        "@babel/plugin-proposal-json-strings",
-        "transform-react-remove-prop-types",
-        "closure-elimination",
-        "tailcall-optimization",
-        "dev-expression"
+        ["@babel/env", {"modules": false, "loose": true}],
+        "@babel/react"
       ]
     }
   }
