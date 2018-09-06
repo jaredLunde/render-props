@@ -14,7 +14,7 @@ import Hover from '@render-props/hover'
 const HoverableButton = props => (
   <Hover enterDelay={500} leaveDelay={200}>
     {
-      ({isHovering, canhover, hoverRef}) => (
+      ({isHovering, canHover, hoverRef}) => (
         <button ref={hoverRef}>
           Hovering? {JSON.stringify(isHovering)}
         </button>
