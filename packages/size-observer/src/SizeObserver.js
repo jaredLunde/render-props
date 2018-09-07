@@ -4,7 +4,6 @@ import {callIfExists, requestInterval, clearRequestInterval} from '@render-props
 import {rect} from '@render-props/rect'
 
 
-
 /**
 <SizeObserver>
   ({width, height, sizeRef, recalcSize}) => (
