@@ -1,3 +1,3 @@
-import _default from './Throttle';
-export { _default as default };
-export { throttle } from './utils';
+import _default from './Throttle'
+export {_default as default}
+export {throttle} from './utils'

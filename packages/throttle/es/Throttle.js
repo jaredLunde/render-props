@@ -1,7 +1,7 @@
-import _inheritsLoose from "@babel/runtime/helpers/inheritsLoose";
-import React from 'react';
-import PropTypes from 'prop-types';
-import throttle from './utils/throttle';
+import _inheritsLoose from '@babel/runtime/helpers/inheritsLoose'
+import React from 'react'
+import PropTypes from 'prop-types'
+import throttle from './utils/throttle'
 /**
 import Throttle from '@render-props/throttle'
 
@@ -29,47 +29,51 @@ function ThrottledBodyScroller () {
 }
 */
 
-var emptyObj = {};
+var emptyObj = {}
 
 function _componentWillUnmount() {
-  this.throttleState.cancel();
+  this.throttleState.cancel()
 }
 
 function _render() {
   // It's ok to mutate this
-  this.throttleContext.state = this.state;
-  return this.props.children(this.throttleContext);
+  this.throttleContext.state = this.state
+  return this.props.children(this.throttleContext)
 }
 
 var Throttle =
-/*#__PURE__*/
-function (_React$Component) {
-  _inheritsLoose(Throttle, _React$Component);
+  /*#__PURE__*/
+  (function(_React$Component) {
+    _inheritsLoose(Throttle, _React$Component)
 
-  function Throttle(props) {
-    var _this;
+    function Throttle(props) {
+      var _this
 
-    _this = _React$Component.call(this, props) || this;
+      _this = _React$Component.call(this, props) || this
 
-    _this._setState = function () {
-      var _this2;
+      _this._setState = function() {
+        var _this2
 
-      return (_this2 = _this).setState.apply(_this2, arguments);
-    };
+        return (_this2 = _this).setState.apply(_this2, arguments)
+      }
 
-    _this.state = props.initialState || emptyObj;
-    _this.throttleState = throttle(_this._setState);
-    _this.throttleContext = {
-      throttleState: _this.throttleState,
-      state: _this.state
-    };
-    return _this;
-  }
+      _this.state = props.initialState || emptyObj
+      _this.throttleState = throttle(_this._setState)
+      _this.throttleContext = {
+        throttleState: _this.throttleState,
+        state: _this.state,
+      }
+      return _this
+    }
 
-  var _proto = Throttle.prototype;
-  _proto.componentWillUnmount = _componentWillUnmount;
-  _proto.render = _render;
-  return Throttle;
-}(React.Component);
+    var _proto = Throttle.prototype
+    _proto.componentWillUnmount = _componentWillUnmount
+    _proto.render = _render
+    return Throttle
+  })(React.Component)
 
-export { Throttle as default };
+Throttle.propTypes = {
+  children: PropTypes.func.isRequired,
+  initialState: PropTypes.object,
+}
+export {Throttle as default}

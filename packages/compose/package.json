@@ -1,17 +1,18 @@
 {
-  "version": "0.1.13",
-  "main": "commonjs/index.js",
+  "version": "0.1.14",
+  "main": "cjs/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
   "esnext": "es/index.js",
   "scripts": {
-    "build": "yarn run build:es && yarn run build:commonjs",
-    "build:es": "rm -rf es && cross-env NODE_ENV=production cross-env BABEL_ENV=es babel src --out-dir es",
-    "build:commonjs": "rm -rf commonjs && cross-env NODE_ENV=production cross-env BABEL_ENV=commonjs babel src --out-dir commonjs",
+    "build": "yarn run build:es && yarn run build:cjs",
+    "build:es": "rimraf es && cross-env NODE_ENV=production BABEL_ENV=es babel src --out-dir es && npm run prettier:es",
+    "build:cjs": "rimraf cjs && cross-env NODE_ENV=production BABEL_ENV=cjs babel src --out-dir cjs && npm run prettier:cjs",
     "build:publish": "yarn run build && yarn publish --access public",
-    "build:config": "atom ./rollup.config.js:78:32",
-    "atom": "atom ./",
-    "watch:es": "cross-env NODE_ENV=development cross-env BABEL_ENV=es babel ./src -w --out-dir es"
+    "edit": "atom ./",
+    "watch:es": "cross-env NODE_ENV=development BABEL_ENV=es babel ./src -w --out-dir es",
+    "prettier:es": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma es5 --write \"es/**/*.js\"",
+    "prettier:cjs": "prettier --single-quote --no-semi --no-bracket-spacing --trailing-comma es5 --write \"cjs/**/*.js\""
   },
   "author": "Jared Lunde <jared@tessellate.io> (https://github.com/jaredLunde)",
   "sideEffects": false,
@@ -28,39 +29,15 @@
   ],
   "name": "@render-props/compose",
   "devDependencies": {
-    "@babel/cli": "^7.0.0-rc.1",
-    "@babel/core": "^7.0.0-rc.1",
-    "@babel/helper-plugin-utils": "^7.0.0-rc.1",
-    "@babel/plugin-proposal-class-properties": "^7.0.0-rc.1",
-    "@babel/plugin-proposal-do-expressions": "^7.0.0-rc.1",
-    "@babel/plugin-proposal-export-default-from": "^7.0.0-rc.1",
-    "@babel/plugin-proposal-export-namespace-from": "^7.0.0-rc.1",
-    "@babel/plugin-proposal-json-strings": "^7.0.0-rc.1",
-    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0-rc.1",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0-rc.1",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-rc.1",
-    "@babel/plugin-proposal-optional-chaining": "^7.0.0-rc.1",
-    "@babel/plugin-proposal-pipeline-operator": "^7.0.0-rc.1",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0-rc.1",
-    "@babel/plugin-syntax-import-meta": "^7.0.0-rc.1",
-    "@babel/plugin-transform-react-constant-elements": "^7.0.0-rc.1",
-    "@babel/plugin-transform-react-inline-elements": "^7.0.0-rc.1",
-    "@babel/plugin-transform-runtime": "^7.0.0-rc.1",
-    "@babel/preset-env": "^7.0.0-rc.1",
-    "@babel/preset-react": "^7.0.0-rc.1",
-    "babel-plugin-closure-elimination": "^1.3.0",
-    "babel-plugin-dev-expression": "^0.2.1",
-    "babel-plugin-tailcall-optimization": "^1.0.12",
-    "babel-plugin-transform-react-pure-class-to-function": "^1.0.1",
-    "babel-plugin-transform-react-pure-components": "^3.1.2",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.10",
-    "cross-env": "^5.1.3"
+    "@inst-app/babel-preset-esx": "^1.0.2",
+    "@inst-app/babel-preset-react": "^1.0.0",
+    "prettier": "^1.10.2"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0-rc.1",
+    "@babel/runtime": "^7.0.0",
     "react-display-name": "^0.2.3"
   },
   "peerDependencies": {
-    "react": "^16.2.0"
+    "react": "^16.x"
   }
 }

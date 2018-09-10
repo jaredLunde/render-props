@@ -1,2 +1,2 @@
-import _throttle from './throttle';
-export { _throttle as throttle };
+import _throttle from './throttle'
+export {_throttle as throttle}

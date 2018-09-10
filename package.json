@@ -1,0 +1,20 @@
+{
+  "name": "render-props",
+  "version": "1.0.0",
+  "repository": "https://github.com/jaredLunde/render-props",
+  "author": "jared@tessellate.io",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build-all": "node scripts/buildAll",
+    "install-all": "node scripts/installAll",
+    "publish-all": "node scripts/publishAll",
+    "upgrade-all": "node scripts/upgradeAll"
+  },
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "node-cmd": "^3.0.0",
+    "ora": "^3.0.0",
+    "semver": "^5.5.1"
+  }
+}
