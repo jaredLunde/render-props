@@ -49,8 +49,6 @@ function publishAll () {
                     yarn publish --new-version ${nextVersion}
                   `,
                   (err, data, stderr) => {
-                    spinner.stop()
-
                     if (!err) {
                       resolve(data)
                     } else {

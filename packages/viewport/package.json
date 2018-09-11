@@ -1,5 +1,5 @@
 {
-  "version": "0.2.12",
+  "version": "0.2.13",
   "main": "cjs/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -34,8 +34,8 @@
     "@render-props/utils": "^0.2.1"
   },
   "peerDependencies": {
-    "prop-types": "^15.x",
-    "react": "^16.x-alpha"
+    "prop-types": ">= 15.6.0",
+    "react": ">= 16.3.0"
   },
   "keywords": [
     "react",

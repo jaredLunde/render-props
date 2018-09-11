@@ -1,5 +1,5 @@
 {
-  "version": "0.1.14",
+  "version": "0.1.15",
   "main": "cjs/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -38,6 +38,6 @@
     "react-display-name": "^0.2.3"
   },
   "peerDependencies": {
-    "react": "^16.x"
+    "react": ">= 16.0.0"
   }
 }
