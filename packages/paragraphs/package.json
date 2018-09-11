@@ -1,5 +1,5 @@
 {
-  "version": "0.1.8",
+  "version": "0.1.9",
   "main": "cjs/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -35,7 +35,7 @@
     "@babel/runtime": "^7.0.0"
   },
   "peerDependencies": {
-    "prop-types": "^15.x",
-    "react": "^16.x"
+    "prop-types": ">= 15.6.0",
+    "react": ">= 16.0.0"
   }
 }
