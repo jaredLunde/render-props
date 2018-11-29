@@ -1,5 +1,5 @@
 {
-  "version": "0.1.12",
+  "version": "0.1.14",
   "main": "cjs/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
