@@ -115,8 +115,9 @@ export class MousePosition_ extends React.Component {
     this.props.throttleState(
       () => {
         const {clientX, clientY, screenX, screenY, pageX, pageY} = e
-        const elementX = pageX - this.element.offsetLeft
-        const elementY = pageY - this.element.offsetTop
+        const rect = this.element.getBoundingClientRect()
+        const elementX = pageX - rect.left - window.pageXOffset
+        const elementY = pageY - rect.top - window.pageYOffset
 
         return {
           pageX,
