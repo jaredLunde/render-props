@@ -1,3 +1,4 @@
+import React from 'react'
 import PropTypes from 'prop-types'
 import limitLines from './limitLines'
 import toBreaks from './toBreaks'
