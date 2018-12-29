@@ -1,5 +1,5 @@
 {
-  "version": "0.2.8",
+  "version": "0.2.9",
   "main": "cjs/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -21,8 +21,8 @@
   "repository": "https://github.com/jaredlunde/render-props/tree/master/packages/utils",
   "name": "@render-props/utils",
   "devDependencies": {
-    "@inst-app/babel-preset-esx": "^1.0.2",
-    "@inst-app/babel-preset-react": "^1.0.0",
+    "@inst-app/babel-preset-esx": "^1.0.15",
+    "@inst-app/babel-preset-react": "^1.0.4",
     "prettier": "^1.10.2"
   },
   "dependencies": {
