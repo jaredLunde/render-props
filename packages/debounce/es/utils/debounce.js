@@ -1,3 +1,4 @@
+import _Date$now from '@babel/runtime-corejs2/core-js/date/now'
 import {requestTimeout, clearRequestTimeout} from '@render-props/utils'
 /** Credit to lodash, all I did was switch to requestTimeout */
 
@@ -67,7 +68,7 @@ export default function debounce(func, wait, options) {
   }
 
   function timerExpired() {
-    var time = Date.now()
+    var time = _Date$now()
 
     if (shouldInvoke(time)) {
       return trailingEdge(time)
@@ -102,7 +103,7 @@ export default function debounce(func, wait, options) {
   }
 
   function flush() {
-    return timerId === void 0 ? result : trailingEdge(Date.now())
+    return timerId === void 0 ? result : trailingEdge(_Date$now())
   }
 
   function pending() {
@@ -110,7 +111,8 @@ export default function debounce(func, wait, options) {
   }
 
   function debounced() {
-    var time = Date.now()
+    var time = _Date$now()
+
     var isInvoking = shouldInvoke(time)
 
     for (

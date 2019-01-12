@@ -1,11 +1,12 @@
+import _Object$keys from '@babel/runtime-corejs2/core-js/object/keys'
 export default function strictShallowEqual(objA, objB) {
   if (objA === objB) {
     return true
   }
 
-  var aKeys = Object.keys(objA)
+  var aKeys = _Object$keys(objA)
 
-  if (aKeys.length !== Object.keys(objB).length) {
+  if (aKeys.length !== _Object$keys(objB).length) {
     return false
   }
 

@@ -1,4 +1,4 @@
-import _inheritsLoose from '@babel/runtime/helpers/inheritsLoose'
+import _inheritsLoose from '@babel/runtime-corejs2/helpers/inheritsLoose'
 import React from 'react'
 import PropTypes from 'prop-types'
 import {debounce} from './utils'
