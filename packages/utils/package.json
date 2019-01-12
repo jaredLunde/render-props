@@ -1,5 +1,5 @@
 {
-  "version": "0.2.9",
+  "version": "0.2.10",
   "main": "cjs/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -26,7 +26,7 @@
     "prettier": "^1.10.2"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0",
+    "@babel/runtime-corejs2": "^7.2.0",
     "raf": "^3.4.0"
   }
 }
