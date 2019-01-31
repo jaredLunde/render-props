@@ -1,6 +1,6 @@
 import {requestAnimationFrame, cancelAnimationFrame} from '@render-props/utils'
 export default function throttle(cb) {
-  var frame
+  let frame
 
   function later(thisArg, args) {
     return function() {
@@ -9,16 +9,8 @@ export default function throttle(cb) {
     }
   }
 
-  function throttled() {
+  function throttled(...args) {
     if (frame === void 0) {
-      for (
-        var _len = arguments.length, args = new Array(_len), _key = 0;
-        _key < _len;
-        _key++
-      ) {
-        args[_key] = arguments[_key]
-      }
-
       frame = requestAnimationFrame(later(this, args))
     }
   }

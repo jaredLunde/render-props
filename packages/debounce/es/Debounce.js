@@ -1,4 +1,3 @@
-import _inheritsLoose from '@babel/runtime-corejs2/helpers/inheritsLoose'
 import React from 'react'
 import PropTypes from 'prop-types'
 import {debounce} from './utils'
@@ -29,72 +28,48 @@ function DebouncedBodyScroller () {
 }
 */
 
-var emptyObj = {}
+const emptyObj = {}
+export default class Debounce extends React.Component {
+  constructor(props) {
+    super(props)
 
-function _componentDidUpdate(_ref) {
-  var leading = _ref.leading,
-    trailing = _ref.trailing,
-    maxWait = _ref.maxWait,
-    wait = _ref.wait
+    this._setState = (...args) => this.setState(...args)
 
-  if (
-    leading !== this.props.leading ||
-    trailing !== this.props.trailing ||
-    maxWait !== this.props.maxWait ||
-    wait !== this.props.wait
-  ) {
-    this.debounceState = debounce(this._setState, this.props.wait, {
-      leading: this.props.leading,
-      trailing: this.props.trailing,
-      maxWait: this.props.maxWait,
+    this.state = props.initialState || emptyObj
+    this.debounceState = debounce(this._setState, props.wait, {
+      leading: props.leading,
+      trailing: props.trailing,
+      maxWait: props.maxWait,
     })
+    this.debounceContext = {
+      debounceState: this.debounceState,
+    }
+  }
+
+  componentDidUpdate({leading, trailing, maxWait, wait}) {
+    if (
+      leading !== this.props.leading ||
+      trailing !== this.props.trailing ||
+      maxWait !== this.props.maxWait ||
+      wait !== this.props.wait
+    ) {
+      this.debounceState = debounce(this._setState, this.props.wait, {
+        leading: this.props.leading,
+        trailing: this.props.trailing,
+        maxWait: this.props.maxWait,
+      })
+    }
+  }
+
+  componentWillUnmount() {
+    this.debounceState.cancel()
+  }
+
+  render() {
+    this.debounceContext.state = this.state
+    return this.props.children(this.debounceContext)
   }
 }
-
-function _componentWillUnmount() {
-  this.debounceState.cancel()
-}
-
-function _render() {
-  this.debounceContext.state = this.state
-  return this.props.children(this.debounceContext)
-}
-
-var Debounce =
-  /*#__PURE__*/
-  (function(_React$Component) {
-    _inheritsLoose(Debounce, _React$Component)
-
-    function Debounce(props) {
-      var _this
-
-      _this = _React$Component.call(this, props) || this
-
-      _this._setState = function() {
-        var _this2
-
-        return (_this2 = _this).setState.apply(_this2, arguments)
-      }
-
-      _this.state = props.initialState || emptyObj
-      _this.debounceState = debounce(_this._setState, props.wait, {
-        leading: props.leading,
-        trailing: props.trailing,
-        maxWait: props.maxWait,
-      })
-      _this.debounceContext = {
-        debounceState: _this.debounceState,
-      }
-      return _this
-    }
-
-    var _proto = Debounce.prototype
-    _proto.componentDidUpdate = _componentDidUpdate
-    _proto.componentWillUnmount = _componentWillUnmount
-    _proto.render = _render
-    return Debounce
-  })(React.Component)
-
 Debounce.propTypes = {
   children: PropTypes.func.isRequired,
   initialState: PropTypes.object,
@@ -106,4 +81,3 @@ Debounce.propTypes = {
 Debounce.defaultProps = {
   wait: 100,
 }
-export {Debounce as default}

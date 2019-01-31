@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Viewport from './Viewport'
 import ViewportContext, {observe} from './ViewportContext'
 
 

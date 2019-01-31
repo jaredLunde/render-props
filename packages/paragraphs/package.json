@@ -1,5 +1,5 @@
 {
-  "version": "0.1.12",
+  "version": "0.1.13",
   "main": "cjs/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -27,12 +27,13 @@
   ],
   "name": "@render-props/paragraphs",
   "devDependencies": {
-    "@inst-app/babel-preset-esx": "^1.0.15",
-    "@inst-app/babel-preset-react": "^1.0.4",
+    "@stellar-apps/babel-preset-es": "^1.0.1",
+    "@stellar-apps/babel-preset-react": "^1.0.0",
     "prettier": "^1.10.2"
   },
   "dependencies": {
-    "@babel/runtime-corejs2": "^7.2.0"
+    "@babel/runtime": "^7.3.1",
+    "@babel/runtime-corejs2": "^7.3.1"
   },
   "peerDependencies": {
     "prop-types": ">= 15.6.0",

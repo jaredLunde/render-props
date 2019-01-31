@@ -1,4 +1,3 @@
-import _inheritsLoose from '@babel/runtime-corejs2/helpers/inheritsLoose'
 import React from 'react'
 import PropTypes from 'prop-types'
 import throttle from './utils/throttle'
@@ -29,51 +28,32 @@ function ThrottledBodyScroller () {
 }
 */
 
-var emptyObj = {}
+const emptyObj = {}
+export default class Throttle extends React.Component {
+  constructor(props) {
+    super(props)
 
-function _componentWillUnmount() {
-  this.throttleState.cancel()
-}
+    this._setState = (...args) => this.setState(...args)
 
-function _render() {
-  // It's ok to mutate this
-  this.throttleContext.state = this.state
-  return this.props.children(this.throttleContext)
-}
-
-var Throttle =
-  /*#__PURE__*/
-  (function(_React$Component) {
-    _inheritsLoose(Throttle, _React$Component)
-
-    function Throttle(props) {
-      var _this
-
-      _this = _React$Component.call(this, props) || this
-
-      _this._setState = function() {
-        var _this2
-
-        return (_this2 = _this).setState.apply(_this2, arguments)
-      }
-
-      _this.state = props.initialState || emptyObj
-      _this.throttleState = throttle(_this._setState)
-      _this.throttleContext = {
-        throttleState: _this.throttleState,
-        state: _this.state,
-      }
-      return _this
+    this.state = props.initialState || emptyObj
+    this.throttleState = throttle(this._setState)
+    this.throttleContext = {
+      throttleState: this.throttleState,
+      state: this.state,
     }
+  }
 
-    var _proto = Throttle.prototype
-    _proto.componentWillUnmount = _componentWillUnmount
-    _proto.render = _render
-    return Throttle
-  })(React.Component)
+  componentWillUnmount() {
+    this.throttleState.cancel()
+  }
 
+  render() {
+    // It's ok to mutate this
+    this.throttleContext.state = this.state
+    return this.props.children(this.throttleContext)
+  }
+}
 Throttle.propTypes = {
   children: PropTypes.func.isRequired,
   initialState: PropTypes.object,
 }
-export {Throttle as default}

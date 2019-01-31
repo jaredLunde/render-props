@@ -1,13 +1,12 @@
-import _Date$now from '@babel/runtime-corejs2/core-js/date/now'
 import {requestTimeout, clearRequestTimeout} from '@render-props/utils'
 /** Credit to lodash, all I did was switch to requestTimeout */
 
 export default function debounce(func, wait, options) {
-  var lastArgs, lastThis, maxWait, result, timerId, lastCallTime
-  var lastInvokeTime = 0
-  var leading = false
-  var maxing = false
-  var trailing = true
+  let lastArgs, lastThis, maxWait, result, timerId, lastCallTime
+  let lastInvokeTime = 0
+  let leading = false
+  let maxing = false
+  let trailing = true
 
   if (typeof func != 'function') {
     throw new TypeError('Expected a function')
@@ -23,8 +22,8 @@ export default function debounce(func, wait, options) {
   }
 
   function invokeFunc(time) {
-    var args = lastArgs
-    var thisArg = lastThis
+    const args = lastArgs
+    const thisArg = lastThis
     lastArgs = lastThis = void 0
     lastInvokeTime = time
     result = func.apply(thisArg, args)
@@ -45,17 +44,17 @@ export default function debounce(func, wait, options) {
   }
 
   function remainingWait(time) {
-    var timeSinceLastCall = time - lastCallTime
-    var timeSinceLastInvoke = time - lastInvokeTime
-    var timeWaiting = wait - timeSinceLastCall
+    const timeSinceLastCall = time - lastCallTime
+    const timeSinceLastInvoke = time - lastInvokeTime
+    const timeWaiting = wait - timeSinceLastCall
     return maxing
       ? Math.min(timeWaiting, maxWait - timeSinceLastInvoke)
       : timeWaiting
   }
 
   function shouldInvoke(time) {
-    var timeSinceLastCall = time - lastCallTime
-    var timeSinceLastInvoke = time - lastInvokeTime // Either this is the first call, activity has stopped and we're at the
+    const timeSinceLastCall = time - lastCallTime
+    const timeSinceLastInvoke = time - lastInvokeTime // Either this is the first call, activity has stopped and we're at the
     // trailing edge, the system time has gone backwards and we're treating
     // it as the trailing edge, or we've hit the `maxWait` limit.
 
@@ -68,7 +67,7 @@ export default function debounce(func, wait, options) {
   }
 
   function timerExpired() {
-    var time = _Date$now()
+    const time = Date.now()
 
     if (shouldInvoke(time)) {
       return trailingEdge(time)
@@ -103,26 +102,16 @@ export default function debounce(func, wait, options) {
   }
 
   function flush() {
-    return timerId === void 0 ? result : trailingEdge(_Date$now())
+    return timerId === void 0 ? result : trailingEdge(Date.now())
   }
 
   function pending() {
     return timerId !== void 0
   }
 
-  function debounced() {
-    var time = _Date$now()
-
-    var isInvoking = shouldInvoke(time)
-
-    for (
-      var _len = arguments.length, args = new Array(_len), _key = 0;
-      _key < _len;
-      _key++
-    ) {
-      args[_key] = arguments[_key]
-    }
-
+  function debounced(...args) {
+    const time = Date.now()
+    const isInvoking = shouldInvoke(time)
     lastArgs = args
     lastThis = this
     lastCallTime = time

@@ -1,5 +1,5 @@
 {
-  "version": "0.1.17",
+  "version": "0.1.18",
   "main": "cjs/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -29,12 +29,13 @@
   ],
   "name": "@render-props/compose",
   "devDependencies": {
-    "@inst-app/babel-preset-esx": "^1.0.15",
-    "@inst-app/babel-preset-react": "^1.0.4",
+    "@stellar-apps/babel-preset-es": "^1.0.1",
+    "@stellar-apps/babel-preset-react": "^1.0.0",
     "prettier": "^1.10.2"
   },
   "dependencies": {
-    "@babel/runtime-corejs2": "^7.2.0",
+    "@babel/runtime": "^7.3.1",
+    "@babel/runtime-corejs2": "^7.3.1",
     "react-display-name": "^0.2.3"
   },
   "peerDependencies": {

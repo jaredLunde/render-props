@@ -4,7 +4,6 @@ import Events from '@render-props/events'
 import {throttle} from '@render-props/throttle'
 import {getDistance, getDirection, scrollTo} from '@render-props/scrollable'
 import {win} from './statics'
-import {viewportQueriesContext} from './ViewportQueries'
 
 
 /**

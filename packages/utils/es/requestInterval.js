@@ -11,12 +11,12 @@ export function clearRequestInterval(handle) {
   cancelAnimationFrame(handle.value)
 }
 export default function requestInterval(fn, delay) {
-  var start = perf.now()
-  var handle = {}
+  let start = perf.now()
+  let handle = {}
 
   function loop() {
-    var current = perf.now()
-    var delta = current - start
+    const current = perf.now()
+    const delta = current - start
 
     if (delta >= delay) {
       fn.call()

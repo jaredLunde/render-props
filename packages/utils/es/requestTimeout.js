@@ -16,12 +16,12 @@ export default function requestTimeout(fn, delay) {
     return setTimeout(fn, delay)
   }
 
-  var start = perf.now()
-  var handle = {}
+  let start = perf.now()
+  let handle = {}
 
   function loop() {
-    var current = perf.now()
-    var delta = current - start
+    const current = perf.now()
+    const delta = current - start
     delta >= delay ? fn.call() : (handle.value = requestAnimationFrame(loop))
   }
 

@@ -1,3 +1,3 @@
 import raf, {cancel} from 'raf'
-export var cancelAnimationFrame = cancel
+export const cancelAnimationFrame = cancel
 export default raf

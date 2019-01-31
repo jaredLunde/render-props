@@ -1,10 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ViewportOrientation from './ViewportOrientation'
-import ViewportSize from './ViewportSize'
 import ViewportScroll from './ViewportScroll'
 import {viewportQueriesContext} from './ViewportQueries'
-import ViewportContext from './ViewportContext'
 
 
 /**

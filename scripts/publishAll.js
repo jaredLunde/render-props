@@ -26,47 +26,45 @@ switch (argv._[0]) {
 
 
 const promises = []
-const spinner = ora(`Publishing all packages`).start()
 
-function publishAll () {
+async function publishAll () {
   for (let pkg of getPackages()) {
-    promises.push(
-      new Promise(
-        (resolve, reject) => {
-          fs.readFile(
-            path.join(pkg, 'package.json'),
-            (err, data) => {
-              if (err) {
-                reject(err)
-              }
-              else {
-                data = JSON.parse(data)
-                const nextVersion = semver.inc(data.version, versionBump, preId)
+    const spinner = ora(`Publishing ${path.basename(pkg)}`).start()
 
-                cmd.get(
-                  `
+    await new Promise(
+      (resolve, reject) => {
+        fs.readFile(
+          path.join(pkg, 'package.json'),
+          (err, data) => {
+            spinner.succeed(`Published ${path.basename(pkg)}`)
+            if (err) {
+              reject(err)
+            }
+            else {
+              data = JSON.parse(data)
+              const nextVersion = semver.inc(data.version, versionBump, preId)
+
+              cmd.get(
+                `
                     cd ${pkg}
                     yarn publish --new-version ${nextVersion}
                   `,
-                  (err, data, stderr) => {
-                    if (!err) {
-                      resolve(data)
-                    } else {
-                      reject(err)
-                    }
+                (err, data, stderr) => {
+                  if (!err) {
+                    resolve(data)
+                  } else {
+                    reject(err)
                   }
-                )
-              }
+                }
+              )
             }
-          )
-        }
-      )
+          }
+        )
+      }
     )
   }
 }
 
-publishAll()
-Promise.all(promises).then(() => {
-  spinner.stop()
+publishAll().then(() => {
   console.log('Finished.')
 })
