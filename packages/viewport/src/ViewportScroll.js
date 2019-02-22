@@ -31,8 +31,8 @@ import {win} from './statics'
 
 function getScroll () {
   return {
-    scrollX: win.scrollX !== void 0 ? win.scrollX : win.pageXOffset,
-    scrollY: win.scrollY !== void 0 ? win.scrollY : win.pageYOffset
+    scrollX: win.scrollX !== void 0 ? win.scrollX : win.pageXOffset === void 0 ? 0 : win.pageXOffset,
+    scrollY: win.scrollY !== void 0 ? win.scrollY : win.pageYOffset === void 0 ? 0 : win.pageYOffset
   }
 }
 
@@ -53,11 +53,13 @@ export class ViewportScroll_ extends React.Component {
     this.viewportScrollContext = {
       scrollTo: this.scrollTo
     }
-    this.prevState = {}
+    this.prevState = null
   }
 
   componentDidMount () {
     this.props.addEvent(win, 'scroll', this.setScroll)
+    // rehydration
+    this.forceUpdate()
   }
 
   componentWillUnmount () {
@@ -89,8 +91,8 @@ export class ViewportScroll_ extends React.Component {
     if (this.props.withCoords === true) {
       this.viewportScrollContext.scrollX = scroll.scrollX
       this.viewportScrollContext.scrollY = scroll.scrollY
-      const distance = getDistance(prevState, scroll)
-      const direction = getDirection(prevState, scroll)
+      const distance = getDistance(prevState || this.viewportScrollContext, scroll)
+      const direction = getDirection(prevState || this.viewportScrollContext, scroll)
       this.viewportScrollContext.distance = distance
       this.viewportScrollContext.direction = direction
       scroll.distance = distance

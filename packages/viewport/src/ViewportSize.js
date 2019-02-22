@@ -36,6 +36,8 @@ export class ViewportSize_ extends React.Component {
   componentDidMount () {
     this.props.addEvent(win, 'resize', this.setSize)
     this.props.addEvent(win, 'orientationchange', this.setSize)
+    // rehydration
+    this.forceUpdate()
   }
 
   componentWillUnmount () {
