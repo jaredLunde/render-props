@@ -764,7 +764,7 @@
     core-js "^2.5.7"
     regenerator-runtime "^0.12.0"
 
-"@babel/runtime@^7.0.0-beta.39", "@babel/runtime@^7.0.0-rc.1":
+"@babel/runtime@^7.0.0-rc.1":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0.tgz#adeb78fedfc855aa05bc041640f3f6f98e85424c"
   dependencies:
@@ -818,37 +818,49 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@render-props/events@^0.1.12":
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/@render-props/events/-/events-0.1.12.tgz#fc0a6babf2da6825fb4f7a17023d6a24ad25d607"
+  integrity sha512-Y0PW4rd02ZgXjfw0PEADtSgwWfF7mCdoN5B4hmr132CJ6frrvAFY8u/ZeqM/rpFsh0ByoabJo9OxtjY35IH0Bw==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    "@babel/runtime-corejs2" "^7.3.1"
+
 "@render-props/events@^0.1.2":
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/@render-props/events/-/events-0.1.6.tgz#42de79b6bcc579aad8d7f4c6f9220b71e72fc6fb"
   dependencies:
     "@babel/runtime" "^7.0.0-rc.1"
 
-"@render-props/rect@0.1.11":
-  version "0.1.11"
-  resolved "https://registry.yarnpkg.com/@render-props/rect/-/rect-0.1.11.tgz#63ae386f094267980069f284d06b508fcf8ff345"
+"@render-props/rect@^0.1.21":
+  version "0.1.21"
+  resolved "https://registry.yarnpkg.com/@render-props/rect/-/rect-0.1.21.tgz#735ba162369e4bbcdf0f4e08d44dafdaf88e1378"
+  integrity sha512-txtwJqNR3KneR9vhxzrsMPWxXZ1wpMHjWzmpz/1Io8Lqic8KywiNB9sTd2yxtgR9nxnH91hC4sqPv0MhxERfEA==
   dependencies:
-    "@babel/runtime" "^7.0.0-beta.39"
-    "@render-props/events" "^0.1.2"
-    "@render-props/throttle" "^0.1.5"
-    prettier "^1.10.2"
-
-"@render-props/rect@^0.1.11":
-  version "0.1.16"
-  resolved "https://registry.yarnpkg.com/@render-props/rect/-/rect-0.1.16.tgz#818c24c6d96cdbd962c2f6bbc1f4c9444ab6401d"
-  dependencies:
-    "@babel/runtime" "^7.0.0-rc.1"
+    "@babel/runtime" "^7.3.1"
+    "@babel/runtime-corejs2" "^7.3.1"
     "@render-props/events" "^0.1.2"
     "@render-props/throttle" "^0.1.5"
 
-"@render-props/scrollable@^0.1.11", "@render-props/scrollable@^0.1.8":
-  version "0.1.14"
-  resolved "https://registry.yarnpkg.com/@render-props/scrollable/-/scrollable-0.1.14.tgz#5f842e7c331cdd800d7cc6b19763794712bd9c89"
+"@render-props/scrollable@^0.1.19":
+  version "0.1.19"
+  resolved "https://registry.yarnpkg.com/@render-props/scrollable/-/scrollable-0.1.19.tgz#e99f214300dd1dcdf06287d217f8e5943d8d53a7"
+  integrity sha512-WqFqaUXJ+VIX3JJD8knABIg5EEi53JShBiL2rMXaaDmuRokgCppoCHfjWcV8GH7JiJGO4hUSneNSfnqpL85VKg==
   dependencies:
-    "@babel/runtime" "^7.0.0-rc.1"
+    "@babel/runtime" "^7.3.1"
+    "@babel/runtime-corejs2" "^7.3.1"
     "@render-props/events" "^0.1.2"
     "@render-props/throttle" "^0.1.5"
     "@render-props/utils" "^0.2.1"
+
+"@render-props/throttle@^0.1.15":
+  version "0.1.15"
+  resolved "https://registry.yarnpkg.com/@render-props/throttle/-/throttle-0.1.15.tgz#d1caf5d6913501d6659d0a96339caa26a95f403a"
+  integrity sha512-CIgHP/e+l3PEun06Z2pKMnRaN5AzwDMXsgjNplBjN6IKjj9znzoITtVLkv4rv/S/j8jPF1DAURIF5y4WDswc0g==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    "@babel/runtime-corejs2" "^7.3.1"
+    "@render-props/utils" "^0.2.0"
 
 "@render-props/throttle@^0.1.5":
   version "0.1.10"
@@ -864,21 +876,32 @@
     "@babel/runtime" "^7.0.0-rc.1"
     raf "^3.4.0"
 
-"@render-props/viewport@^0.2.3":
+"@render-props/utils@^0.2.11":
   version "0.2.11"
-  resolved "https://registry.yarnpkg.com/@render-props/viewport/-/viewport-0.2.11.tgz#039b6687422b360b10837c219123e29fff744a28"
+  resolved "https://registry.yarnpkg.com/@render-props/utils/-/utils-0.2.11.tgz#7dff4611d326bae77d3f1f63c668adf3ce721ad7"
+  integrity sha512-jxMRonUsFdjRF3OnnZKRhkeAdsSS9/brsb09y4Y3VHAliyBgyHxzeWIxtkh7yPnTY6n1jrvrei7GLhkuTbjBBA==
   dependencies:
-    "@babel/runtime" "^7.0.0-rc.1"
-    "@render-props/events" "^0.1.2"
-    "@render-props/rect" "^0.1.11"
-    "@render-props/scrollable" "^0.1.11"
-    "@render-props/throttle" "^0.1.5"
-    "@render-props/utils" "^0.2.1"
+    "@babel/runtime" "^7.3.1"
+    "@babel/runtime-corejs2" "^7.3.1"
+    raf "^3.4.0"
 
-"@stellar-apps/babel-preset-es@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@stellar-apps/babel-preset-es/-/babel-preset-es-1.0.1.tgz#c3ad5739d644246be8a9eedd31e079cd81048784"
-  integrity sha512-pul7LtHvJUCpLutEVS5gFUoAwiEuF8l6aWk2AHmUKyJnJvep+KB4cKUGcrLKTSmNnOcKXYmJkWfuwxHf8uGP2w==
+"@render-props/viewport@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@render-props/viewport/-/viewport-0.3.0.tgz#2cebb0b971e7b1980fa9717753fbc52b75f7542b"
+  integrity sha512-uZ3OBRXJxM2Sj5kFYv7bn5jebqnJ3mOBseH3n/wLr5i0dXPI4THKVCvfDnJmB+EO1Fgxyrh4Lq+s1chIANeyAw==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    "@babel/runtime-corejs2" "^7.3.1"
+    "@render-props/events" "^0.1.12"
+    "@render-props/rect" "^0.1.21"
+    "@render-props/scrollable" "^0.1.19"
+    "@render-props/throttle" "^0.1.15"
+    "@render-props/utils" "^0.2.11"
+
+"@stellar-apps/babel-preset-es@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@stellar-apps/babel-preset-es/-/babel-preset-es-1.0.3.tgz#4227886e1b68f2f5cabf5ac2601453b7e0844846"
+  integrity sha512-ZiY4ZRZuu8BCgNaeQdy3Ox3UJMG/Ux6thXho3IQo0RPkx8llFhQrP8wWSgv0iUf80wGqYT4kBHdh++6+d/CdJw==
   dependencies:
     "@babel/cli" "^7.2.3"
     "@babel/core" "^7.2.2"
@@ -1074,9 +1097,10 @@ camelcase@^5.0.0:
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-5.0.0.tgz#03295527d58bd3cd4aa75363f35b2e8d97be2f42"
   integrity sha512-faqwZqnWxbxn+F1d399ygeamQNy3lPp/H9H6rNrqYh4FSVCtcY+3cub1MxA8o9mDd55mM8Aghuu/kuyYA6VTsA==
 
-cancelable-promise@^2.4.0:
+cancelable-promise@^2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/cancelable-promise/-/cancelable-promise-2.4.1.tgz#2da080208e7219b2fd34bbc5d162deaaa4768199"
+  integrity sha512-SgJduvUzurSwFSHT+5cf7Z0aUeQfMUUI66BXYqWi5BMoOTR/AcqiU7kpRoSyTCsCWg0yZgEojTdXloE7bin6GA==
 
 caniuse-lite@^1.0.30000921:
   version "1.0.30000925"
