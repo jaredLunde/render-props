@@ -1,10 +1,11 @@
-import {rect} from '@render-props/rect'
 import getRect from './getRect'
-import {win} from '../statics'
 
 
-export default function (el) {
-  el = el === win ? getRect() : rect(el)
-  if (el === void 0 || el.height === 0 || el.width === 0) return 0
-  return el.width / el.height
+export default () => {
+  const r = getRect()
+  return r.height === 0
+    ? 0
+    : r.width === 0
+      ? 1
+      : r.width / r.height
 }

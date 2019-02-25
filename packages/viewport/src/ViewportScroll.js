@@ -29,7 +29,7 @@ import {win} from './statics'
 **/
 
 
-function getScroll () {
+const getScroll = () => {
   return {
     scrollX: win.scrollX !== void 0 ? win.scrollX : win.pageXOffset === void 0 ? 0 : win.pageXOffset,
     scrollY: win.scrollY !== void 0 ? win.scrollY : win.pageYOffset === void 0 ? 0 : win.pageYOffset
@@ -58,8 +58,6 @@ export class ViewportScroll_ extends React.Component {
 
   componentDidMount () {
     this.props.addEvent(win, 'scroll', this.setScroll)
-    // rehydration
-    this.forceUpdate()
   }
 
   componentWillUnmount () {

@@ -1,7 +1,7 @@
 import getSize from './getSize'
 
 
-export default function () {
+export default () => {
   const {width, height} = getSize()
 
   return {

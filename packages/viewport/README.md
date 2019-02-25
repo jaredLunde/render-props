@@ -8,8 +8,7 @@ to window events in a scalable fashion.
 
 ### Contents
 - [**`Viewport`**](#viewport)
-  - God component which provides context from `ViewportQueries`,
-    `ViewportOrientation`, and `ViewportScroll`
+  - Component which provides context from `ViewportOrientation`, and `ViewportScroll`
 - [**`ViewportProvider`**](#viewportprovider)
   - A top-level `Viewport` component which stores the viewport state
     and provides it as context to `ViewportConsumer` components.
@@ -38,10 +37,10 @@ God component which provides context from [`ViewportQueries`](#viewportqueries),
 ```js
 import Viewport from '@render-props/viewport'
 
-function ViewportState (props) {
+const ViewportLogger = props => {
   return (
     <Viewport>
-      {{
+      {({
         width,
         height,
         aspect,
@@ -51,29 +50,17 @@ function ViewportState (props) {
         scrollY,
         distance,
         direction,
-        scrollTo,
-        inView,
-        inViewX,
-        inViewY,
-        inFullView,
-        inFullViewX,
-        inFullViewY,
+        scrollTo
       }) => (
         <>
           <div>
             width: {width}
           </div>
           <div>
-            height: {height}
+            scrollY: {scrollY}
           </div>
           <div>
             aspect: {aspect}
-          </div>
-          <div>
-            is header at least partially visible?: {inView(document.getElementByID('#header'))}
-          </div>
-          <div>
-            is header completely visible?: {inFullView(document.getElementByID('#header'))}
           </div>
         </>
       )}
@@ -85,9 +72,7 @@ function ViewportState (props) {
 ____
 
 ## Props
-- `withCoords {bool} {default: true}`: if `false`, the component will provide
-  `getScroll`, `getSize`, and `getAspect` functions as opposed to
-  `{scrollX, scrollY, width, height, aspect}`
+This component takes no props
 
 ## Render Props
 
@@ -104,24 +89,6 @@ ____
     const cubicIn = x => x * x * x
     scrollTo(0, 250, {timing: cubicIn, duration: 400})
     ```
-- `inView` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
-  - returns `true` if `@element` is partially or completely visible within the
-    window bounds, give or take `@leeway`
-- `inViewX` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
-  - returns `true` if `@element` is partially or completely visible horizontally
-    within the window bounds, give or take `@leeway`
-- `inViewY` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
-  - returns `true` if `@element` is partially or completely visible vertically
-    within the window bounds, give or take `@leeway`
-- `inFullView` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
-  - returns `true` if `@element` is **completely** visible within the window bounds,
-    give or take `@leeway`
-- `inFullViewX` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
-  - returns `true` if `@element` is **completely** visible horizontally within the
-    window bounds, give or take `@leeway`
-- `inFullViewY` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
-  - returns `true` if `@element` is **completely** visible vertically within the
-    window bounds, give or take `@leeway`
 
 #### State
 Note: these are only provided if `withCoords` is `true`.
@@ -212,13 +179,7 @@ function SomeComponent (props) {
         screenOrientation,
         scrollX,
         scrollY,
-        scrollTo,
-        inView,
-        inViewX,
-        inViewY,
-        inFullView,
-        inFullViewX,
-        inFullViewY,
+        scrollTo
       }) => (
         <div>
           width: {width}
@@ -314,7 +275,7 @@ function ViewportOrientationState (props) {
           orientation: {orientation}
         </div>
       )}
-    </Viewport>
+    </ViewportOrientation>
   )
 }
 ```
@@ -428,7 +389,6 @@ ____
 - `inFullViewY` `(element <DOMNode>, leeway <number|object{top, right, bottom, left}>)`
   - returns `true` if `@element` is **completely** visible vertically within the
     window bounds, give or take `@leeway`
-
 
 ____
 

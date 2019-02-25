@@ -1,9 +1,7 @@
-export default function ({width, height}) {
-  return (
-    width > height
-      ? 'landscape'
-      : width === height
-        ? 'square'
-        : 'portrait'
-  )
-}
+export default ({width, height}) => (
+  width > height
+    ? 'landscape'
+    : width === height
+    ? 'square'
+    : 'portrait'
+)

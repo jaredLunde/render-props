@@ -43,22 +43,4 @@ function calculateChangedBits (prevValue, nextValue) {
 }
 
 
-export default React.createContext(
-  {
-    width: 0,
-    height: 0,
-    aspect: 0,
-    orientation: 'portrait',
-    screenOrientation: 'portrait-primary',
-    scrollX: 0,
-    scrollY: 0,
-    scrollTo: null,
-    inView: null,
-    inViewX: null,
-    inViewY: null,
-    inFullView: null,
-    inFullViewX: null,
-    inFullViewY: null,
-  },
-  calculateChangedBits
-)
+export default React.createContext({}, calculateChangedBits)
