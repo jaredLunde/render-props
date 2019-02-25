@@ -30,8 +30,7 @@ to window events in a scalable fashion.
 ____
 
 # Viewport
-God component which provides context from [`ViewportQueries`](#viewportqueries),
-[`ViewportOrientation`](#viewportorientation), and [`ViewportScroll`](#viewportscroll)
+God component which provides context from [`ViewportOrientation`](#viewportorientation), and [`ViewportScroll`](#viewportscroll)
 
 ## Usage
 ```js
