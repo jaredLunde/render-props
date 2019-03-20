@@ -104,7 +104,7 @@ export default class Items extends React.PureComponent {
 
   includes = value => {
     const v = this.state.items
-    return v[v.includes !== void 0 ? 'includes' : 'has'](value)
+    return v.indexOf !== void 0 ? v.indexOf(value) > 0 : v.has(value)
   }
 
   render () {

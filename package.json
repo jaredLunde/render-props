@@ -9,6 +9,7 @@
     "build-all": "node scripts/buildAll",
     "install-all": "node scripts/installAll",
     "publish-all": "node scripts/publishAll",
+    "replace-all": "node scripts/replaceAll",
     "upgrade-all": "node scripts/upgradeAll"
   },
   "dependencies": {

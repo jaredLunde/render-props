@@ -1,5 +1,5 @@
 {
-  "version": "0.1.15",
+  "version": "0.1.16",
   "main": "cjs/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -21,13 +21,12 @@
   "repository": "https://github.com/jaredlunde/render-props/tree/master/packages/point",
   "name": "@render-props/point",
   "devDependencies": {
-    "@stellar-apps/babel-preset-es": "^1.0.1",
-    "@stellar-apps/babel-preset-react": "^1.0.0",
+    "@stellar-apps/babel-preset-es": "^1.0.4",
+    "@stellar-apps/babel-preset-react": "^1.0.1",
     "prettier": "^1.10.2"
   },
   "dependencies": {
-    "@babel/runtime": "^7.3.1",
-    "@babel/runtime-corejs2": "^7.3.1",
+    "@babel/runtime": "^7.4.0",
     "@render-props/utils": "^0.2.1"
   },
   "peerDependencies": {
