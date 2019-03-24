@@ -1,4 +1,4 @@
-import requestAnimationFrame, {cancelAnimationFrame} from './requestAnimationFrame'
+import {requestAnimationFrame, cancelAnimationFrame} from './requestAnimationFrame'
 import perf from './perf'
 
 

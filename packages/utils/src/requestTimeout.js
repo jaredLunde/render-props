@@ -2,26 +2,20 @@
  **  Free to use under the MIT license.
  **  http://www.opensource.org/licenses/mit-license.php
  **/
-import requestAnimationFrame, {cancelAnimationFrame} from './requestAnimationFrame'
+import {requestAnimationFrame, cancelAnimationFrame} from './requestAnimationFrame'
 import perf from './perf'
 
 
 export function clearRequestTimeout (handle) {
-  cancelAnimationFrame
-  ? cancelAnimationFrame(handle.value)
-  : clearTimeout(handle)
+  cancelAnimationFrame(handle.value)
 }
 
 
 export default function requestTimeout (fn, delay) {
-  if(!requestAnimationFrame) {
-    return setTimeout(fn, delay)
-  }
+  let start = perf.now(),
+      handle = {}
 
-  let start = perf.now()
-  let handle = {}
-
-  function loop() {
+  function loop () {
     const current = perf.now()
     const delta = current - start
 

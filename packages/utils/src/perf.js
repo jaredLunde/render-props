@@ -1,5 +1,2 @@
-export default (
-  typeof window !== 'undefined' && window.performance
-  ? window.performance
-  : Date
-)
+import now from 'performance-now'
+export default {now}
