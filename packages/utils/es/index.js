@@ -4,11 +4,9 @@ import _callIfExists from './callIfExists'
 export {_callIfExists as callIfExists}
 import _interpolate from './interpolate'
 export {_interpolate as interpolate}
-import _perf from './perf'
-export {_perf as perf}
-import _requestAnimationFrame from './requestAnimationFrame'
+import _requestAnimationFrame from 'raf'
 export {_requestAnimationFrame as requestAnimationFrame}
-export {cancelAnimationFrame} from './requestAnimationFrame'
+export {cancel as cancelAnimationFrame} from 'raf'
 import _requestInterval from './requestInterval'
 export {_requestInterval as requestInterval}
 export {clearRequestInterval} from './requestInterval'

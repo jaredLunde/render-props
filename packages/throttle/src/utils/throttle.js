@@ -1,7 +1,7 @@
-import {requestAnimationFrame, cancelAnimationFrame} from '@render-props/utils'
+import raf, {cancel} from 'raf'
 
 
-export default function throttle (cb) {
+export default cb => {
   let frame
 
   function later (thisArg, args) {
@@ -13,13 +13,13 @@ export default function throttle (cb) {
 
   function throttled (...args) {
     if (frame === void 0) {
-      frame = requestAnimationFrame(later(this, args))
+      frame = raf(later(this, args))
     }
   }
 
   throttled.cancel = function () {
     if (frame !== void 0) {
-      cancelAnimationFrame(frame)
+      cancel(frame)
     }
   }
 

@@ -1,21 +1,2 @@
-export default function strictShallowEqual(objA, objB) {
-  if (objA === objB) {
-    return true
-  }
-
-  const aKeys = Object.keys(objA)
-
-  if (aKeys.length !== Object.keys(objB).length) {
-    return false
-  }
-
-  for (let x = 0; x < aKeys.length; x++) {
-    const key = aKeys[x]
-
-    if (objA[key] !== objB[key]) {
-      return false
-    }
-  }
-
-  return true
-}
+import _default from '@essentials/are-equal'
+export {_default as default}
